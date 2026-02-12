@@ -1,0 +1,236 @@
+---
+import '@fontsource-variable/inter';
+
+// 'DM Sans'
+// Nunito
+// Dosis
+// Outfit
+// Roboto
+// Literata
+// 'IBM Plex Sans'
+// Karla
+// Poppins
+// 'Fira Sans'
+// 'Libre Franklin'
+// Inconsolata
+// Raleway
+// Oswald
+// 'Space Grotesk'
+// Urbanist
+---
+
+<style is:inline>
+  :root {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'Inter Variable';
+
+    --aw-color-primary: rgb(1 97 239);
+    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-accent: rgb(109 40 217);
+
+    --aw-color-text-heading: rgb(0 0 0);
+    --aw-color-text-default: rgb(16 16 16);
+    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-bg-page: rgb(255 255 255);
+
+    --aw-color-bg-page-dark: rgb(3 6 32);
+
+    ::selection {
+      background-color: lavender;
+    }
+  }
+
+  .dark {
+    --aw-font-sans: 'Inter Variable';
+    --aw-font-serif: 'Inter Variable';
+    --aw-font-heading: 'Inter Variable';
+
+    --aw-color-primary: rgb(14, 56, 120);
+    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-accent: rgb(109 40 217);
+
+    --aw-color-text-heading: rgb(247, 248, 248);
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: rgb(3 6 32);
+
+    ::selection {
+      background-color: black;
+      color: snow;
+    }
+  }
+
+    /* Galaxy Background Base */
+  body {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* Light Mode - Dawn/Sunrise Theme */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+      /* Warm sunrise glow */
+      radial-gradient(ellipse at 50% 0%, rgba(253, 214, 159, 0.15) 0%, transparent 80%),
+      /* Soft blue sky */
+      radial-gradient(ellipse at 0% 50%, rgba(135, 206, 250, 0.12) 0%, transparent 50%),
+      /* Purple accent glow */
+      radial-gradient(ellipse at 100% 80%, rgba(173, 131, 255, 0.1) 0%, transparent 50%),
+      /* Peach/coral glow */
+      radial-gradient(ellipse at 30% 100%, rgba(255, 182, 193, 0.12) 0%, transparent 50%),
+      /* Base gradient - dawn colors */
+      linear-gradient(135deg, 
+        rgb(240, 210, 180) 0%, 
+        rgb(227, 216, 250) 25%, 
+        rgb(227, 236, 254) 50%, 
+        rgb(250, 245, 255) 75%, 
+        rgb(255, 223, 232) 100%);
+    background-attachment: fixed;
+    animation: dawnShift 40s ease-in-out infinite;
+  }
+
+  /* Subtle stars/sparkles for light mode */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+      /* Larger sparkles */
+      radial-gradient(circle at 15% 25%, rgba(255, 215, 0, 0.2) 2px, transparent 2px),
+      radial-gradient(circle at 85% 15%, rgba(109, 40, 217, 0.3) 2px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(1, 97, 239, 0.4) 1.5px, transparent 1.5px),
+      /* Smaller stars */
+      radial-gradient(circle at 25% 75%, rgba(255, 182, 193, 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 90% 85%, rgba(135, 206, 250, 0.4) 1px, transparent 1px),
+      radial-gradient(circle at 45% 40%, rgba(148, 112, 219, 0.5) 1px, transparent 1px),
+      radial-gradient(circle at 60% 90%, rgba(255, 215, 0, 0.2) 1px, transparent 1px);
+    background-size: 400px 400px, 500px 500px, 350px 350px, 300px 300px, 450px 450px, 380px 380px, 420px 420px;
+    background-position: 0 0, 50px 80px, 150px 200px, 80px 120px, 200px 50px, 120px 280px, 250px 150px;
+    opacity: 0.5;
+    animation: sparkleFloat 100s linear infinite;
+  }
+
+  /* Dark Mode - Deep Space Galaxy */
+  .dark body::before {
+    background: 
+      /* Bright galaxy core */
+      radial-gradient(ellipse at 20% 30%, rgba(1, 96, 239, 0.3) 0%, transparent 45%),
+      /* Purple nebula */
+      radial-gradient(ellipse at 80% 70%, rgba(109, 40, 217, 0.3) 0%, transparent 55%),
+      /* Blue cosmic dust */
+      radial-gradient(ellipse at 50% 50%, rgba(1, 83, 207, 0.2) 0%, transparent 65%),
+      /* Accent glow */
+      radial-gradient(circle at 30% 85%, rgba(138, 43, 226, 0.2) 0%, transparent 40%),
+      /* Another blue accent */
+      radial-gradient(circle at 70% 20%, rgba(65, 105, 225, 0.2) 0%, transparent 50%),
+      /* Deep space gradient */
+      linear-gradient(135deg, 
+      rgb(1, 2, 12) 0%, 
+      rgb(3, 5, 20) 25%, 
+      rgb(2, 3, 15) 50%, 
+      rgb(4, 6, 22) 75%, 
+      rgb(1, 2, 12) 100%);
+    background-attachment: fixed;
+    animation: galaxyPulse 45s ease-in-out infinite;
+  }
+
+  /* Enhanced stars for dark mode */
+  .dark body::after {
+    background-image: 
+      /* Large bright stars */
+      radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+      radial-gradient(circle at 85% 40%, rgba(135, 206, 250, 0.7) 2px, transparent 2px),
+      radial-gradient(circle at 45% 70%, rgba(147, 112, 219, 0.75) 2px, transparent 2px),
+      /* Medium stars */
+      radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.6) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 25% 60%, rgba(1, 97, 239, 0.6) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 90% 80%, rgba(255, 182, 193, 0.5) 1.5px, transparent 1.5px),
+      /* Small distant stars */
+      radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+      radial-gradient(circle at 60% 85%, rgba(109, 40, 217, 0.5) 1px, transparent 1px),
+      radial-gradient(circle at 80% 55%, rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+      radial-gradient(circle at 20% 90%, rgba(65, 105, 225, 0.45) 1px, transparent 1px);
+    background-size: 350px 350px, 450px 450px, 400px 400px, 280px 280px, 380px 380px, 420px 420px, 320px 320px, 360px 360px, 390px 390px, 340px 340px;
+    background-position: 0 0, 50px 80px, 150px 300px, 80px 120px, 200px 50px, 120px 200px, 180px 250px, 90px 180px, 220px 100px, 140px 320px;
+    opacity: 0.7;
+    animation: starTwinkle 80s linear infinite;
+  }
+
+  /* Animations */
+  @keyframes dawnShift {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    25% {
+      transform: scale(1.05) rotate(1deg);
+      opacity: 0.95;
+    }
+    50% {
+      transform: scale(1.08) rotate(-1deg);
+      opacity: 1;
+    }
+    75% {
+      transform: scale(1.05) rotate(0.5deg);
+      opacity: 0.97;
+    }
+  }
+
+  @keyframes galaxyPulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    33% {
+      transform: scale(1.08);
+      opacity: 0.9;
+    }
+    66% {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes sparkleFloat {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate(-30px, -30px) rotate(360deg);
+    }
+  }
+
+  @keyframes starTwinkle {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translate(-20px, -20px);
+      opacity: 0.85;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0.7;
+    }
+  }
+
+  /* Disable animations if user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+      animation: none !important;
+    }
+  }
+</style>

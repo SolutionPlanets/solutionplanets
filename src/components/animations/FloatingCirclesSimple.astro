@@ -1,0 +1,185 @@
+---
+/**
+ * Enhanced Floating Circles - Bubble Animation
+ * 10 circles with varied sizes, darker colors, bubble-up effect
+ * Smaller circles float faster than larger ones
+ */
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+// Brighter, more vibrant colors that pop on both backgrounds
+const colors = [
+  '#3b82f6', // bright blue
+  '#8b5cf6', // bright purple
+  '#ec4899', // bright pink
+  '#06b6d4', // bright cyan
+  '#10b981', // bright green
+  '#f59e0b', // bright amber
+  '#ef4444', // bright red
+  '#a855f7', // bright violet
+  '#14b8a6', // bright teal
+  '#f97316', // bright orange
+];
+
+// Define circle configurations: size multipliers and speed factors
+const circleConfigs = [
+  { sizeMultiplier: 1, speedFactor: 1 },      // Base size
+  { sizeMultiplier: 0.8, speedFactor: 1.2 },  // Slightly smaller
+  { sizeMultiplier: 0.5, speedFactor: 1.8 },  // Half size - faster
+  { sizeMultiplier: 1.2, speedFactor: 0.85 }, // Larger
+  { sizeMultiplier: 0.25, speedFactor: 2.5 }, // Quarter size - much faster
+  { sizeMultiplier: 0.9, speedFactor: 1.1 },  // Medium-small
+  { sizeMultiplier: 0.5, speedFactor: 1.8 },  // Half size - faster
+  { sizeMultiplier: 0.7, speedFactor: 1.4 },  // Medium
+  { sizeMultiplier: 0.25, speedFactor: 2.5 }, // Quarter size - much faster
+  { sizeMultiplier: 1.1, speedFactor: 0.9 },  // Large
+];
+---
+
+<div class={`floating-circles-container ${className}`}>
+  {circleConfigs.map((config, i) => {
+    const baseSize = 100;
+    const size = baseSize * config.sizeMultiplier;
+    const baseDuration = 30;
+    const duration = baseDuration / config.speedFactor;
+    
+    return (
+      <div 
+        class="floating-circle" 
+        style={`
+          --delay: ${i * 0.5}s;
+          --duration: ${duration}s;
+          --size: ${size}px;
+          --x: ${10 + (i * 9)}%;
+          --y-start: ${100 + (Math.random() * 20)}%;
+          --color: ${colors[i]};
+          --opacity: ${0.35 + (config.sizeMultiplier * 0.15)};
+        `}
+      />
+    );
+  })}
+</div>
+
+<style>
+  .floating-circles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .floating-circle {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.2),
+      var(--color) 60%,
+      var(--color)
+    );
+    opacity: 0.16;
+    filter: blur(1px);
+    box-shadow: 
+      0 0 20px var(--color),
+      0 0 40px var(--color),
+      inset 0 0 20px rgba(255, 255, 255, 0.3);
+    left: var(--x);
+    bottom: 0;
+    animation: zigzagBubble var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+    mix-blend-mode: screen;
+  }
+
+  @keyframes zigzagBubble {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.8);
+      opacity: 0;
+    }
+    5% {
+      opacity: var(--opacity);
+    }
+    15% {
+      transform: translateY(-15vh) translateX(40px) scale(0.9);
+    }
+    30% {
+      transform: translateY(-30vh) translateX(-45px) scale(1);
+    }
+    45% {
+      transform: translateY(-45vh) translateX(50px) scale(1.05);
+    }
+    60% {
+      transform: translateY(-60vh) translateX(-40px) scale(1);
+    }
+    75% {
+      transform: translateY(-75vh) translateX(45px) scale(0.95);
+    }
+    90% {
+      transform: translateY(-90vh) translateX(-15px) scale(0.9);
+      opacity: var(--opacity);
+    }
+    100% {
+      transform: translateY(-110vh) translateX(0px) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  /* Alternate zig-zag pattern for variety */
+  .floating-circle:nth-child(odd) {
+    animation-name: zigzagBubbleAlt;
+  }
+
+  @keyframes zigzagBubbleAlt {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.8);
+      opacity: 0;
+    }
+    5% {
+      opacity: var(--opacity);
+    }
+    15% {
+      transform: translateY(-15vh) translateX(-40px) scale(0.9);
+    }
+    30% {
+      transform: translateY(-30vh) translateX(50px) scale(1);
+    }
+    45% {
+      transform: translateY(-45vh) translateX(-45px) scale(1.05);
+    }
+    60% {
+      transform: translateY(-60vh) translateX(40px) scale(1);
+    }
+    75% {
+      transform: translateY(-75vh) translateX(-35px) scale(0.95);
+    }
+    90% {
+      transform: translateY(-90vh) translateX(30px) scale(0.9);
+      opacity: var(--opacity);
+    }
+    100% {
+      transform: translateY(-110vh) translateX(0px) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .floating-circle {
+      --size: calc(var(--size) * 0.65);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .floating-circle {
+      --size: calc(var(--size) * 0.5);
+    }
+  }
+</style>

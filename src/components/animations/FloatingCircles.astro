@@ -1,0 +1,115 @@
+---
+/**
+ * Floating Planet Circles
+ * CSS-only animation with planet-like appearance
+ * Floats upward with zigzag/wiggle movement
+ */
+interface Props {
+  count?: number;
+  colors?: string[];
+  className?: string;
+}
+
+const { 
+  count = 8, 
+  colors = ['#3b82f6', '#8b5cf6', '#ec4899', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#14b8a6'],
+  className = '' 
+} = Astro.props;
+---
+
+<div class={`floating-circles-container ${className}`}>
+  {Array.from({ length: count }).map((_, i) => (
+    <div 
+      class="floating-circle" 
+      style={`
+        --delay: ${i * 1.2}s;
+        --duration: ${12 + i * 3}s;
+        --size: ${80 + i * 20}px;
+        --x: ${Math.random() * 100}%;
+        --color: ${colors[i % colors.length]};
+        --drift-amount: ${(Math.random() - 0.5) * 200}px;
+      `}
+    />
+  ))}
+</div>
+
+<style>
+  .floating-circles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .floating-circle {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 35% 35%,
+      rgba(255, 255, 255, 0.5),
+      var(--color) 60%,
+      rgba(0, 0, 0, 0.2)
+    );
+    opacity: 0.12;
+    filter: blur(1px);
+    box-shadow: 
+      inset -10px -10px 30px rgba(0, 0, 0, 0.3),
+      inset 5px 5px 20px rgba(255, 255, 255, 0.3),
+      0 10px 40px rgba(0, 0, 0, 0.4);
+    left: var(--x);
+    bottom: -150px;
+    animation: floatUpward var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes floatUpward {
+    0% {
+      transform: translate(0, 0) scale(0.8) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.12;
+    }
+    15% {
+      transform: translate(calc(var(--drift-amount) * 0.3), -15vh) scale(0.85) rotate(45deg);
+    }
+    25% {
+      transform: translate(calc(var(--drift-amount) * -0.2), -25vh) scale(0.9) rotate(90deg);
+    }
+    35% {
+      transform: translate(calc(var(--drift-amount) * 0.6), -35vh) scale(0.95) rotate(135deg);
+    }
+    50% {
+      transform: translate(calc(var(--drift-amount) * -0.4), -50vh) scale(1) rotate(180deg);
+    }
+    60% {
+      transform: translate(calc(var(--drift-amount) * 0.8), -60vh) scale(0.98) rotate(225deg);
+    }
+    75% {
+      transform: translate(calc(var(--drift-amount) * -0.5), -75vh) scale(0.95) rotate(270deg);
+    }
+    85% {
+      transform: translate(calc(var(--drift-amount) * 0.7), -85vh) scale(0.85) rotate(315deg);
+    }
+    90% {
+      opacity: 0.12;
+    }
+    100% {
+      transform: translate(calc(var(--drift-amount) * -0.3), -120vh) scale(0.7) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .floating-circle {
+      --size: calc(var(--size) * 0.6);
+    }
+  }
+</style>

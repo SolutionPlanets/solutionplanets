@@ -1,0 +1,97 @@
+---
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import type { CallToAction as Props } from '~/types';
+
+const {
+  variant = 'secondary',
+  target,
+  text = Astro.slots.render('default'),
+  icon = '',
+  class: className = '',
+  type,
+  ...rest
+} = Astro.props;
+
+const variants = {
+  primary: 'btn-primary btn-glow',
+  secondary: 'btn-secondary btn-glow',
+  tertiary: 'btn btn-tertiary btn-glow',
+  link: 'cursor-pointer hover:text-primary',
+};
+---
+
+{
+  type === 'button' || type === 'submit' || type === 'reset' ? (
+    <button type={type} class={twMerge(variants[variant] || '', className)} {...rest}>
+      <Fragment set:html={text} />
+      {icon && <Icon name={icon} class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block" />}
+    </button>
+  ) : (
+    <a
+      class={twMerge(variants[variant] || '', className)}
+      {...(target ? { target: target, rel: 'noopener noreferrer' } : {})}
+      {...rest}
+    >
+      <Fragment set:html={text} />
+      {icon && <Icon name={icon} class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block" />}
+    </a>
+  )
+}
+
+<style>
+  @keyframes borderStreak {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(1, 96, 239, 0.5),
+                  0 0 10px rgba(1, 96, 239, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(1, 96, 239, 0.8),
+                  0 0 30px rgba(109, 40, 217, 0.6);
+    }
+  }
+
+  :global(.btn-glow) {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  :global(.btn-glow::before) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(1, 96, 239, 0.8) 50%,
+      rgba(138, 43, 226, 0.8) 55%,
+      transparent 70%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderStreak 2s linear infinite;
+    pointer-events: none;
+  }
+
+  :global(.btn-glow:hover) {
+    animation: glow 1.5s ease-in-out infinite;
+  }
+</style>
+
+

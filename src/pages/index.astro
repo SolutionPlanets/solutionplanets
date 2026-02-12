@@ -1,0 +1,317 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+//import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+//import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+
+const metadata = {
+  title: 'SolutionPlanets — Digital and IT partner providing web development and marketing solutions for SMBs',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  
+  <!-- Hero Widget ******************* -->
+
+  <Hero2
+    tagline="Your Vision, Our Universe"
+    actions={[
+      {
+        variant: 'primary',
+        text: "Let's Talk",
+        href: 'https://solutionplanets.com/contact',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Our Services', href: '#features2' },
+    ]}
+    image={{ src: '~/assets/images/hero-image1.png', alt: 'SP Hero Image' }}
+  >
+    <Fragment slot="title">              
+      <span class="text-accent dark:text-white">Digital Transformation Reimagined</span>
+      <span class="hidden xl:block">At Solution Planets</span>         
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+         
+        <span class="font-semibold">Solution Planets empowers growing businesses</span> with high-performance software development, autonomous AI Agents, and next-gen digital marketing. We don’t just build tools; we build your digital future.
+      </span>
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Autonomous development and next-gen digital marketing
+      for growing businesses of all sizes.</span>
+    </Fragment>
+  </Hero2>
+
+  <!-- Note Widget ******************* -->
+
+  <Note title="Philosophy:" description="Continuous integration of innovative technologies" />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Our Framework"
+    title="Transform your objectives into a roadmap"
+    subtitle="Our Strategic Orbit: We don’t believe in guesswork. Our methodology ensures your project is secure, scalable, and lightyears ahead of the competition."
+    items={[
+      {
+        title: 'Identify',
+        description:
+          'We dive deep into your goals and audience to ensure every line of code serves a specific business purpose.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Analyze',
+        description:
+          'We leverage AI-driven insights to construct a high-precision framework for each project, optimizing strategy, production, and delivery timelines.',
+        icon: 'tabler:components',
+      },
+            {
+        title: 'Implement',
+        description:
+          'Our team translates complex plans into sleek, purposeful designs and functional final products that aligns with business goals.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Improve',
+        description:
+          'We use monitoring and analytics tools to evaluate performance, ensuring continuous improvement, predictive maintenance, and seamless scaling.',
+        icon: 'tabler:arrows-right-left',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="Why Partner With Us?"
+    title="Fun Meets Functionality"
+    items={[
+      {
+        title: 'Continuous Innovation:',
+        description:
+          'We utilize the most starred and suported frameworks to keep you at the cutting edge.',
+      },
+      {
+        title: 'Security-First Mindset:',
+        description:
+          'We build user-friendly experiences that never compromise on data integrity or lasting value.',
+      },
+      {
+        title: 'Collaborative Culture:',
+        description:
+          'We embrace new ideas and open contributions, fostering a dynamic environment where your feedback fuels our innovation.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/feature.png', alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building On Modern Foundations</h3>
+      Gain a competitive advantage by incorporating industry leading practices
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Strategy Meets Structure"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Architect</span>',
+        description:
+          "Designing the Blueprint. We map out your digital architecture. This involves aligning your business goals with the right technology stack and AI frameworks to ensure a foundation that is built to scale",
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Integrate</span>',
+        description:
+          "Bringing the Ecosystem to Life. We weave together custom software, autonomous AI Agents, and modern marketing tools into one cohesive, high-performance ecosystem that works in total harmony.",
+        icon: 'tabler:letter-case',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Calibrate</span>',
+        description:
+          'Precision Fine-Tuning. Using AI-driven analytics, we stress-test and optimize every component. We calibrate for speed, security, and user experience, ensuring your platform is perfectly tuned to your audience’s needs.',
+        icon: 'tabler:paint',
+      },
+      {
+        title: 'Deploy!',
+        description:
+          "Ignition & Beyond. Your solution is live and mission-ready. But we don't stop there—Solution Planets provides the ongoing monitoring and proactive updates needed to keep you leading the market.",
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Our Services"
+    subtitle="We engineer unparalleled experiences by aligning our technical mastery with your specific business goals. "
+    tagline=""
+    items={[
+      {
+        title: 'Application Development',
+        description: "High-performance product designed for seamless scalability and autonomous intelligence.",
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Web Designing',
+        description:
+          "Visually stunning, user-centric interfaces that blend aesthetic excellence.",
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'SEO/AEO',
+        description:
+          'High search ranking and optimized content for AI-powered, and voice-activated search.',
+        icon: 'flat-color-icons:approval',
+      },
+      {
+        title: 'Digital Marketing',
+        description:
+          "targeted marketing strategies to amplify digital footprint, and maximize ROI through data analysis.",
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Domain & Hosting',
+        description:
+          'Brand-aligned domain and high-speed hosting solutions that offer premium reliability at an accessible price point.',
+        icon: 'flat-color-icons:advertising',
+      },
+      {
+        title: 'Business Workspace',
+        description: 'Enterprise-grade solutions with Custom email tailored to your scale from Microsoft365 or Google Workspace.',
+        icon: 'flat-color-icons:currency-exchange',
+      },
+      {
+        title: 'Virtual CTO',
+        description: 'Providing high-level technical strategy and elite IT consulting for organizations that refuse to settle for second best.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+      {
+        title: 'E-commerce',
+        description:
+          'high-conversion storefronts that combine seamless user experiences with automated scaling to turn every visit into a transaction.',
+        icon: 'flat-color-icons:business-contact',
+      },
+      {
+        title: 'Cyber Security',
+        description: "multi-layered security protocols to fortify your digital assets against evolving threats and ensure total data integrity.",
+        icon: 'flat-color-icons:database',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Connected',
+        href: 'https://solutionplanets.com/contact',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Drive on a Road&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">to Digital Success</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Step into a world where AI-driven innovation elevates your business to new heights. Don’t just follow the market—lead it from the front.
+    </Fragment>
+  </CallToAction>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: 'Clients', amount: '132' },
+      { title: 'Projects', amount: '248' },
+      { title: 'Years', amount: '15' },
+      { title: 'Products', amount: '8' },
+    ]}
+  />
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <!--   <BlogLatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+                        Astro is a very interesting technology. Thanks.
+                `}
+  /> -->
+
+  <!-- FAQs Widget ******************* -->
+
+  <!-- <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Why AstroWind?',
+        description:
+          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+      },
+      {
+        title: 'What do I need to start?',
+        description:
+          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+      },
+      {
+        title: 'How to install the Astro + Tailwind CSS template?',
+        description:
+          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+      },
+      {
+        title: "What's something that you don't understand?",
+        description:
+          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+      },
+      {
+        title: 'What is something that you would like to try again?',
+        description:
+          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+      },
+      {
+        title: 'If you could only ask one question to each person you meet, what would that question be?',
+        description:
+          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+      },
+    ]}
+  /> -->
+
+  
+</Layout>
+
