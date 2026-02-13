@@ -94,11 +94,11 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Donation Receipt', href: 'https://donationreceipt.in/' },
-        { text: 'Calibrotech', href: 'https://www.calibrotech.com/' },
-        { text: 'Credibl5', href: 'https://www.credibl5.com/' },
-        { text: 'Zonect', href: 'https://www.zonect.in/' },
-        { text: 'CricJourney', href: 'https://www.mycricjourney.com/' },
+        { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_blank' },
+        { text: 'Calibrotech', href: 'https://www.calibrotech.com/', target:'_blank' },
+        { text: 'Credibl5', href: 'https://www.credibl5.com/', target:'_blank' },
+        { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },
+        { text: 'CricJourney', href: 'https://www.mycricjourney.com/', target:'_blank' },
       ],
     },
     {
@@ -138,7 +138,7 @@ export const footerData = {
           text: `
         <div>
           <p class="font-bold text-gray-800 dark:text-gray-200">Houston</p>
-          <p>+1 8322762322</p>
+          <p>+1 3468295870</p>
           <p class="text-blue-600 dark:text-blue-400">info@solutionplanets.com</p>
         </div>
         `,

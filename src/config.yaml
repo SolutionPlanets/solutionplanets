@@ -30,6 +30,17 @@ metadata:
 i18n:
   language: en
   textDirection: ltr
+  languages:
+    en:
+      label: 'English'
+      flag: '🇺🇸'
+    es:
+      label: 'Español'
+      flag: '🇪🇸'
+    hi:
+      label: 'हिन्दी'
+      flag: '🇮🇳'
+  defaultLanguage: en
 
 apps:
   blog:
