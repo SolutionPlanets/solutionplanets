@@ -62,24 +62,7 @@ export const headerData = {
     },
     {
       text: 'Company',
-      links: [
-        {
-          text: 'About Us',
-          href: getPermalink('/company/about'),
-        },
-        {
-          text: 'Case Study',
-          href: getPermalink('/company/casestudy'),
-        },
-        {
-          text: 'Strategic Partners',
-          href: getPermalink('/company/partners'),
-        },
-        {
-          text: 'Blog',
-          href: getPermalink('/blog'),
-        },
-      ],
+      href: getPermalink('/company'),
     },
     {
       text: 'Contact',

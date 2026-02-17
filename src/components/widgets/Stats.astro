@@ -29,18 +29,23 @@ const {
                 <Icon name={icon} class="w-10 h-10" />
               </div>
             )}
-            {amount && (
-              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">
-                {amount}
-              </div>
-            )}
             {title && (
-              <div class="text-sm font-medium uppercase tracking-widest text-gray-800 dark:text-slate-400 lg:text-base">
+              <div class="text-lg font-bold uppercase tracking-widest text-gray-900 dark:text-white mb-2">
                 {title}
               </div>
             )}
+            {amount && ( 
+              <div class="text-base font-normal text-gray-600 dark:text-slate-300 leading-relaxed">
+                {amount}
+              </div>
+            )}
+           
           </div>
         ))
     }
   </div>
+  <Fragment slot="bg">
+    <!-- Option 3: Pattern background -->
+    <div class="absolute inset-0 bg-blue-50 dark:bg-slate-900" style="background-image: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+  </Fragment>
 </WidgetWrapper>

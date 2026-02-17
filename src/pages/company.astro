@@ -1,0 +1,282 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+//import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'About Company - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero2
+    tagline="Our Origin & Evolution"
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Watch Video',
+        href: 'https://www.youtube.com/@solutionplanets9122',
+        icon: 'tabler:brand-youtube',
+      },
+      { text: 'Connect With Us', 
+        href: 'https://www.linkedin.com/company/solutionplanets/', 
+        target: '_blank',
+        icon: 'tabler:brand-linkedin',
+
+     },
+    ]}
+  >
+    <Fragment slot="title">
+      <span class="hidden sm:inline">Beyond the Horizon:</span>
+      <span class="text-accent dark:text-white"></span>
+      The Solution Planets Story
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Established at the dawn of the 21st century, <span class="font-semibold">Solution Planets</span> was born from a vision to simplify the infinite complexities of the digital universe.
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+  </Hero2>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="About us"
+    subtitle="we bring world-class creativity directly to your digital doorstep. Our journey has been defined by a simple shift in perspective: we don't just work for you—we work with you. We transcend the traditional vendor-client dynamic to become your dedicated IT partners, ensuring that every technological leap we take is one that lands your business exactly where it needs to be."
+  >
+    <Fragment slot="bg">
+       <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Stats Widget ****************** -->
+  <Stats
+    title='The Blueprint: Our "One-Roof" Process'
+    subtitle="Our approach is intentionally straightforward, designed to bridge the gap between a raw idea and a profound audience connection."
+    stats={[
+      { title: 'Identify', amount: 'Understanding the DNA of your brand and goals.' },
+      { title: 'Plan & Design', amount: 'Mapping the architecture of your digital future.' },
+      { title: 'Implement', amount: 'Building high-integrity software and AI-driven tools.' },
+      { title: 'Nurture', amount: 'Scaling and improving your product long after launch.' },
+    ]}
+  />
+
+  <!-- Brands Widget ****************** -->
+  <Brands
+    title="Partnerships & Collaborations"
+    subtitle="At Solution Planets, we believe in the power of collaboration to drive innovation and create exceptional experiences."
+    icons={[]}
+    images={[
+      {
+        src: '~/assets/images/partner/cr.png', alt: 'Our partners',
+      },
+      {
+        src: '~/assets/images/partner/ctrlS.png', alt: 'Our partners',
+      },
+      {
+        src: '~/assets/images/partner/ENTP.png', alt: 'Our partners',
+      },
+
+      {
+        src: '~/assets/images/partner/gcp.png', alt: 'Our partners',
+      },
+      {
+        src: '~/assets/images/partner/pinnacle-techies.png', alt: 'Our partners',
+      },
+      {
+        src: '~/assets/images/partner/quali-space.png', alt: 'Our partners',
+      },
+      {
+        src: '~/assets/images/partner/Razorpay.png', alt: 'Our partners',
+      },
+      {
+        src: '~/assets/images/partner/shopify.png', alt: 'Our partners',
+      },
+      {
+       src: '~/assets/images/partner/cr.png', alt: 'Our partners',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+  <Features2
+    title="Our Infinite Commitment"
+    subtitle="As your lifelong IT Solution Partner, we don't just deliver a product and disappear. We are committed to providing the fuel for your long-term orbit."
+    items={[
+      {
+        title: 'Clarity',
+        description:
+          'Real-time answers to your most complex technical questions.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Innovation',
+        description:
+          'Access to state-of-the-art tech services that keep you ahead of the curve.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Empowerment',
+        description:
+          'The exact tools and strategies required for sustained online success.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+      {
+        title: 'AI-First Mentality',
+        description:
+          'Future-proofing every project we touch by adding necessary automation.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Digital Culture',
+        description:
+          'Agile, creative, always available and connected.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Technical Support',
+        description:
+          'Providing customer support for any implementation issues.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features Widget *************** -->
+  <!-- <Features
+    id="features"
+    title="Main features of our templates"
+    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
+    columns={2}
+    items={[
+      {
+        title: 'Modern and Professional Design',
+        description:
+          'Have a contemporary design that reflects current design trends and gives a professional impression.',
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Responsive and Mobile-Friendly',
+        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
+        icon: 'tabler:picture-in-picture',
+      },
+      {
+        title: 'Customizability',
+        description:
+          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
+        icon: 'tabler:adjustments-horizontal',
+      },
+      {
+        title: 'Fast Loading Times',
+        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Search Engine Optimization (SEO)',
+        description:
+          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Compatibility',
+        description: 'The templates work seamlessly across various content management systems and website builders.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  /> -->
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Connected',
+        href: 'https://wa.me/13468295870',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">Be a part of our vision</Fragment>
+
+    <Fragment slot="subtitle">
+      Discover a dynamic work environment, unparalleled growth opportunities, and the chance to make a meaningful
+      impact.
+    </Fragment>
+  </CallToAction>
+
+  <!-- Features3 Widget ************** -->
+  <Features3
+    title="Let us know how we can help"
+    subtitle="We’re here to help and answer any question you might have."
+    columns={4}
+    items={[
+      {
+        title: 'Phone',
+        icon: 'tabler:phone',
+        callToAction: {
+          target: '_blank',
+          text: 'Call us',
+          href: '/contact',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Email',
+        icon: 'tabler:mail',
+        callToAction: {
+          target: '_blank',
+          text: 'Write to us',
+          href: '/contact',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Chat with sales',
+        icon: 'tabler:message-circle',
+        callToAction: {
+          target: '_blank',
+          text: 'Start chatting',
+          href: '/contact',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Chat with support',
+        icon: 'tabler:message-circle',
+        callToAction: {
+          target: '_blank',
+          text: 'Ask Anything',
+          href: '/contact',
+          variant: 'link',
+        },
+      },
+    ]}
+  />
+  
+</Layout>
