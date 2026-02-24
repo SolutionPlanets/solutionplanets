@@ -1,10 +1,15 @@
 import { getPermalink, getBlogPermalink } from './utils/permalinks';
 
 export const headerData = {
-  links: [    
+  links: [ 
+    {
+      text: 'Company',
+      href: getPermalink('/company'),
+    },   
     {
       text: 'Services',
-      links: [
+      href: getPermalink('/service'),
+      /* links: [
         {
           text: 'Custom Web Development',
           href: getPermalink('/services'),
@@ -33,7 +38,7 @@ export const headerData = {
           text: 'Support/Maitenance',
           href: getPermalink('/services'),
         },
-      ],
+      ], */
     },
     {
       text: 'Products',
@@ -44,10 +49,6 @@ export const headerData = {
         { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },
         { text: 'CricJourney', href: 'https://www.mycricjourney.com/', target:'_blank' },
       ],
-    },
-    {
-      text: 'Company',
-      href: getPermalink('/company'),
     },
     {
       text: 'Contact',
