@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getBlogPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [    
@@ -10,7 +10,7 @@ export const headerData = {
           href: getPermalink('/services'),
         },
         {
-          text: 'Strategy & Consulting',
+          text: 'Virtual CTO',
           href: getPermalink('/services'),
         },
         {
@@ -38,26 +38,11 @@ export const headerData = {
     {
       text: 'Products',
       links: [
-        {
-          text: 'DonationReceipt',
-          href: getPermalink('/products/product'),
-        },
-        {
-          text: 'Calibrotech',
-          href: getPermalink('/products/product'),
-        },
-        {
-          text: 'Credibl5',
-          href: getPermalink('/products/product'),
-        },
-        {
-          text: 'MyCricJourney',
-          href: getPermalink('/products/product'),
-        },
-        {
-          text: 'Zonect',
-          href: getPermalink('/products/product'),
-        },
+        { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_blank' },
+        { text: 'Calibrotech', href: 'https://www.calibrotech.com/', target:'_blank' },
+        { text: 'Credibl5', href: 'https://www.credibl5.com/', target:'_blank' },
+        { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },
+        { text: 'CricJourney', href: 'https://www.mycricjourney.com/', target:'_blank' },
       ],
     },
     {
@@ -111,7 +96,7 @@ export const footerData = {
           text: `
         <div class="mb-4">
           <p class="font-bold text-gray-800 dark:text-gray-200">Mumbai</p>
-          <p>+91 9821155656</p>
+          <p>+91 8104664284</p>
           <p class="text-blue-600 dark:text-blue-400">info@solutionplanets.com</p>
         </div>
         `,
@@ -135,11 +120,13 @@ export const footerData = {
     { text: 'Houston', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: getAsset('/rss.xml') },
-    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://github.com/arthelokyo/astrowind' },
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/13468295870?text=Hi%20Solution%20Planets!%20My%20name%20is%20..' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/company/solutionplanets' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/solutionplanets' },
+    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@solutionplanets9122'},
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/solution_planets/' },
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/SolutionPlanets' },
+    
   ],
   footNote: `
     Made by <a class="text-blue-600 underline dark:text-muted" href="https://solutionplanets.com" target="blank"> Solution Planets</a> · All rights reserved.

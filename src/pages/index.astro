@@ -6,6 +6,7 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
+import { getPermalink } from '~/utils/permalinks';
 //import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 //import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
@@ -32,7 +33,7 @@ const metadata = {
         target: '_blank',
         icon: 'tabler:brand-whatsapp',
       },
-      { text: 'Explore Our Services', href: '#features2' },
+      { text: 'Explore Our Services', href: getPermalink('/services') },
     ]}
     image={{ src: '~/assets/images/hero-image1.png', alt: 'SP Hero Image' }}
   >

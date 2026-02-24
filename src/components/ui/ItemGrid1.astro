@@ -32,7 +32,7 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+      {items.map(({ title, description, icon, tags, callToAction, classes: itemClasses = {} }) => (
         <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
           <div class={twMerge('flex flex-row max-w-md card-border-glow', panelClass, itemClasses?.panel)}>
             <div class="flex justify-center">
@@ -50,6 +50,15 @@ const {
                   class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
                   set:html={description}
                 />
+              )}
+              {tags && tags.length > 0 && (
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <span class="text-xs px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-slate-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               )}
               {callToAction && (
                 <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
@@ -75,13 +84,16 @@ const {
   }
 
   @keyframes cardGlow {
-    0%, 100% {
-      box-shadow: 0 0 5px rgba(1, 96, 239, 0.5),
-                  0 0 10px rgba(1, 96, 239, 0.3);
+    0%,
+    100% {
+      box-shadow:
+        0 0 5px rgba(1, 96, 239, 0.5),
+        0 0 10px rgba(1, 96, 239, 0.3);
     }
     50% {
-      box-shadow: 0 0 20px rgba(1, 96, 239, 0.8),
-                  0 0 30px rgba(109, 40, 217, 0.6);
+      box-shadow:
+        0 0 20px rgba(1, 96, 239, 0.8),
+        0 0 30px rgba(109, 40, 217, 0.6);
     }
   }
 
@@ -107,7 +119,9 @@ const {
       transparent 100%
     );
     background-size: 200% 100%;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     animation: borderStreak 2s linear infinite;

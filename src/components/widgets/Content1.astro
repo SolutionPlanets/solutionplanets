@@ -1,0 +1,210 @@
+---
+import type { Content as Props } from '~/types';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  content = await Astro.slots.render('content'),
+  callToAction,
+  items = [],
+  columns,
+  isReversed = false,
+  isAfterContent = false,
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+/* ── Orbit data ────────────────────────────────────────── */
+const innerIcons = [
+  { src: 'https://cdn.simpleicons.org/react/61DAFB',      alt: 'React' },
+  { src: 'https://cdn.simpleicons.org/typescript/3178C6', alt: 'TypeScript' },
+  { src: 'https://cdn.simpleicons.org/nodedotjs/339933',  alt: 'Node.js' },
+  { src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4',alt: 'Tailwind' },
+  { src: 'https://cdn.simpleicons.org/astro/FF5D01',      alt: 'Astro' },
+];
+const outerIcons = [
+  { src: 'https://cdn.simpleicons.org/Razorpay/FF9900',     alt: 'Razorpay' },
+  { src: 'https://cdn.simpleicons.org/postgresql/FF5D01',    alt: 'sql' },
+  { src: 'https://cdn.simpleicons.org/googlecloud/4285F4',   alt: 'GCP' },
+  { src: 'https://cdn.simpleicons.org/docker/2496ED',        alt: 'Docker' },
+  { src: 'https://cdn.simpleicons.org/mysql/21759B',     alt: 'mysql' },
+  { src: 'https://cdn.simpleicons.org/googlegemini/10a37f',  alt: 'gemini' },
+  { src: 'https://cdn.simpleicons.org/linux/FF9624',         alt: 'Linux' },
+  { src: 'https://cdn.simpleicons.org/github/000000',        alt: 'GitHub' },
+];
+
+/* Compute (cx, cy) for each icon given radius & index/total */
+const pos = (r: number, i: number, n: number) => {
+  const angle = (i / n) * 2 * Math.PI - Math.PI / 2;
+  return { x: 250 + r * Math.cos(angle), y: 250 + r * Math.sin(angle) };
+};
+const C = 250;          // SVG centre
+const R_INNER = 95;     // inner ring radius
+const R_OUTER = 210;    // outer ring radius
+const BUBBLE  = 26;     // half of icon bubble (52px)
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
+      title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
+      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
+    }}
+  />
+
+  <div class="mx-auto max-w-7xl p-4 md:px-8">
+    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-8 items-center`}>
+
+      <!-- ── Orbit column ── -->
+      <div class="orbit-col">
+        <!--
+          SVG viewBox 500×500, actual size set by CSS.
+          Two <g> groups: inner (CW) and outer (CCW).
+          Icon images inside <foreignObject> so they render as real <img>.
+        -->
+        <svg
+          class="orbit-svg"
+          viewBox="0 0 500 500"
+          xmlns="http://www.w3.org/2000/svg"
+          overflow="visible"
+          aria-hidden="true"
+        >
+          <!-- Ring circles -->
+          <circle cx={C} cy={C} r={R_INNER} fill="none" stroke="rgba(99,179,237,0.22)" stroke-width="1"/>
+          <circle cx={C} cy={C} r={R_OUTER} fill="none" stroke="rgba(99,179,237,0.22)" stroke-width="1"/>
+
+          <!-- Center glow -->
+          <circle cx={C} cy={C} r="12" fill="url(#cg)"/>
+          <defs>
+            <radialGradient id="cg"><stop offset="0%" stop-color="#93c5fd"/><stop offset="100%" stop-color="#0160ef"/></radialGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <circle cx={C} cy={C} r="9" fill="url(#cg)" filter="url(#glow)"/>
+
+          <!-- Inner ring group (spins CW) -->
+          <g class="spin-cw-inner" style={`transform-origin: ${C}px ${C}px`}>
+            {innerIcons.map((icon, i) => {
+              const {x, y} = pos(R_INNER, i, innerIcons.length);
+              return (
+                <g class="cr-inner" style={`transform-origin: ${x}px ${y}px`}>
+                  <circle cx={x} cy={y} r={BUBBLE} fill="rgba(8,14,38,0.82)" stroke="rgba(99,179,237,0.28)" stroke-width="1" class="bubble-circle"/>
+                  <image href={icon.src} x={x - 13} y={y - 13} width="26" height="26" alt={icon.alt}/>
+                </g>
+              );
+            })}
+          </g>
+
+          <!-- Outer ring group (spins CCW) -->
+          <g class="spin-ccw-outer" style={`transform-origin: ${C}px ${C}px`}>
+            {outerIcons.map((icon, i) => {
+              const {x, y} = pos(R_OUTER, i, outerIcons.length);
+              return (
+                <g class="cr-outer" style={`transform-origin: ${x}px ${y}px`}>
+                  <circle cx={x} cy={y} r={BUBBLE} fill="rgba(8,14,38,0.82)" stroke="rgba(99,179,237,0.28)" stroke-width="1" class="bubble-circle"/>
+                  <image href={icon.src} x={x - 13} y={y - 13} width="26" height="26" alt={icon.alt}/>
+                </g>
+              );
+            })}
+          </g>
+        </svg>
+      </div>
+
+      <!-- ── Text + Items ── -->
+      <div class="md:basis-1/2 self-center">
+        {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
+        {callToAction && (
+          <div class="mt-[-40px] mb-8 text-primary">
+            <Button variant="link" {...callToAction} />
+          </div>
+        )}
+        <ItemGrid
+          items={items}
+          columns={columns}
+          defaultIcon="tabler:check"
+          classes={{
+            container:   'gap-y-4 md:gap-y-8',
+            panel:       'max-w-none',
+            title:       'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
+            icon:        'icon-shine flex h-7 w-7 items-center justify-center rounded-full bg-primary dark:bg-primary text-gray-50 p-1',
+            action:      'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
+      </div>
+
+    </div>
+  </div>
+</WidgetWrapper>
+
+<style>
+  /* ── Column ─────────────────────────────────────────────── */
+  .orbit-col {
+    flex: 0 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  /* ── SVG fills the column, square aspect ────────────────── */
+  .orbit-svg {
+    width:  clamp(280px, 42vw, 480px);
+    height: clamp(280px, 42vw, 480px);
+  }
+
+  /* ── Bubble hover effect ────────────────────────────────── */
+  .bubble-circle {
+    transition: filter 0.3s;
+  }
+  .bubble-circle:hover {
+    filter: drop-shadow(0 0 10px rgba(1,96,239,0.7));
+  }
+
+  /* ── Ring spin animations ───────────────────────────────── */
+  .spin-cw-inner  { animation: spin-cw  22s linear infinite; }
+  .spin-ccw-outer { animation: spin-ccw 36s linear infinite; }
+
+  /* Counter-rotate icons to stay upright */
+  .cr-inner { animation: spin-ccw 22s linear infinite; }
+  .cr-outer { animation: spin-cw  36s linear infinite; }
+
+  @keyframes spin-cw  { from { transform: rotate(  0deg); } to { transform: rotate( 360deg); } }
+  @keyframes spin-ccw { from { transform: rotate(  0deg); } to { transform: rotate(-360deg); } }
+
+  /* ── Light mode: white bubble bg ───────────────────────── */
+  :global(:not(.dark)) .bubble-circle {
+    fill: rgba(255,255,255,0.95);
+    stroke: rgba(1,96,239,0.18);
+  }
+  :global(:not(.dark)) .orbit-svg circle[r="1"],
+  :global(:not(.dark)) .orbit-svg circle[stroke="rgba(99,179,237,0.22)"] {
+    stroke: rgba(1,96,239,0.15);
+  }
+
+  /* ── ItemGrid icon shine ────────────────────────────────── */
+  @keyframes shine {
+    0%,100% { box-shadow: 0 0 5px rgba(1,96,239,.5), 0 0 10px rgba(1,96,239,.3); }
+    50%      { box-shadow: 0 0 20px rgba(1,96,239,.8), 0 0 30px rgba(1,96,239,.6), 0 0 40px rgba(109,40,217,.4); }
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50%      { transform: scale(1.05); }
+  }
+  :global(.icon-shine) { animation: shine 2s ease-in-out infinite, pulse 2s ease-in-out infinite; }
+</style>
