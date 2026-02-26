@@ -1,4 +1,4 @@
-import { getPermalink, getBlogPermalink } from './utils/permalinks';
+import { getPermalink} from './utils/permalinks';
 
 export const headerData = {
   links: [ 
@@ -8,7 +8,7 @@ export const headerData = {
     },   
     {
       text: 'Services',
-      href: getPermalink('/service'),
+      href: getPermalink('/services'),
       /* links: [
         {
           text: 'Custom Web Development',
@@ -96,29 +96,31 @@ export const footerData = {
         {
           text: `
         <div class="mb-4">
-          <p class="font-bold text-gray-800 dark:text-gray-200">Mumbai</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">Mumbai, India</p>
           <p>+91 8104664284</p>
           <p class="text-blue-600 dark:text-blue-400">info@solutionplanets.com</p>
         </div>
         `,
           href: 'https://share.google/IN0NugcP5tXRW1wok',
+          target:'_blank'
         },
         {
           text: `
         <div>
-          <p class="font-bold text-gray-800 dark:text-gray-200">Houston</p>
-          <p>+1 3468295870</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">Houston, USA</p>
+          <p>+1 (346) 829-5870</p>
           <p class="text-blue-600 dark:text-blue-400">info@solutionplanets.com</p>
         </div>
         `,
           href: 'https://share.google/hfTQwSzcC6pxcy1GM',
+          target:'_blank'
         },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Mumbai', href: getPermalink('/terms') },
-    { text: 'Houston', href: getPermalink('/privacy') },
+    { text: 'Mumbai',  },
+    { text: 'Houston', },
   ],
   socialLinks: [
     { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/13468295870?text=Hi%20Solution%20Planets!%20My%20name%20is%20..' },
