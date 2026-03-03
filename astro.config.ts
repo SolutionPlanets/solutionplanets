@@ -50,6 +50,18 @@ export default defineConfig({
           'voice-presentation',
           'business-contact',
           'database',
+          'multiple-devices',
+          'idea',
+          'data-protection',
+          'link',
+          'mind-map',
+          'process',
+          'puzzle',
+          'positive-dynamic',
+          'rating',
+          'collaboration',
+          'workflow'
+
         ],
       },
     }),
