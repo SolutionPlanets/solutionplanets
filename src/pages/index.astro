@@ -7,8 +7,6 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import { getPermalink } from '~/utils/permalinks';
-//import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-//import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
@@ -28,64 +26,63 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: "Let's Talk",
+        text: "Let's Chat",
         href: 'https://wa.me/13468295870',
         target: '_blank',
         icon: 'tabler:brand-whatsapp',
       },
-      { text: 'Explore Our Services', href: getPermalink('/services') },
+      { text: 'Explore Services', href: getPermalink('/services') },
     ]}
     image={{ src: '~/assets/images/hero-image1.png', alt: 'SP Hero Image' }}
   >
     <Fragment slot="title">              
-      <span class="text-accent dark:text-white">Digital Transformation Reimagined</span>
-      <span class="hidden xl:block">At Solution Planets</span>         
+      <span class="text-accent dark:text-white">Structured Digital Systems</span>
+      <span class="hidden xl:block">for Growing Businesses</span>         
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-         
-        <span class="font-semibold">Solution Planets empowers growing businesses</span> with high-performance software development, autonomous AI Agents, and next-gen digital marketing. We don’t just build tools; we build your digital future.
+        <span class="font-semibold">Solution Planets helps growth-focused companies</span> design automation frameworks, AI-enabled workflows, and scalable digital infrastructure built for long-term performance.
       </span>
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Autonomous development and next-gen digital marketing
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Autonomous development and next-gen solutions
       for growing businesses of all sizes.</span>
     </Fragment>
   </Hero2>
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Philosophy:" description="Continuous integration of innovative technologies" />
+  <Note title="Philosophy:" description="Clarity in Architecture. Discipline in Execution." />
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
     tagline="Our Framework"
-    title="Transform your objectives into a roadmap"
-    subtitle="Our Strategic Orbit: We don’t believe in guesswork. Our methodology ensures your project is secure, scalable, and lightyears ahead of the competition."
+    title="From Business Objectives to Structured Execution"
+    subtitle="Our Strategic Orbit: We follow a disciplined methodology to translate business goals into scalable, high-performance digital systems."
     items={[
       {
         title: 'Identify',
         description:
-          'We dive deep into your goals and audience to ensure every line of code serves a specific business purpose.',
+          'We follow a disciplined methodology to translate business goals into scalable, high-performance digital systems.',
         icon: 'tabler:brand-tailwind',
       },
       {
         title: 'Analyze',
         description:
-          'We leverage AI-driven insights to construct a high-precision framework for each project, optimizing strategy, production, and delivery timelines.',
+          'We map workflows, data flows, and architecture requirements to ensure clarity, scalability, and risk control. ',
         icon: 'tabler:components',
       },
             {
         title: 'Implement',
         description:
-          'Our team translates complex plans into sleek, purposeful designs and functional final products that aligns with business goals.',
+          'We build structured, high-integrity systems aligned with performance, security, and governance standards.',
         icon: 'tabler:rocket',
       },
       {
         title: 'Improve',
         description:
-          'We use monitoring and analytics tools to evaluate performance, ensuring continuous improvement, predictive maintenance, and seamless scaling.',
+          'We monitor performance, optimize workflows, and refine systems to support long-term growth and operational efficiency.',
         icon: 'tabler:arrows-right-left',
       },
     ]}
@@ -95,27 +92,29 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Why Partner With Us?"
-    title="Fun Meets Functionality"
+    title="Why Partner With US?"
+    tagline="Structured Thinking. Reliable Execution."
     items={[
       {
-        title: 'Continuous Innovation:',
+        title: 'Security & Governance Built-In:',
         description:
-          'We utilize the most starred and suported frameworks to keep you at the cutting edge.',
+          'Every system is designed with data integrity, access control, and operational discipline from day one.',
       },
       {
-        title: 'Security-First Mindset:',
+        title: 'Clear Communication & Ownership:',
         description:
-          'We build user-friendly experiences that never compromise on data integrity or lasting value.',
+          'Defined responsibilities, structured milestones, and transparent reporting throughout the engagement.',
       },
       {
-        title: 'Collaborative Culture:',
+        title: 'Designed for Scale:',
         description:
-          'We embrace new ideas and open contributions, fostering a dynamic environment where your feedback fuels our innovation.',
+          'Systems built to handle growth — users, transactions, automation, and performance.',
       },
     ]}
     image={{
-      src: '~/assets/images/feature.png', alt: 'SP Foundation Image',
+      src: '~/assets/images/feature.png', 
+      alt: 'SP Foundation Image',
+      loading: 'eager',
     }}
   >
     <Fragment slot="content">
@@ -132,29 +131,30 @@ const metadata = {
 
   <Steps
     title="Strategy Meets Structure"
+    subtitle="We translate business strategy into structured digital architecture designed for scale, control, and performance."
     items={[
       {
         title: 'Step 1: <span class="font-medium">Architect</span>',
         description:
-          "Designing the Blueprint. We map out your digital architecture. This involves aligning your business goals with the right technology stack and AI frameworks to ensure a foundation that is built to scale",
-        icon: 'tabler:package',
+          "We define system architecture, workflows, and measurable objectives before development begins.",
+          icon: 'tabler:package',
       },
       {
         title: 'Step 2: <span class="font-medium">Integrate</span>',
         description:
-          "Bringing the Ecosystem to Life. We weave together custom software, autonomous AI Agents, and modern marketing tools into one cohesive, high-performance ecosystem that works in total harmony.",
+          "We connect platforms, automation layers, AI models, and data systems into a unified operational structure.",
         icon: 'tabler:letter-case',
       },
       {
         title: 'Step 3: <span class="font-medium">Calibrate</span>',
         description:
-          'Precision Fine-Tuning. Using AI-driven analytics, we stress-test and optimize every component. We calibrate for speed, security, and user experience, ensuring your platform is perfectly tuned to your audience’s needs.',
+          'We test performance, security, scalability, and process efficiency before launch',
         icon: 'tabler:paint',
       },
       {
-        title: 'Deploy!',
+        title: 'Deploy & Support',
         description:
-          "Ignition & Beyond. Your solution is live and mission-ready. But we don't stop there—Solution Planets provides the ongoing monitoring and proactive updates needed to keep you leading the market.",
+          "We design and implement scalable digital systems that align technology with business performance.",
         icon: 'tabler:check',
       },
     ]}
@@ -167,66 +167,102 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Our Services"
-    subtitle="We engineer unparalleled experiences by aligning our technical mastery with your specific business goals. "
-    tagline=""
+    tagline="Our Services"
+    subtitle="We design and implement scalable digital systems that align technology with business performance."
+    title="Core Strategic Services"
     items={[
       {
-        title: 'Application Development',
-        description: "High-performance product designed for seamless scalability and autonomous intelligence.",
-        icon: 'flat-color-icons:template',
+        title: 'Custom Application & Platform Development',
+        description: "Enterprise-grade web and system development built for scalability, integration, and performance.",
+        icon: 'flat-color-icons:multiple-devices',
       },
       {
-        title: 'Web Designing',
+        title: 'AI & Workflow Automation',
         description:
-          "Visually stunning, user-centric interfaces that blend aesthetic excellence.",
-        icon: 'flat-color-icons:gallery',
+          "Designing AI-driven processes, intelligent agents, and operational automation frameworks.",
+        icon: 'flat-color-icons:process',
       },
       {
-        title: 'SEO/AEO',
+        title: 'Digital Infrastructure & Cloud Systems',
         description:
-          'High search ranking and optimized content for AI-powered, and voice-activated search.',
+          'Secure hosting architecture, cloud deployment, workspace integration, and performance optimization.',
         icon: 'flat-color-icons:approval',
       },
       {
-        title: 'Digital Marketing',
+        title: 'Cybersecurity & Governance',
         description:
-          "targeted marketing strategies to amplify digital footprint, and maximize ROI through data analysis.",
-        icon: 'flat-color-icons:document',
+          "Multi-layered protection, access control, audit-ready frameworks, and data integrity systems.",
+        icon: 'flat-color-icons:data-protection',
       },
       {
-        title: 'Domain & Hosting',
+        title: 'Strategic Technology Advisory (Virtual CTO)',
         description:
-          'Brand-aligned domain and high-speed hosting solutions that offer premium reliability at an accessible price point.',
-        icon: 'flat-color-icons:advertising',
+          'Architecture planning, tech stack decisions, vendor evaluation, and long-term digital roadmap alignment.',
+        icon: 'flat-color-icons:mind-map',
       },
       {
-        title: 'Business Workspace',
-        description: 'Enterprise-grade solutions with Custom email tailored to your scale from Microsoft365 or Google Workspace.',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Virtual CTO',
-        description: 'Providing high-level technical strategy and elite IT consulting for organizations that refuse to settle for second best.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'E-commerce',
+        title: 'Supporting Digital Services',
         description:
-          'high-conversion storefronts that combine seamless user experiences with automated scaling to turn every visit into a transaction.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Cyber Security',
-        description: "multi-layered security protocols to fortify your digital assets against evolving threats and ensure total data integrity.",
-        icon: 'flat-color-icons:database',
-      },
+          'Delivering services for businesses that need specialized execution to complement and accelerate wider digital transformations.',
+        icon: 'flat-color-icons:link',
+      },   
     ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
+  <!-- component Widget ************** -->
+    <Content
+    id="Supporting Services"
+    columns={1}
+    items={[
+      {
+        icon: 'tabler:brand-dribbble',
+        callToAction: {
+          text: 'Web Design & Development',
+        },
+      },
+      {
+        icon: 'tabler:cloud-search',
+        callToAction: {
+          text: 'SEO & AI Search Optimization',
+        },
+      },
+      {
+        icon: 'tabler:ad-circle',
+        callToAction: {
+          text: 'Performance Marketing',
+        },
+      },
+      {
+        icon: 'tabler:link',
+        callToAction: {
+          text: 'Domain & Hosting Setup',
+        },
+      },
+      {
+        icon: 'tabler:shopping-cart',
+        callToAction: {
+          text: 'E-commerce Enablement',
+        },
+      },
+    ]}
+    image={{
+      src: '~/assets/images/services.jpeg',
+      alt: 'Service Image',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Other Supporting Services</h2>
+      For businesses that need focused execution alongside larger digital initiatives.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
   <!-- CallToAction Widget *********** -->
 
@@ -234,7 +270,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get Connected',
+        text: 'Schedule a Meeting',
         href: 'https://wa.me/13468295870',
         target: '_blank',
         icon: 'tabler:brand-whatsapp',
@@ -242,11 +278,11 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Drive on a Road&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">to Digital Success</span>
+      Ready for&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">your next phase of growth?</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Step into a world where AI-driven innovation elevates your business to new heights. Don’t just follow the market—lead it from the front.
+      We help businesses translate strategy into scalable digital systems — automation, AI, infrastructure, and governance aligned with real performance outcomes.
     </Fragment>
   </CallToAction>
 
@@ -254,64 +290,12 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: 'Clients', amount: '132' },
-      { title: 'Projects', amount: '248' },
-      { title: 'Years', amount: '15' },
-      { title: 'Products', amount: '8' },
+      { title: 'Clients Served', amount: '132' },
+      { title: 'Projects Delivered', amount: '248' },
+      { title: 'Years of Experience', amount: '15' },
+      { title: 'Active Products', amount: '8' },
     ]}
-  />
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <!--   <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  /> -->
-
-  <!-- FAQs Widget ******************* -->
-
-  <!-- <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  /> -->
-
+  /> 
   
 </Layout>
 

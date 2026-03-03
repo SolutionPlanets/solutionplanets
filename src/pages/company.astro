@@ -8,7 +8,7 @@ import Features2 from '~/components/widgets/Features2.astro';
 //import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Features3 from '~/components/widgets/Features3.astro';
-import Brands from '~/components/widgets/Brands.astro';
+//import Brands from '~/components/widgets/Brands.astro';
 
 import { YouTube } from 'astro-embed';
 
@@ -26,9 +26,9 @@ const metadata = {
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Watch Video',
-        href: 'https://www.youtube.com/@solutionplanets9122',
-        icon: 'tabler:brand-youtube',
+        text: 'Explore Our Solutions',
+        href: '',
+        icon: '',
       },
       { text: 'Connect With Us', 
         href: 'https://www.linkedin.com/company/solutionplanets/', 
@@ -39,13 +39,13 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      <span class="hidden sm:inline">Beyond the Horizon:</span>
+      <span class="hidden sm:inline">Structured Digital Systems</span>
       <span class="text-accent dark:text-white"></span>
-      The Solution Planets Story
+      for Growing Enterprises
     </Fragment>
 
     <Fragment slot="subtitle">
-      Established at the dawn of the 21st century, <span class="font-semibold">Solution Planets</span> was born from a vision to simplify the infinite complexities of the digital universe.
+      We design, build, and implement <span class="font-semibold">custom engineering solutions</span> and focused SaaS platforms that strengthen workflow, compliance, and operational visibility.
     </Fragment>
 
     <Fragment slot="image">
@@ -60,10 +60,21 @@ const metadata = {
   </Hero2>
 
   <!-- Features2 Widget ************** -->
-
   <Features2
     title="About us"
-    subtitle="we bring world-class creativity directly to your digital doorstep. Our journey has been defined by a simple shift in perspective: we don't just work for you—we work with you. We transcend the traditional vendor-client dynamic to become your dedicated IT partners, ensuring that every technological leap we take is one that lands your business exactly where it needs to be."
+    subtitle="Solution Planets is a digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture. We specialize in two core areas."
+    items={[
+      {
+        title: 'Custom Digital Engineering',
+        description:
+          'We design and develop tailored software systems aligned to real business workflows — ensuring visibility, ownership, and operational efficiency across functions.',
+      },
+      {
+        title: 'Focused SaaS Platforms',
+        description:
+          'We build purpose-driven digital platforms that address specific operational gaps in compliance, governance, process control, and business automation.',
+      },
+    ]}
   >
     <Fragment slot="bg">
        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
@@ -72,8 +83,8 @@ const metadata = {
 
   <!-- Stats Widget ****************** -->
   <Stats
-    title='The Blueprint: Our "One-Roof" Process'
-    subtitle="Our approach is intentionally straightforward, designed to bridge the gap between a raw idea and a profound audience connection."
+    title='Our Engineering Framework'
+    subtitle="Building digital systems that scale requires more than coding.It requires architectural clarity and execution discipline."
     stats={[
       { title: 'Identify', amount: 'Understanding the DNA of your brand and goals.' },
       { title: 'Plan & Design', amount: 'Mapping the architecture of your digital future.' },
@@ -83,7 +94,7 @@ const metadata = {
   />
 
   <!-- Brands Widget ****************** -->
-  <Brands
+  <!-- <Brands
     title="Partnerships & Collaborations"
     subtitle="At Solution Planets, we believe in the power of collaboration to drive innovation and create exceptional experiences."
     icons={[]}
@@ -117,48 +128,48 @@ const metadata = {
        src: '~/assets/images/partner/cr.png', alt: 'Our partners',
       },
     ]}
-  />
+  /> -->
 
   <!-- Features2 Widget ************** -->
   <Features2
-    title="Our Infinite Commitment"
-    subtitle="As your lifelong IT Solution Partner, we don't just deliver a product and disappear. We are committed to providing the fuel for your long-term orbit."
+    title="Why Businesses Choose Solution Planets?"
+    subtitle="We work as structured digital engineering partners — bringing clarity, discipline, and long-term thinking to every system we build."
     items={[
       {
-        title: 'Clarity',
+        title: ' Strategic Before Technical',
         description:
-          'Real-time answers to your most complex technical questions.',
-        icon: 'flat-color-icons:document',
+          'Every engagement begins with architecture, workflow mapping, and business logic clarity — not immediate coding.',
+        icon: 'flat-color-icons:puzzle',
       },
       {
-        title: 'Innovation',
+        title: 'Systems That Scale',
         description:
-          'Access to state-of-the-art tech services that keep you ahead of the curve.',
-        icon: 'flat-color-icons:template',
+          'We build structured digital systems designed to grow with your business — not quick fixes that collapse under volume',
+        icon: 'flat-color-icons:positive-dynamic',
       },
       {
-        title: 'Empowerment',
+        title: 'Automation With Purpose',
         description:
-          'The exact tools and strategies required for sustained online success.',
-        icon: 'flat-color-icons:voice-presentation',
+          'AI and automation are applied where they reduce cost, improve control, and enhance measurable outcomes — not for buzzword value.',
+        icon: 'flat-color-icons:process',
       },
       {
-        title: 'AI-First Mentality',
+        title: 'Governance & Control Built-In',
         description:
-          'Future-proofing every project we touch by adding necessary automation.',
-        icon: 'flat-color-icons:document',
+          'Our solutions are designed with auditability, data structure, and operational discipline from day one.',
+        icon: 'flat-color-icons:rating',
       },
       {
-        title: 'Digital Culture',
+        title: 'Clear Ownership & Accountability',
         description:
-          'Agile, creative, always available and connected.',
-        icon: 'flat-color-icons:template',
+          'You interact with decision-makers. Clear communication. Defined responsibility. No layered confusion.',
+        icon: 'flat-color-icons:collaboration',
       },
       {
-        title: 'Technical Support',
+        title: 'Long-Term Technology Partnership',
         description:
-          'Providing customer support for any implementation issues.',
-        icon: 'flat-color-icons:voice-presentation',
+          'We stay involved beyond deployment — optimizing, strengthening, and adapting systems as your business evolves.',
+        icon: 'flat-color-icons:workflow',
       },
     ]}
   >
@@ -222,56 +233,55 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">Be a part of our vision</Fragment>
+    <Fragment slot="title">Ready to for your next phase of growth?</Fragment>
 
     <Fragment slot="subtitle">
-      Discover a dynamic work environment, unparalleled growth opportunities, and the chance to make a meaningful
-      impact.
+      We help growth-focused businesses build scalable digital systems, automation frameworks, and AI-enabled workflows that drive measurable outcome. Let’s discuss how Solution Planets can support your next move.
     </Fragment>
   </CallToAction>
 
   <!-- Features3 Widget ************** -->
   <Features3
-    title="Let us know how we can help"
-    subtitle="We’re here to help and answer any question you might have."
+    title="Start the Conversation"
+    subtitle="When you're planning digital transformation, automation, AI integration, or structured system development — let’s discuss your requirements."
     columns={4}
     items={[
       {
-        title: 'Phone',
+        title: 'Direct Consultation',
         icon: 'tabler:phone',
         callToAction: {
           target: '_blank',
-          text: 'Call us',
+          text: 'Speak with our team about your business requirements',
           href: '/contact',
           variant: 'link',
         },
       },
       {
-        title: 'Email',
+        title: 'Business Enquiries',
         icon: 'tabler:mail',
         callToAction: {
           target: '_blank',
-          text: 'Write to us',
+          text: 'Share your project details or RFP',
           href: '/contact',
           variant: 'link',
         },
       },
       {
-        title: 'Chat with us',
+        title: 'WhatsApp Connect',
         icon: 'tabler:message-circle',
         callToAction: {
           target: '_blank',
-          text: 'Start chatting',
+          text: 'Quick discussion for initial clarity',
           href: '/contact',
           variant: 'link',
         },
       },
       {
-        title: 'Ask for support',
+        title: 'Technical Support',
         icon: 'tabler:message-circle',
         callToAction: {
           target: '_blank',
-          text: 'Ask Anything',
+          text: 'For existing clients and implementation assistance',
           href: '/contact',
           variant: 'link',
         },
