@@ -1,0 +1,98 @@
+---
+interface Props {
+  className?: string;
+}
+const { className = '' } = Astro.props;
+---
+
+<canvas class={`aurora-canvas ${className}`} id="aurora-canvas" />
+
+<script>
+  const canvas = document.getElementById('aurora-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  let width: number, height: number;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  let t = 0;
+
+  function resize() {
+    width = canvas.width = canvas.offsetWidth;
+    height = canvas.height = canvas.offsetHeight;
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Wave bands — each has a color, speed, amplitude, frequency
+  const bands = [
+    { color: [120, 80, 255],  speed: 0.004, amp: 0.18, freq: 1.2, phase: 0.0 },
+    { color: [60,  200, 255], speed: 0.003, amp: 0.14, freq: 0.9, phase: 1.0 },
+    { color: [200, 60, 255],  speed: 0.005, amp: 0.20, freq: 1.5, phase: 2.1 },
+    { color: [0,   230, 180], speed: 0.0025,amp: 0.12, freq: 0.7, phase: 3.2 },
+    { color: [255, 100, 150], speed: 0.0045,amp: 0.16, freq: 1.1, phase: 4.5 },
+  ];
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    t += 1;
+
+    bands.forEach(band => {
+      band.phase += band.speed;
+
+      // Build wave path — originates from top-right, rolls down-left
+      const gradient = ctx.createLinearGradient(width, 0, width * 0.1, height);
+      const [r, g, b] = band.color;
+      gradient.addColorStop(0,   `rgba(${r},${g},${b}, 0.55)`);
+      gradient.addColorStop(0.4, `rgba(${r},${g},${b}, 0.25)`);
+      gradient.addColorStop(1,   `rgba(${r},${g},${b}, 0)`);
+
+      ctx.beginPath();
+
+      // Start from top-right corner
+      ctx.moveTo(width, 0);
+
+      // Draw wavy ribbon across from top-right sweeping to bottom-left
+      const steps = 80;
+      for (let i = 0; i <= steps; i++) {
+        const progress = i / steps;
+        // X goes from right to left
+        const x = width - progress * width * 1.1;
+        // Y follows a sine wave rolling downward
+        const baseY = progress * height * 1.05;
+        const wave = Math.sin(progress * Math.PI * 2 * band.freq + band.phase) * band.amp * height;
+        const y = baseY + wave;
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+
+      // Close ribbon — draw return path with offset for thickness
+      for (let i = steps; i >= 0; i--) {
+        const progress = i / steps;
+        const x = width - progress * width * 1.1;
+        const baseY = progress * height * 1.05;
+        const wave = Math.sin(progress * Math.PI * 2 * band.freq + band.phase) * band.amp * height;
+        const thickness = (Math.sin(progress * Math.PI) * 0.12 + 0.04) * height;
+        ctx.lineTo(x, baseY + wave + thickness);
+      }
+
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+</script>
+
+<style>
+  .aurora-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+</style>

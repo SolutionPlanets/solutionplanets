@@ -5,7 +5,7 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import Features2 from '~/components/widgets/Features2.astro';
-//import Features from '~/components/widgets/Features.astro';
+import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 //import Brands from '~/components/widgets/Brands.astro';
@@ -59,10 +59,21 @@ const metadata = {
     </Fragment>
   </Hero2>
 
-  <!-- Features2 Widget ************** -->
+  <!-- Stats Widget ****************** -->
+  <Stats
+    title='About Solution Planets'
+    subtitle="We are digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture. Our philosophy is simple:"
+    stats={[
+      { title: 'One', amount: 'Understand the business architecture before writing code' },
+      { title: 'Two', amount: 'Define ownership and decision pathways clearly' },
+      { title: 'Three', amount: 'Embed control mechanisms into workflows' },
+      { title: 'Four', amount: 'Build systems that scale with growth' },
+    ]}
+  />
+
   <Features2
-    title="About us"
-    subtitle="Solution Planets is a digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture. We specialize in two core areas."
+    title="We don’t believe in software for the sake of features."
+    subtitle="We believe in digital systems that reduce friction, prevent leakage, and strengthen execution discipline. We specialize in two core areas:"
     items={[
       {
         title: 'Custom Digital Engineering',
@@ -74,61 +85,54 @@ const metadata = {
         description:
           'We build purpose-driven digital platforms that address specific operational gaps in compliance, governance, process control, and business automation.',
       },
+      {
+        title: 'At Solution Planets',
+        description:
+          'We are not just a technology. We are long-term partners in building durable, scalable digital foundations.',
+      },
     ]}
   >
-    <Fragment slot="bg">
+<Fragment slot="bg">
        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
     </Fragment>
   </Features2>
 
-  <!-- Stats Widget ****************** -->
-  <Stats
-    title='Our Engineering Framework'
-    subtitle="Building digital systems that scale requires more than coding.It requires architectural clarity and execution discipline."
-    stats={[
-      { title: 'Identify', amount: 'Understanding the DNA of your brand and goals.' },
-      { title: 'Plan & Design', amount: 'Mapping the architecture of your digital future.' },
-      { title: 'Implement', amount: 'Building high-integrity software and AI-driven tools.' },
-      { title: 'Nurture', amount: 'Scaling and improving your product long after launch.' },
-    ]}
-  />
-
-  <!-- Brands Widget ****************** -->
-  <!-- <Brands
-    title="Partnerships & Collaborations"
-    subtitle="At Solution Planets, we believe in the power of collaboration to drive innovation and create exceptional experiences."
-    icons={[]}
-    images={[
+  <!-- Features2 Widget ************** -->
+  <Features
+    title="Our Engineering Framework"
+    subtitle="Building digital systems that scale requires more than coding. It requires architectural clarity and execution discipline."
+    
+    items={[
       {
-        src: '~/assets/images/partner/cr.png', alt: 'Our partners',
+        title: 'Business Architecture Mapping',
+        description:
+          'We begin by understanding your operational structure — decision flows, ownership boundaries, compliance requirements, and workflow dependencies',
+        icon: 'tabler:brand-tailwind',
       },
       {
-        src: '~/assets/images/partner/ctrlS.png', alt: 'Our partners',
+        title: 'System & Workflow Design',
+         description:
+          'We translate business logic into structured digital architecture — defining escalation paths, integration points, data governance, and control mechanisms.',
+        icon: 'tabler:components',
       },
       {
-        src: '~/assets/images/partner/ENTP.png', alt: 'Our partners',
-      },
-
-      {
-        src: '~/assets/images/partner/gcp.png', alt: 'Our partners',
-      },
-      {
-        src: '~/assets/images/partner/pinnacle-techies.png', alt: 'Our partners',
+        title: 'Controlled Implementation',
+         description:
+          'We engineer high-integrity software solutions — custom-built or platform-driven — ensuring alignment with real operational use cases.',
+        icon: 'tabler:arrows-right-left',
       },
       {
-        src: '~/assets/images/partner/quali-space.png', alt: 'Our partners',
-      },
-      {
-        src: '~/assets/images/partner/Razorpay.png', alt: 'Our partners',
-      },
-      {
-        src: '~/assets/images/partner/shopify.png', alt: 'Our partners',
-      },
-      {
-       src: '~/assets/images/partner/cr.png', alt: 'Our partners',
+        title: 'Governance and Continuous Optimization',
+         description:
+          'Systems must evolve as your business grows. We implement monitoring frameworks, performance checkpoints, and structured iteration cycles',
+        icon: 'tabler:rocket',
       },
     ]}
-  /> -->
+  >
+    <!-- <Fragment slot="bg">
+       <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
+    </Fragment> -->
+  </Features>
 
   <!-- Features2 Widget ************** -->
   <Features2

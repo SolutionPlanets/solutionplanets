@@ -1,7 +1,7 @@
 ---
 import Button from '~/components/ui/Button.astro';
 import type { Hero as Props } from '~/types';
-import FloatingCirclesSimple from '../animations/FloatingCirclesSimple.astro';
+import FloatingCirclesSimple from '../animations/Arora.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -18,7 +18,7 @@ const {
 
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    
+    <FloatingCirclesSimple />
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
@@ -27,7 +27,7 @@ const {
     <div class="pt-0 md:pt-0 pointer-events-none"></div>
     <div class="py-4 md:py-8 lg:py-0 lg:flex lg:items-center lg:h-screen lg:gap-8">
       <!-- Left content area: 1/2 width -->
-      <div class="lg:basis-1/2 text-center lg:text-left pb-6 md:pb-10 space-y-2 md:space-y-4">
+      <div class="lg:basis-2/3 text-center lg:text-left pb-6 md:pb-10 space-y-2 md:space-y-4">
         {
           tagline && (
             <p
@@ -73,16 +73,16 @@ const {
         {content && <Fragment set:html={content} />}
       </div>
         <!-- Right animation area: 1/2 width - CONSTRAINED -->
-      <div class="hidden lg:block lg:basis-1/2 relative h-screen">
+     <!--  <div class="hidden lg:block lg:basis-1/2 relative h-screen">
         <div class="absolute inset-0 overflow-hidden">
           <FloatingCirclesSimple />
         </div>
-      </div>
+      </div> -->
       
     </div>
   </div>
   <!-- Mobile floating circles - full width background -->
-  <div class="lg:hidden absolute inset-0 pointer-events-none opacity-40" aria-hidden="true">
+<!--   <div class="lg:hidden absolute inset-0 pointer-events-none opacity-40" aria-hidden="true">
     <FloatingCirclesSimple />
-  </div>
+  </div> -->
 </section>
