@@ -3,42 +3,17 @@ import { getPermalink} from './utils/permalinks';
 export const headerData = {
   links: [ 
     {
+      text: 'Home',
+      href: getPermalink('/'),
+    },
+    {
       text: 'Company',
       href: getPermalink('/company'),
     },   
     {
       text: 'Services',
       href: getPermalink('/services'),
-      /* links: [
-        {
-          text: 'Custom Web Development',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Virtual CTO',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'AI Integration',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Digital Marketing',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'B2B Ecommerce',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Cyber Security',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Support/Maitenance',
-          href: getPermalink('/services'),
-        },
-      ], */
+      
     },
     {
       text: 'Products',

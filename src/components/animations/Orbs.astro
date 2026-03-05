@@ -1,0 +1,142 @@
+---
+interface Props {
+  className?: string;
+}
+const { className = '' } = Astro.props;
+
+// Orbiting orbs: radius, speed, start angle, size, color
+const orbiters = [
+  { radius: 80,  duration: 8,  startAngle: 0,   size: 55,  color: '#3b82f6' },
+  { radius: 140, duration: 13, startAngle: 72,  size: 70,  color: '#8b5cf6' },
+  { radius: 200, duration: 18, startAngle: 144, size: 45,  color: '#06b6d4' },
+  { radius: 260, duration: 23, startAngle: 216, size: 90,  color: '#ec4899' },
+  { radius: 320, duration: 28, startAngle: 288, size: 60,  color: '#10b981' },
+  { radius: 200, duration: 15, startAngle: 36,  size: 50,  color: '#f59e0b' },
+  { radius: 280, duration: 20, startAngle: 180, size: 75,  color: '#14b8a6' },
+];
+---
+
+<div class={`orb-scene ${className}`}>
+  <!-- Center orb -->
+  <div class="orb center-orb" />
+
+  <!-- Each orbiter gets its own ring + orb -->
+  {orbiters.map((o) => (
+    <div
+      class="orbit-ring"
+      style={`
+        --radius: ${o.radius}px;
+        --duration: ${o.duration}s;
+        --start: ${o.startAngle}deg;
+        animation-delay: ${-(o.startAngle / 360) * o.duration}s;
+      `}
+    >
+      <div
+        class="orb"
+        style={`
+          --size: ${o.size}px;
+          --color: ${o.color};
+        `}
+      />
+    </div>
+  ))}
+</div>
+
+<style>
+  .orb-scene {
+    position: absolute;
+    /* Right side of hero, vertically centered */
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    height: 700px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Shared orb styles */
+  .orb {
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 35% 35%,
+      rgba(255, 255, 255, 0.45),
+      var(--color) 55%,
+      rgba(0, 0, 0, 0.25)
+    );
+    box-shadow:
+      inset -6px -6px 20px rgba(0,0,0,0.3),
+      inset 4px 4px 14px rgba(255,255,255,0.25),
+      0 0 30px color-mix(in srgb, var(--color) 40%, transparent);
+    filter: blur(0.5px);
+  }
+
+  /* Center orb */
+  .center-orb {
+    --size: 110px;
+    --color: #6366f1;
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  /* Ring that rotates — orb sits at the edge */
+  .orbit-ring {
+    position: absolute;
+    width: calc(var(--radius) * 2);
+    height: calc(var(--radius) * 2);
+    top: 50%;
+    left: 50%;
+    margin-top: calc(var(--radius) * -1);
+    margin-left: calc(var(--radius) * -1);
+    animation: orbit var(--duration) linear infinite;
+    /* Start at custom angle via delay */
+  }
+
+  /* Orb sits at the top of the ring; ring rotation carries it around */
+  .orbit-ring .orb {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.55;
+    /* Counter-rotate so orb stays upright */
+    animation: counter-orbit var(--duration) linear infinite;
+  }
+
+  @keyframes orbit {
+    from { transform: rotate(var(--start, 0deg)); }
+    to   { transform: rotate(calc(var(--start, 0deg) + 360deg)); }
+  }
+
+  @keyframes counter-orbit {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(-360deg); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.75; }
+    50%       { transform: translate(-50%, -50%) scale(1.08); opacity: 0.9;  }
+  }
+
+  /* On smaller screens, scale down */
+  @media (max-width: 1024px) {
+    .orb-scene {
+      opacity: 0.4;
+      right: -160px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .orb-scene {
+      display: none;
+    }
+  }
+</style>
