@@ -74,26 +74,17 @@ const {
 }
 
 <style>
-  @keyframes borderStreak {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 200% 50%;
-    }
-  }
-
   @keyframes cardGlow {
     0%,
     100% {
       box-shadow:
-        0 0 5px rgba(1, 96, 239, 0.5),
-        0 0 10px rgba(1, 96, 239, 0.3);
+        0 0 5px rgba(249, 115, 22, 0.5),
+        0 0 10px rgba(234, 88, 12, 0.3);
     }
     50% {
       box-shadow:
-        0 0 20px rgba(1, 96, 239, 0.8),
-        0 0 30px rgba(109, 40, 217, 0.6);
+        0 0 20px rgba(249, 115, 22, 0.8),
+        0 0 30px rgba(234, 88, 12, 0.6);
     }
   }
 
@@ -113,8 +104,8 @@ const {
       90deg,
       transparent 0%,
       transparent 30%,
-      rgba(1, 96, 239, 0.8) 50%,
-      rgba(138, 43, 226, 0.8) 55%,
+      rgba(249, 115, 22, 0.8) 50%,
+      rgba(234, 88, 12, 0.8) 55%,
       transparent 70%,
       transparent 100%
     );
@@ -123,8 +114,7 @@ const {
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: borderStreak 2s linear infinite;
+    mask-composite: exclude;  
     pointer-events: none;
   }
 

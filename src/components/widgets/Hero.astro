@@ -1,6 +1,6 @@
 ---
 import Button from '~/components/ui/Button.astro';
-import FloatingCirclesSimple from '../animations/FloatingCirclesSimple.astro';
+
 import type { Hero as Props } from '~/types';
 
 const {
@@ -10,7 +10,7 @@ const {
 
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
-  
+
   id,
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
@@ -69,7 +69,211 @@ const {
         </div>
         {content && <Fragment set:html={content} />}
       </div>
-       <FloatingCirclesSimple />
+       <div
+        class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        <div class="relative m-auto max-w-5xl">
+          <canvas
+            id="orbital-canvas"
+            class="w-full rounded-xl"
+            style="height: 420px; display: block;"
+            aria-hidden="true"
+          ></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const canvas = document.getElementById('orbital-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+ 
+    function resize() {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+ 
+    const W = () => canvas.offsetWidth;
+    const H = () => canvas.offsetHeight;
+ 
+    // ── Node definitions ──────────────────────────────────────────────
+    // Central "sun" node + orbiting planets + outer ring nodes
+    interface OrbitalNode {
+      id: number;
+      label: string;
+      orbitRadius: number;
+      angle: number;
+      speed: number;          // radians per second
+      size: number;
+      color: string;
+      glowColor: string;
+      connections: number[];  // ids to draw edges to
+      pulseOffset: number;
+    }
+ 
+    const nodes: OrbitalNode[] = [
+      // Central hub
+      { id: 0, label: 'Core', orbitRadius: 0, angle: 0, speed: 0, size: 18, color: '#4f8ef7', glowColor: '#4f8ef7', connections: [1,2,3,4,5], pulseOffset: 0 },
+      // Inner orbit
+      { id: 1, label: 'AI', orbitRadius: 90, angle: 0, speed: 0.38, size: 10, color: '#7ec8e3', glowColor: '#7ec8e3', connections: [2, 6], pulseOffset: 0.5 },
+      { id: 2, label: 'Automation', orbitRadius: 90, angle: Math.PI * 0.66, speed: 0.38, size: 10, color: '#7ec8e3', glowColor: '#7ec8e3', connections: [3], pulseOffset: 1.2 },
+      { id: 3, label: 'Infra', orbitRadius: 90, angle: Math.PI * 1.33, speed: 0.38, size: 10, color: '#7ec8e3', glowColor: '#7ec8e3', connections: [4, 7], pulseOffset: 2.1 },
+      // Outer orbit
+      { id: 4, label: 'Scale', orbitRadius: 170, angle: 0.4, speed: 0.18, size: 8, color: '#3a6fd8', glowColor: '#5b8ff9', connections: [5, 8], pulseOffset: 0.8 },
+      { id: 5, label: 'Data', orbitRadius: 170, angle: 1.5, speed: 0.18, size: 8, color: '#3a6fd8', glowColor: '#5b8ff9', connections: [6], pulseOffset: 1.8 },
+      { id: 6, label: 'CRM', orbitRadius: 170, angle: 2.8, speed: 0.18, size: 8, color: '#3a6fd8', glowColor: '#5b8ff9', connections: [7], pulseOffset: 0.2 },
+      { id: 7, label: 'API', orbitRadius: 170, angle: 4.2, speed: 0.18, size: 8, color: '#3a6fd8', glowColor: '#5b8ff9', connections: [8], pulseOffset: 2.9 },
+      { id: 8, label: 'Cloud', orbitRadius: 170, angle: 5.5, speed: 0.18, size: 8, color: '#3a6fd8', glowColor: '#5b8ff9', connections: [], pulseOffset: 1.4 },
+    ];
+ 
+    // Travelling pulse particles along edges
+    interface Pulse {
+      from: number;
+      to: number;
+      t: number;       // 0→1 progress
+      speed: number;
+      size: number;
+      color: string;
+    }
+    const pulses: Pulse[] = [];
+    let lastPulseTime = 0;
+ 
+    function spawnPulse(ts: number) {
+      if (ts - lastPulseTime < 500) return;
+      lastPulseTime = ts;
+      const src = nodes[Math.floor(Math.random() * nodes.length)];
+      if (!src.connections.length) return;
+      const toId = src.connections[Math.floor(Math.random() * src.connections.length)];
+      pulses.push({
+        from: src.id,
+        to: toId,
+        t: 0,
+        speed: 0.4 + Math.random() * 0.4,
+        size: 3 + Math.random() * 2,
+        color: Math.random() > 0.5 ? '#7ec8e3' : '#4f8ef7',
+      });
+    }
+ 
+    function nodePos(node: OrbitalNode): [number, number] {
+      const cx = W() / 2;
+      const cy = H() / 2;
+      return [
+        cx + node.orbitRadius * Math.cos(node.angle),
+        cy + node.orbitRadius * Math.sin(node.angle),
+      ];
+    }
+ 
+    let lastTime = 0;
+    function draw(ts: number) {
+      const dt = Math.min((ts - lastTime) / 1000, 0.05);
+      lastTime = ts;
+ 
+      const w = W(), h = H();
+      ctx.clearRect(0, 0, w, h);
+ 
+      // Background gradient
+      const bg = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.7);
+      bg.addColorStop(0, 'rgba(15,28,64,0.55)');
+      bg.addColorStop(1, 'rgba(5,10,25,0.0)');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+ 
+      // Update angles
+      nodes.forEach((n) => { n.angle += n.speed * dt; });
+ 
+      // Draw orbit rings
+      [90, 170].forEach((r) => {
+        ctx.beginPath();
+        ctx.arc(w / 2, h / 2, r, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(78, 130, 220, 0.12)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+ 
+      // Draw edges
+      nodes.forEach((src) => {
+        const [sx, sy] = nodePos(src);
+        src.connections.forEach((tid) => {
+          const dst = nodes[tid];
+          const [dx, dy] = nodePos(dst);
+          const grad = ctx.createLinearGradient(sx, sy, dx, dy);
+          grad.addColorStop(0, 'rgba(79,142,247,0.30)');
+          grad.addColorStop(1, 'rgba(126,200,227,0.10)');
+          ctx.beginPath();
+          ctx.moveTo(sx, sy);
+          ctx.lineTo(dx, dy);
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
+      });
+ 
+      // Spawn & draw pulses
+      spawnPulse(ts);
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i];
+        p.t += p.speed * dt;
+        if (p.t >= 1) { pulses.splice(i, 1); continue; }
+        const [sx, sy] = nodePos(nodes[p.from]);
+        const [dx, dy] = nodePos(nodes[p.to]);
+        const px = sx + (dx - sx) * p.t;
+        const py = sy + (dy - sy) * p.t;
+        ctx.beginPath();
+        ctx.arc(px, py, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+ 
+      // Draw nodes
+      nodes.forEach((n) => {
+        const [nx, ny] = nodePos(n);
+        const pulse = 0.7 + 0.3 * Math.sin(ts * 0.002 + n.pulseOffset);
+ 
+        // Glow
+        const glow = ctx.createRadialGradient(nx, ny, 0, nx, ny, n.size * 3.5);
+        glow.addColorStop(0, n.glowColor + 'aa');
+        glow.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(nx, ny, n.size * 3.5 * pulse, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+ 
+        // Core circle
+        ctx.beginPath();
+        ctx.arc(nx, ny, n.size, 0, Math.PI * 2);
+        ctx.fillStyle = n.color;
+        ctx.shadowColor = n.glowColor;
+        ctx.shadowBlur = 18;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+ 
+        // Inner highlight
+        ctx.beginPath();
+        ctx.arc(nx - n.size * 0.3, ny - n.size * 0.3, n.size * 0.35, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.35)';
+        ctx.fill();
+ 
+        // Label (skip on very small nodes to keep it clean)
+        if (n.size >= 8) {
+          ctx.font = `${Math.max(9, n.size * 0.85)}px ui-monospace, monospace`;
+          ctx.fillStyle = 'rgba(180,210,255,0.85)';
+          ctx.textAlign = 'center';
+          ctx.fillText(n.label, nx, ny + n.size + 13);
+        }
+      });
+ 
+      requestAnimationFrame(draw);
+    }
+ 
+    requestAnimationFrame(draw);
+  })();
+</script>

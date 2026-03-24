@@ -92,9 +92,6 @@ const metadata = {
       },
     ]}
   >
-<Fragment slot="bg">
-       <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
-    </Fragment>
   </Features2>
 
   <!-- Features2 Widget ************** -->
@@ -242,6 +239,7 @@ const metadata = {
     <Fragment slot="subtitle">
       We help growth-focused businesses build scalable digital systems, automation frameworks, and AI-enabled workflows that drive measurable outcome. Let’s discuss how Solution Planets can support your next move.
     </Fragment>
+    
   </CallToAction>
 
   <!-- Features3 Widget ************** -->
@@ -291,6 +289,11 @@ const metadata = {
         },
       },
     ]}
-  />
+  >
+  <Fragment slot="bg">
+    <!-- Pattern background -->
+       <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
+    </Fragment>
+</Features3>
   
 </Layout>

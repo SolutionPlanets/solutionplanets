@@ -10,7 +10,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget with Social Icons ******************* -->
-  <HeroText tagline="Let's Connect!" title="We are where you love to be">
+  <HeroText tagline="We are where you love to be" title="Let's Connect">
     <Fragment slot="subtitle">
       <div class="flex justify-center gap-6 mt-8 mb-4">
         <a
@@ -103,6 +103,11 @@ const metadata = {
     subtitle="Solution Planets offers comprehensive web and IT services tailored to your business needs"
     items={[
       {
+        title: 'Email',
+        description: 'info@solutionplanets.com<br />foram.doshi@solutionplanets.com',
+        icon: 'tabler:mail',
+      },
+      {
         title: 'Our Locations',
         description: 'India - Mumbai MH<br />USA - Houston TX',
         icon: 'tabler:map-pin',
@@ -111,12 +116,8 @@ const metadata = {
         title: 'Phone',
         description: '+91 8104664284<br />+1 3468295870',
         icon: 'tabler:phone',
-      },      
-      {
-        title: 'Email',
-        description: 'info@solutionplanets.com<br />foram.doshi@solutionplanets.com',
-        icon: 'tabler:mail',
-      },
+      }   
+      
     ]}
   />
 </Layout>

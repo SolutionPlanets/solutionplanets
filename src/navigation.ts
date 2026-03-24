@@ -7,14 +7,14 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Company',
-      href: getPermalink('/company'),
-    },   
-    {
       text: 'Services',
       href: getPermalink('/services'),
       
     },
+    {
+      text: 'Company',
+      href: getPermalink('/company'),
+    },    
     {
       text: 'Products',
       links: [
@@ -38,7 +38,7 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_blank' },
+        { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_new' },
         { text: 'Calibrotech', href: 'https://www.calibrotech.com/', target:'_blank' },
         { text: 'Credibl5', href: 'https://www.credibl5.com/', target:'_blank' },
         { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },

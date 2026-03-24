@@ -86,13 +86,13 @@ const BUBBLE  = 26;     // half of icon bubble (52px)
           aria-hidden="true"
         >
           <!-- Ring circles -->
-          <circle cx={C} cy={C} r={R_INNER} fill="none" stroke="rgba(99,179,237,0.22)" stroke-width="1"/>
-          <circle cx={C} cy={C} r={R_OUTER} fill="none" stroke="rgba(99,179,237,0.22)" stroke-width="1"/>
+          <circle cx={C} cy={C} r={R_INNER} fill="none" stroke="rgba(234, 88, 12,0.22)" stroke-width="1"/>
+          <circle cx={C} cy={C} r={R_OUTER} fill="none" stroke="rgba(234, 88, 12,0.22)" stroke-width="1"/>
 
           <!-- Center glow -->
           <circle cx={C} cy={C} r="12" fill="url(#cg)"/>
           <defs>
-            <radialGradient id="cg"><stop offset="0%" stop-color="#93c5fd"/><stop offset="100%" stop-color="#0160ef"/></radialGradient>
+            <radialGradient id="cg"><stop offset="0%" stop-color="#93c5fd"/><stop offset="100%" stop-color="#ea580c"/></radialGradient>
             <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
           <circle cx={C} cy={C} r="9" fill="url(#cg)" filter="url(#glow)"/>
@@ -173,7 +173,7 @@ const BUBBLE  = 26;     // half of icon bubble (52px)
     transition: filter 0.3s;
   }
   .bubble-circle:hover {
-    filter: drop-shadow(0 0 10px rgba(1,96,239,0.7));
+    filter: drop-shadow(0 0 10px rgba(239, 128, 1, 0.7));
   }
 
   /* ── Ring spin animations ───────────────────────────────── */
@@ -190,17 +190,17 @@ const BUBBLE  = 26;     // half of icon bubble (52px)
   /* ── Light mode: white bubble bg ───────────────────────── */
   :global(:not(.dark)) .bubble-circle {
     fill: rgba(255,255,255,0.95);
-    stroke: rgba(1,96,239,0.18);
+    stroke: rgba(234, 88, 12, 0.2);
   }
   :global(:not(.dark)) .orbit-svg circle[r="1"],
   :global(:not(.dark)) .orbit-svg circle[stroke="rgba(99,179,237,0.22)"] {
-    stroke: rgba(1,96,239,0.15);
+    stroke: rgba(234, 88, 12, 0.2);
   }
 
   /* ── ItemGrid icon shine ────────────────────────────────── */
   @keyframes shine {
-    0%,100% { box-shadow: 0 0 5px rgba(1,96,239,.5), 0 0 10px rgba(1,96,239,.3); }
-    50%      { box-shadow: 0 0 20px rgba(1,96,239,.8), 0 0 30px rgba(1,96,239,.6), 0 0 40px rgba(109,40,217,.4); }
+    0%,100% { box-shadow: 0 0 5px rgba(234, 88, 12, .5), 0 0 10px rgba(1,96,239,.3); }
+    50%      { box-shadow: 0 0 20px rgba(249, 115, 22, .8), 0 0 30px rgba(1,96,239,.6), 0 0 40px rgba(109,40,217,.4); }
   }
   @keyframes pulse {
     0%,100% { transform: scale(1); }
