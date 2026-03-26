@@ -10,10 +10,10 @@ import Stats from '~/components/widgets/Stats.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 //import Brands from '~/components/widgets/Brands.astro';
 
-import { YouTube } from 'astro-embed';
+//import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'About Company - Solution Planets',
+  title: 'About - Solution Planets',
 };
 ---
 
@@ -25,10 +25,10 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        target: '_blank',
-        text: 'Explore Our Solutions',
-        href: '',
-        icon: '',
+        target: '',
+        text: 'More About Us',
+        href: '#stats',
+        icon: 'tabler:arrow-down',
       },
       { text: 'Connect With Us', 
         href: 'https://www.linkedin.com/company/solutionplanets/', 
@@ -48,7 +48,7 @@ const metadata = {
       We design, build, and implement <span class="font-semibold">custom engineering solutions</span> and focused SaaS platforms that strengthen workflow, compliance, and operational visibility.
     </Fragment>
 
-    <Fragment slot="image">
+    <!-- <Fragment slot="image">
       <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
       <style is:inline>
         lite-youtube {
@@ -56,13 +56,15 @@ const metadata = {
           max-width: 100%;
         }
       </style>
-    </Fragment>
+    </Fragment> -->
   </Hero2>
+
 
   <!-- Stats Widget ****************** -->
   <Stats
+    id="stats"
     title='About Solution Planets'
-    subtitle="We are digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture. Our philosophy is simple:"
+    subtitle="We are digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture. Our Work philosophy is simple 4 steps,"
     stats={[
       { title: 'One', amount: 'Understand the business architecture before writing code' },
       { title: 'Two', amount: 'Define ownership and decision pathways clearly' },

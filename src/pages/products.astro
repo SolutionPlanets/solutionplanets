@@ -1,47 +1,25 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Header from '~/components/widgets/Header.astro';
-import Hero from '~/components/widgets/Hero.astro';
+//import Header from '~/components/widgets/Header.astro';
+//import Hero from '~/components/widgets/Hero2.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
-import Steps from '~/components/widgets/Steps.astro';
+//import Steps from '~/components/widgets/Steps.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import { getPermalink } from '~/utils/permalinks';
+//import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
-  title: 'Personal Homepage Demo',
+  title: 'Products - Solution Planets',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Fragment slot="announcement"></Fragment>
-  <Fragment slot="header">
-    <Header
-      links={[
-        { text: 'Home', href: '#' },
-        { text: 'About', href: '#about' },
-        { text: 'Resume', href: '#resume' },
-        { text: 'Porfolio', href: '#porfolio' },
-        { text: 'Blog', href: '#blog' },
-        { text: 'Github', href: 'https://github.com/arthelokyo' },
-      ]}
-      actions={[
-        {
-          text: 'Hire me',
-          href: '#',
-        },
-      ]}
-      isSticky
-      showToggleTheme
-    />
-  </Fragment>
-
   <!-- Hero2 Widget ******************* -->
 
-  <Hero
+  <!-- <Hero
     id="hero"
     title="Sarah Johnson"
     tagline="Personal Web Demo"
@@ -52,11 +30,11 @@ const metadata = {
       New York University's School of Design. I infuse vitality into brands and designs, transforming concepts into captivating
       realities.
     </Fragment>
-  </Hero>
+  </Hero> -->
 
   <!-- Content Widget **************** -->
 
-  <Content
+  <!-- <Content
     id="about"
     columns={3}
     items={[
@@ -109,11 +87,11 @@ const metadata = {
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </Content>
+  </Content> -->
 
   <!-- Steps Widget ****************** -->
 
-  <Steps
+ <!--  <Steps
     id="resume"
     title="Work experience"
     items={[
@@ -131,11 +109,11 @@ const metadata = {
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
-  />
+  /> -->
 
   <!-- Steps Widget ****************** -->
 
-  <Steps
+  <!-- <Steps
     id="resume"
     title="Education"
     items={[
@@ -149,7 +127,7 @@ const metadata = {
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
-  />
+  /> -->
 
   <!-- Features3 Widget ************** -->
 

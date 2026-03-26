@@ -17,13 +17,14 @@ export const headerData = {
     },    
     {
       text: 'Products',
-      links: [
+      href: getPermalink('/products'),
+      /* links: [
         { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_blank' },
         { text: 'Calibrotech', href: 'https://www.calibrotech.com/', target:'_blank' },
         { text: 'Credibl5', href: 'https://www.credibl5.com/', target:'_blank' },
         { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },
         { text: 'CricJourney', href: 'https://www.mycricjourney.com/', target:'_blank' },
-      ],
+      ], */
     },
     {
       text: 'Contact',
@@ -48,21 +49,21 @@ export const footerData = {
     {
       title: 'Service',
       links: [
-        { text: 'Web App Development', href: '#' },
-        { text: 'B2B Ecommerce', href: '#' },
-        { text: 'AI Integration', href: '#' },
-        { text: 'Digital Marketing', href: '#' },
-        { text: 'Cyber Security', href: '#' },
+        { text: 'Web Development', href: getPermalink('/services') },
+        { text: 'B2B Ecommerce', href: getPermalink('/services')},
+        { text: 'AI Integration', href: getPermalink('/services')},
+        { text: 'Digital Marketing', href: getPermalink('/services')},
+        { text: 'Cyber Security', href: getPermalink('/services')},
       ],
     },    
     {
       title: 'Company',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Portfolio', href: '#' },
-        { text: 'Parters', href: '#' },        
-        { text: 'Careers', href: '#' },
+        { text: 'About', href: getPermalink('/company')},
+        { text: 'Features', href: getPermalink('company')},
+        { text: 'Portfolio', href: getPermalink('/products')},
+        { text: 'Blog', href: getPermalink('/blog')},        
+        { text: 'Contact', href: getPermalink('/company')},
       ],
     },
     {

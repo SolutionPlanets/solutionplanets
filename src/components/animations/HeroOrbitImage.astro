@@ -1,127 +1,149 @@
 ---
-/** 
+/**
  * HeroOrbitImage.astro
- * Animated orbital network canvas — drop-in hero visual for Solution Planets
-*/
+ * Animated orbital network canvas — drop-in hero visual for Solution Planets.
+ * Compatible with Astro View Transitions (client-side router).
+ */
+
+interface Props {
+  height?: number;       // canvas height in px   (default 600)
+  class?: string;        // extra classes on wrapper div
+}
+
+const {
+  height = 600,
+  class: className = '',
+} = Astro.props;
+
+// ─── static config ────────────────────────────────────────────────────────────
+
+const ORBIT_RINGS = [90, 170] as const;
+
+interface NodeDef {
+  id: number;
+  label: string;
+  orbitRadius: number;
+  angle: number;
+  speed: number;
+  size: number;
+  color: string;
+  glowColor: string;
+  connections: number[];
+  pulseOffset: number;
+}
+
+const NODE_DEFS: NodeDef[] = [
+  { id:0, label:'S.P.',       orbitRadius:0,   angle:0,              speed:0,    size:18, color:'#f97316', glowColor:'#fb923c', connections:[1,2,3,4,5], pulseOffset:0   },
+  { id:1, label:'AI',         orbitRadius:90,  angle:0,              speed:0.38, size:10, color:'#fb923c', glowColor:'#fdba74', connections:[2,6],       pulseOffset:0.5 },
+  { id:2, label:'Automation', orbitRadius:90,  angle:Math.PI*0.66,   speed:0.38, size:10, color:'#fb923c', glowColor:'#fdba74', connections:[3],         pulseOffset:1.2 },
+  { id:3, label:'Infra',      orbitRadius:90,  angle:Math.PI*1.33,   speed:0.38, size:10, color:'#fb923c', glowColor:'#fdba74', connections:[4,7],       pulseOffset:2.1 },
+  { id:4, label:'Scale',      orbitRadius:170, angle:0.4,            speed:0.18, size:8,  color:'#ea580c', glowColor:'#f97316', connections:[5,8],       pulseOffset:0.8 },
+  { id:5, label:'Data',       orbitRadius:170, angle:1.5,            speed:0.18, size:8,  color:'#ea580c', glowColor:'#f97316', connections:[6],         pulseOffset:1.8 },
+  { id:6, label:'CRM',        orbitRadius:170, angle:2.8,            speed:0.18, size:8,  color:'#ea580c', glowColor:'#f97316', connections:[7],         pulseOffset:0.2 },
+  { id:7, label:'API',        orbitRadius:170, angle:4.2,            speed:0.18, size:8,  color:'#ea580c', glowColor:'#f97316', connections:[8],         pulseOffset:2.9 },
+  { id:8, label:'Cloud',      orbitRadius:170, angle:5.5,            speed:0.18, size:8,  color:'#ea580c', glowColor:'#f97316', connections:[],          pulseOffset:1.4 },
+];
+
+const PULSE_INTERVAL_MS = 500;
+const PULSE_COLORS = ['#7ec8e3', '#4f8ef7'] as const;
 ---
 
-<div class="relative m-auto max-w-5xl w-full">
+<div class={`relative mx-auto max-w-5xl w-full ${className}`}>
   <canvas
     id="orbital-canvas"
     class="w-full rounded-xl"
-    style="height: 600px; display: block;"
+    style={`height: ${height}px; display: block;`}
     aria-hidden="true"
   ></canvas>
 </div>
 
-<script>
-  (function () {
-    const canvas = document.getElementById('orbital-canvas') as HTMLCanvasElement;
+<script define:vars={{ NODE_DEFS, ORBIT_RINGS, PULSE_INTERVAL_MS, PULSE_COLORS }}>
+  // init() is idempotent — safe to call on every page transition.
+  function init() {
+    const canvas = document.getElementById('orbital-canvas');
     if (!canvas) return;
-    const ctx = canvas.getContext('2d')!;
 
+    // Cancel any previous animation loop attached to this canvas.
+    if (canvas._rafId) cancelAnimationFrame(canvas._rafId);
+
+    const ctx = canvas.getContext('2d');
+
+    // ── resize ────────────────────────────────────────────────────────────────
     function resize() {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      canvas.width  = canvas.offsetWidth  * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
     }
     resize();
+
+    // Remove stale listener before adding a fresh one.
+    window.removeEventListener('resize', canvas._resizeHandler);
+    canvas._resizeHandler = resize;
     window.addEventListener('resize', resize);
 
     const W = () => canvas.offsetWidth;
     const H = () => canvas.offsetHeight;
 
-    interface OrbitalNode {
-      id: number;
-      label: string;
-      orbitRadius: number;
-      angle: number;
-      speed: number;
-      size: number;
-      color: string;
-      glowColor: string;
-      connections: number[];
-      pulseOffset: number;
-    }
-
-    const nodes: OrbitalNode[] = [
-      { id: 0, label: 'S.P.',       orbitRadius: 0,   angle: 0,              speed: 0,    size: 18, color: '#f97316', glowColor: '#fb923c', connections: [1,2,3,4,5], pulseOffset: 0   },
-      { id: 1, label: 'AI',         orbitRadius: 90,  angle: 0,              speed: 0.38, size: 10, color: '#fb923c', glowColor: '#fdba74', connections: [2,6],       pulseOffset: 0.5 },
-      { id: 2, label: 'Automation', orbitRadius: 90,  angle: Math.PI * 0.66, speed: 0.38, size: 10, color: '#fb923c', glowColor: '#fdba74', connections: [3],         pulseOffset: 1.2 },
-      { id: 3, label: 'Infra',      orbitRadius: 90,  angle: Math.PI * 1.33, speed: 0.38, size: 10, color: '#fb923c', glowColor: '#fdba74', connections: [4,7],       pulseOffset: 2.1 },
-      { id: 4, label: 'Scale',      orbitRadius: 170, angle: 0.4,            speed: 0.18, size: 8,  color: '#ea580c', glowColor: '#f97316', connections: [5,8],       pulseOffset: 0.8 },
-      { id: 5, label: 'Data',       orbitRadius: 170, angle: 1.5,            speed: 0.18, size: 8,  color: '#ea580c', glowColor: '#f97316', connections: [6],         pulseOffset: 1.8 },
-      { id: 6, label: 'CRM',        orbitRadius: 170, angle: 2.8,            speed: 0.18, size: 8,  color: '#ea580c', glowColor: '#f97316', connections: [7],         pulseOffset: 0.2 },
-      { id: 7, label: 'API',        orbitRadius: 170, angle: 4.2,            speed: 0.18, size: 8,  color: '#ea580c', glowColor: '#f97316', connections: [8],         pulseOffset: 2.9 },
-      { id: 8, label: 'Cloud',      orbitRadius: 170, angle: 5.5,            speed: 0.18, size: 8,  color: '#ea580c', glowColor: '#f97316', connections: [],          pulseOffset: 1.4 },
-    ];
-
-    interface Pulse {
-      from: number;
-      to: number;
-      t: number;
-      speed: number;
-      size: number;
-      color: string;
-    }
-
-    const pulses: Pulse[] = [];
+    // ── mutable state (deep-cloned from static config each init) ─────────────
+    const nodes = NODE_DEFS.map(n => ({ ...n }));
+    const pulses = [];
     let lastPulseTime = 0;
+    let lastTime = 0;
 
-    function spawnPulse(ts: number) {
-      if (ts - lastPulseTime < 500) return;
-      lastPulseTime = ts;
-      const src = nodes[Math.floor(Math.random() * nodes.length)];
-      if (!src.connections.length) return;
-      const toId = src.connections[Math.floor(Math.random() * src.connections.length)];
-      pulses.push({
-        from: src.id,
-        to: toId,
-        t: 0,
-        speed: 0.4 + Math.random() * 0.4,
-        size: 3 + Math.random() * 2,
-        color: Math.random() > 0.5 ? '#7ec8e3' : '#4f8ef7',
-      });
-    }
-
-    function nodePos(node: OrbitalNode): [number, number] {
+    // ── helpers ───────────────────────────────────────────────────────────────
+    function nodePos(node) {
       return [
         W() / 2 + node.orbitRadius * Math.cos(node.angle),
         H() / 2 + node.orbitRadius * Math.sin(node.angle),
       ];
     }
 
-    let lastTime = 0;
+    function spawnPulse(ts) {
+      if (ts - lastPulseTime < PULSE_INTERVAL_MS) return;
+      lastPulseTime = ts;
+      const src = nodes[Math.floor(Math.random() * nodes.length)];
+      if (!src.connections.length) return;
+      const toId = src.connections[Math.floor(Math.random() * src.connections.length)];
+      pulses.push({
+        from:  src.id,
+        to:    toId,
+        t:     0,
+        speed: 0.4 + Math.random() * 0.4,
+        size:  3   + Math.random() * 2,
+        color: PULSE_COLORS[Math.random() > 0.5 ? 0 : 1],
+      });
+    }
 
-    function draw(ts: number) {
+    // ── draw loop ─────────────────────────────────────────────────────────────
+    function draw(ts) {
       const dt = Math.min((ts - lastTime) / 1000, 0.05);
       lastTime = ts;
       const w = W(), h = H();
       ctx.clearRect(0, 0, w, h);
 
       // Radial background glow
-      const bg = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * 0.7);
-      bg.addColorStop(0, 'rgba(15,28,64,0.55)');
-      bg.addColorStop(1, 'rgba(5,10,25,0.0)');
+     /*  const bg = ctx.createRadialGradient(w/2, h/2, 0, w/2, h/2, Math.max(w, h) * 0.7);
+      bg.addColorStop(0, 'rgba(3,6,33,0.3)');
+      bg.addColorStop(1, 'rgba(3,6,33,0.0)');
       ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, w, h);
+      ctx.fillRect(0, 0, w, h); */
 
       // Update angles
-      nodes.forEach((n) => { n.angle += n.speed * dt; });
+      nodes.forEach(n => { n.angle += n.speed * dt; });
 
       // Orbit rings
-      [90, 170].forEach((r) => {
+      ORBIT_RINGS.forEach(r => {
         ctx.beginPath();
-        ctx.arc(w / 2, h / 2, r, 0, Math.PI * 2);
+        ctx.arc(w/2, h/2, r, 0, Math.PI * 2);
         ctx.strokeStyle = 'rgba(78,130,220,0.12)';
         ctx.lineWidth = 1;
         ctx.stroke();
       });
 
       // Edges
-      nodes.forEach((src) => {
+      nodes.forEach(src => {
         const [sx, sy] = nodePos(src);
-        src.connections.forEach((tid) => {
+        src.connections.forEach(tid => {
           const [dx, dy] = nodePos(nodes[tid]);
           const grad = ctx.createLinearGradient(sx, sy, dx, dy);
           grad.addColorStop(0, 'rgba(79,142,247,0.30)');
@@ -155,7 +177,7 @@
       }
 
       // Nodes
-      nodes.forEach((n) => {
+      nodes.forEach(n => {
         const [nx, ny] = nodePos(n);
         const pulse = 0.7 + 0.3 * Math.sin(ts * 0.002 + n.pulseOffset);
 
@@ -192,9 +214,13 @@
         }
       });
 
-      requestAnimationFrame(draw);
+      canvas._rafId = requestAnimationFrame(draw);
     }
 
-    requestAnimationFrame(draw);
-  })();
+    canvas._rafId = requestAnimationFrame(draw);
+  }
+
+  // Run on first load AND on every View Transition navigation.
+  init();
+  document.addEventListener('astro:page-load', init);
 </script>
