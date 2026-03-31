@@ -264,8 +264,18 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- CallToAction Widget *********** -->
 
+  <!-- Stats Widget ****************** -->
+  <Stats
+    stats={[
+      { title: 'Projects Delivered', amount: '250+' },
+      { title: 'Clients Served', amount: '130+' },      
+      { title: 'Combined Experience', amount: '20+' },
+      { title: 'Our Products', amount: '5+' },
+    ]}
+  /> 
+
+  <!-- CallToAction Widget *********** -->
   <CallToAction
     actions={[
       {
@@ -284,18 +294,7 @@ const metadata = {
     <Fragment slot="subtitle">
       We help businesses translate strategy into scalable digital systems — automation, AI, infrastructure, and governance aligned with real performance outcomes.
     </Fragment>
-  </CallToAction>
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Clients Served', amount: '132' },
-      { title: 'Projects Delivered', amount: '248' },
-      { title: 'Years of Experience', amount: '15' },
-      { title: 'Active Products', amount: '8' },
-    ]}
-  /> 
+  </CallToAction> 
   
 </Layout>
 

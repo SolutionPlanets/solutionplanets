@@ -1,0 +1,212 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+//import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+//import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+//import Steps from '~/components/widgets/Steps.astro';
+//import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+//import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Products - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero2
+    id="hero2"
+    title="From Idea to Online"
+    tagline="Built by our experts"
+    actions={[{ variant: 'primary', text: 'Portfolio', href: '#features3', icon: 'tabler:arrow-down', }]}
+  >
+    <Fragment slot="subtitle">
+      We are dedicated to providing top-notch digital solutions for your business. Our team of experienced professionals leverages cutting-edge technologies and best practices to deliver tailor-made software solutions that meet your unique needs.
+    </Fragment>
+  </Hero2>
+    
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    id='features3'
+    title="Our Portfolio"
+    subtitle="We are your partner in digital evolution, providing tech that adapts as you do. We define our success through technology that helps you grow."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      {
+        title: 'Circulating Library',
+        description: 'Platform for online and in-store library registration, and upcycling system for books and toys',
+      },
+      {
+        title: 'Placement Portal',
+        description: 'A niche placement portal for Audit/Taxation firms for hiring and onboarding process',
+      },
+      {
+        title: 'Learning Management Platform',
+        description: 'LMS platform with content management, profile management, and course purchase',
+      },
+      {
+        title: 'Online Test portal',
+        description: 'Portal for coaching class to manage question banks, and run tests remotly',
+      },
+      {
+        title: 'Enterprise resource planning',
+        description: 'CRM, Orders, Production Control and quality check, Inventory Management, Accounting, Logistics and Reporting',
+      },
+      {
+        title: 'eCommerce and eStore',
+        description: 'Manage sales from one dashboard. Complete eStore designing and selling on social media',
+      },
+      /* {
+        title: 'Print and digital design',
+        description: 'Knowledgeable in designing for both print materials and digital platforms.',
+      },
+      {
+        title: 'Attention to detail',
+        description: 'Diligent in maintaining precision and quality in all design work.',
+      },
+      {
+        title: 'Adaptability',
+        description: 'Quick to adapt to new design trends, technologies, and client preferences.',
+      }, */
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+ <!--  <Content
+    id="porfolio"
+    title="Elevating visual narratives"
+    subtitle="Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives."
+    isReversed
+    items={[
+      {
+        title: 'Description:',
+        description:
+          'Developed a comprehensive brand identity for a tech startup, Tech Innovators, specializing in disruptive innovations. The goal was to convey a modern yet approachable image that resonated with both corporate clients and tech enthusiasts.',
+      },
+      {
+        title: 'Role:',
+        description:
+          'Led the entire branding process from concept to execution. Created a dynamic logo that symbolized innovation, selected a vibrant color palette, and I designed corporate stationery, website graphics, and social media assets.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+      alt: 'Tech Design Image',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Go to the project',
+      icon: 'tabler:chevron-right',
+      href: '#',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content> -->
+
+ 
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="Client testimonials"
+    subtitle="Discover what clients have to say about their experiences working with us."
+    testimonials={[
+      {
+        testimonial: `Solution Planets has been an excellent web product development partner, having worked closely with them on four different projects. They have almost always managed timely delivery of milestones as per agreed schedule. The experience of people I've referred them to has also been good - the best indicator of which is their repeat orders.`,
+        name: 'Rajesh Haldipur',
+        job: 'Former Head, Tax and Regulatory services',
+        image: {
+          src: '~/assets/images/dp/dp1.png',
+          alt: 'DP Image',
+        },
+      },
+      {
+        testimonial: `We are really happy with the service provided by Dharmesh bhai and his team at Solution Planets! They go out of their way to help clients with their tech needs and are very sharp when it comes to understanding & conceptualising what exactly a client wants in a product from a technology perspective! Also, hands down, they are the most reliable tech partners I have ever worked with! Kudos to their entire team!`,
+        name: 'Tanaya Doshi',
+        job: 'VP Strategy - Realtime Taxsutra Services',
+        image: {
+          src: '~/assets/images/dp/dp2.png',
+          alt: 'DP Image',
+        },
+      },
+      {
+        testimonial: `We have been associated with Solution Planets for more than a decade. We are very much satisfied and happy with their services and relationship. In fact we are now a family. I wish people get associated with them and can enjoy the long lasting business partnership with them.`,
+        name: 'Pankaj Sanghavi',
+        job: 'Chartered Acountant',
+        image: {
+          src: '~/assets/images/dp/dp3.png',
+          alt: 'DP Image',
+        },        
+      },
+      {
+        testimonial: `Team at Solution Planets, are people with on-ground reality; understanding client perspectives, being adaptable with quick responses, and setting realistic expectations. It has helped us in building our back office operations per our requirement! Thank You.`,
+        name: 'Amit Doshi',
+        job: 'Investment Director, Care Portfolio Managers',
+        image: {
+          src: '~/assets/images/dp/dp4.png',
+          alt: 'DP Image',
+        },
+      },
+      {
+        testimonial: `We have contracted Solutions Planet to develop various software for us over the past years, and we have been more than satisfied with their performance. Their understanding the client requirements, implicating those in development and giving user friendly application is standing them out from others. Their work has always been professional and accurate. We will not hesitate to utilize their services in our future project.`,
+        name: 'Bharat Jagnani',
+        job: 'QESS India',
+        image: {
+          src: '~/assets/images/dp/dp5.png',
+          alt: 'DP Imagee',
+        },
+      },
+      {
+        testimonial: `During lockdown, we shifted our mail from our in-house dedicated mail server to Microsoft. Dharmeshbhai and his team made sure of a seamless experience, minimum downtime and also helped us retain and access our old email data easily. The team also helped us taking our data to cloud from local storage and raised our queries with Microsoft personnel on our behalf. There is a visible improvement in our communication and productivity.`,
+        name: 'Siddharth Zaveri',
+        job: 'Director, Mahavir Hydraulics Pvt Ltd',
+        image: {
+          src: '~/assets/images/dp/dp6.png',
+          alt: 'DP Image',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Let's Create Together"
+    subtitle="Ready to transform your vision into captivating solution?"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get In Touch',
+        href: '/contact',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+ <!--  <BlogLatestPosts
+    id="blog"
+    title="Explore my insightful articles on my blog"
+    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts> -->
+</Layout>

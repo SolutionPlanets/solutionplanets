@@ -1,16 +1,13 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
+import Hero from '~/components/widgets/Hero.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-
+import Steps2 from '~/components/widgets/Steps2.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import Features3 from '~/components/widgets/Features3.astro';
-//import Brands from '~/components/widgets/Brands.astro';
-
-//import { YouTube } from 'astro-embed';
 
 const metadata = {
   title: 'About - Solution Planets',
@@ -19,7 +16,6 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-
   <Hero2
     tagline="Our Origin & Evolution"
     actions={[
@@ -27,76 +23,79 @@ const metadata = {
         variant: 'primary',
         target: '',
         text: 'More About Us',
-        href: '#stats',
+        href: '#features3',
         icon: 'tabler:arrow-down',
       },
       { text: 'Connect With Us', 
         href: 'https://www.linkedin.com/company/solutionplanets/', 
         target: '_blank',
         icon: 'tabler:brand-linkedin',
-
      },
     ]}
   >
     <Fragment slot="title">
-      <span class="hidden sm:inline">Structured Digital Systems</span>
+      Digital Systems
+      <span class="hidden sm:inline"></span>
       <span class="text-accent dark:text-white"></span>
       for Growing Enterprises
     </Fragment>
 
     <Fragment slot="subtitle">
       We design, build, and implement <span class="font-semibold">custom engineering solutions</span> and focused SaaS platforms that strengthen workflow, compliance, and operational visibility.
-    </Fragment>
-
-    <!-- <Fragment slot="image">
-      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
-    </Fragment> -->
+    </Fragment>   
   </Hero2>
 
+  <Hero
+    tagline="About us"
+      showArora={true}
+  aroraId="aurora-about"
+  >
+    <Fragment slot="title">
+      Solution Planets
+    </Fragment>
 
-  <!-- Stats Widget ****************** -->
-  <Stats
-    id="stats"
-    title='About Solution Planets'
-    subtitle="We are digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture. Our Work philosophy is simple 4 steps,"
-    stats={[
-      { title: 'One', amount: 'Understand the business architecture before writing code' },
-      { title: 'Two', amount: 'Define ownership and decision pathways clearly' },
-      { title: 'Three', amount: 'Embed control mechanisms into workflows' },
-      { title: 'Four', amount: 'Build systems that scale with growth' },
+    <Fragment slot="subtitle">
+      We are digital engineering company focused on designing and building structured, scalable systems for growing enterprises. Founded at the intersection of technology and operational discipline, we work with organizations that have outgrown informal processes and need clarity, control, and long-term architecture.
+    </Fragment>
+  </Hero>
+
+  <!-- Steps2 Widget ****************** -->
+  <Steps2
+    id="steps2"
+    title='Our Values'
+    subtitle="We believe in digital systems that reduce friction, prevent leakage, and strengthen execution discipline. At Solution Planets, We are not just a technology. We are long-term partners in building durable, scalable digital foundations. Our Work philosophy is simple 4 steps:"
+    items={[
+      { title: 'Understand the business architecture before writing code' },
+      { title: 'Define ownership and decision pathways clearly' },
+      { title: 'Embed control mechanisms into workflows' },
+      { title: 'Build systems that scale with growth' },
     ]}
   />
-
-  <Features2
-    title="We don’t believe in software for the sake of features."
-    subtitle="We believe in digital systems that reduce friction, prevent leakage, and strengthen execution discipline. We specialize in two core areas:"
+  <Steps2
+    title="Core Speciality"
+    subtitle="We don’t believe in software for the sake of features. We specialize in two core areas, digital engineering and SaaS platforms Check out our projects."
+    isReversed={true}
+    callToAction={{
+      text: 'See Our Work',
+      href: '/projects',
+    }}
     items={[
       {
         title: 'Custom Digital Engineering',
         description:
           'We design and develop tailored software systems aligned to real business workflows — ensuring visibility, ownership, and operational efficiency across functions.',
-      },
+        icon: 'tabler:message-star',
+      },       
       {
         title: 'Focused SaaS Platforms',
         description:
           'We build purpose-driven digital platforms that address specific operational gaps in compliance, governance, process control, and business automation.',
-      },
-      {
-        title: 'At Solution Planets',
-        description:
-          'We are not just a technology. We are long-term partners in building durable, scalable digital foundations.',
+        icon: 'tabler:message-star',
       },
     ]}
-  >
-  </Features2>
+  />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features Widget ************** -->
   <Features
     title="Our Engineering Framework"
     subtitle="Building digital systems that scale requires more than coding. It requires architectural clarity and execution discipline."
@@ -181,69 +180,6 @@ const metadata = {
     </Fragment>
   </Features2>
 
-  <!-- Features Widget *************** -->
-  <!-- <Features
-    id="features"
-    title="Main features of our templates"
-    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
-    columns={2}
-    items={[
-      {
-        title: 'Modern and Professional Design',
-        description:
-          'Have a contemporary design that reflects current design trends and gives a professional impression.',
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'Responsive and Mobile-Friendly',
-        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: 'Customizability',
-        description:
-          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
-        icon: 'tabler:adjustments-horizontal',
-      },
-      {
-        title: 'Fast Loading Times',
-        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Compatibility',
-        description: 'The templates work seamlessly across various content management systems and website builders.',
-        icon: 'tabler:plug-connected',
-      },
-    ]}
-  /> -->
-
-  <!-- CallToAction Widget *********** -->
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get Connected',
-        href: 'https://wa.me/13468295870',
-        target: '_blank',
-        icon: 'tabler:brand-whatsapp',
-      },
-    ]}
-  >
-    <Fragment slot="title">Ready to for your next phase of growth?</Fragment>
-
-    <Fragment slot="subtitle">
-      We help growth-focused businesses build scalable digital systems, automation frameworks, and AI-enabled workflows that drive measurable outcome. Let’s discuss how Solution Planets can support your next move.
-    </Fragment>
-    
-  </CallToAction>
-
   <!-- Features3 Widget ************** -->
   <Features3
     title="Start the Conversation"
@@ -297,5 +233,24 @@ const metadata = {
        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900"></div>
     </Fragment>
 </Features3>
-  
+
+  <!-- CallToAction Widget *********** -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Connected',
+        href: 'https://wa.me/13468295870',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">Ready to for your next phase of growth?</Fragment>
+
+    <Fragment slot="subtitle">
+      We help growth-focused businesses build scalable digital systems, automation frameworks, and AI-enabled workflows that drive measurable outcome. Let’s discuss how Solution Planets can support your next move.
+    </Fragment>
+    
+  </CallToAction>  
 </Layout>

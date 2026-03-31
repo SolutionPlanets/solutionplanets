@@ -16,15 +16,9 @@ export const headerData = {
       href: getPermalink('/company'),
     },    
     {
-      text: 'Products',
-      href: getPermalink('/products'),
-      /* links: [
-        { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_blank' },
-        { text: 'Calibrotech', href: 'https://www.calibrotech.com/', target:'_blank' },
-        { text: 'Credibl5', href: 'https://www.credibl5.com/', target:'_blank' },
-        { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },
-        { text: 'CricJourney', href: 'https://www.mycricjourney.com/', target:'_blank' },
-      ], */
+      text: 'Projects',
+      href: getPermalink('/projects'),
+      
     },
     {
       text: 'Contact',
@@ -39,11 +33,11 @@ export const footerData = {
     {
       title: 'Product',
       links: [
-        { text: 'Donation Receipt', href: 'https://donationreceipt.in/', target:'_new' },
-        { text: 'Calibrotech', href: 'https://www.calibrotech.com/', target:'_blank' },
-        { text: 'Credibl5', href: 'https://www.credibl5.com/', target:'_blank' },
-        { text: 'Zonect', href: 'https://www.zonect.in/', target:'_blank' },
-        { text: 'CricJourney', href: 'https://www.mycricjourney.com/', target:'_blank' },
+        { text: 'Donation Receipt', href:'https://donationreceipt.in/' },        
+        { text: 'Zonect', href: 'https://www.zonect.in/'},
+        { text: 'Calibrotech', href: 'https://www.calibrotech.com/'},
+        { text: 'Credibl5', href: 'https://www.credibl5.com/'},
+        { text: 'CricJourney', href: 'https://www.mycricjourney.com/'},
       ],
     },
     {
