@@ -1,19 +1,131 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
-//import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
-//import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
-//import Steps from '~/components/widgets/Steps.astro';
-//import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-//import { getPermalink } from '~/utils/permalinks';
+import Features4 from '~/components/widgets/Features4.astro';
 
 const metadata = {
   title: 'Projects - Solution Planets',
 };
+
+const projects = [
+  {
+    title: 'Circulating Library Platform',
+    description: 'Digitized membership, inventory, and book tracking for a physical + online library',
+    impact: ['Reduced manual tracking', 'Improved member management', 'Enabled hybrid (online + offline) operations'],
+    category: 'Knowledge Management',
+  },
+  {
+    title: 'Hiring & Onboarding System for Audit & Tax Firms',
+    description: 'Replaced fragmented hiring processes with a structured, trackable workflow',
+    impact: ['Faster hiring cycles', 'Centralized candidate management', 'Improved onboarding efficiency'],
+    category: 'HR & Compliance',
+  },
+  {
+    title: 'Digital Learning & Course Monetization System',
+    description: 'Structured platform to manage content, learners, and paid course workflows',
+    impact: ['Scalable learning delivery', 'Centralized user & content management', 'Integrated course revenue system'],
+    category: 'EdTech',
+  },
+  {
+    title: 'Exam Management & Assessment System',
+    description: 'Structured platform to manage question banks, remote tests, and evaluation workflows',
+    impact: ['Scalable online test execution', 'Centralized question bank control', 'Faster and accurate evaluation'],
+    category: 'EdTech',
+  },
+  {
+    title: 'End-to-End Business Operations System (ERP)',
+    description: 'Unified platform to manage sales, production, inventory, finance, and logistics workflows',
+    impact: ['Complete operational visibility', 'Reduced process delays and dependencies', 'Real-time business insights for decision making'],
+    category: 'Enterprise',
+  },
+  {
+    title: 'Multi-Channel eCommerce & Sales System',
+    description: 'Structured platform to manage storefront, orders, and social selling workflows',
+    impact: ['Centralized sales and order visibility', 'Improved fulfillment efficiency', 'Scalable online and social commerce'],
+    category: 'eCommerce',
+  },
+  {
+    title: 'Ind-AS Accounting & Compliance System',
+    description: 'Structured financial platform to manage accounting workflows, access control, and compliance requirements',
+    impact: ['Standardized Ind-AS aligned processes', 'Improved governance and financial control', 'Scalable and secure financial operations'],
+    category: 'Finance & Compliance',
+  },
+  {
+    title: 'Legal Intelligence & Statutes Management System',
+    description: 'Designed a large-scale knowledge platform to organize, search, and navigate Indian legal and accounting content',
+    impact: ['Centralized multi-domain legal repository', 'AI-driven cross-linking and contextual navigation', 'Faster research and improved usability', 'Scalable and structured knowledge access'],
+    category: 'Legal Tech',
+  },
+  {
+    title: 'Annual Report Compliance & Disclosure Mapping System',
+    description: 'Designed a system to link statutory disclosure requirements with applicable laws and accounting standards',
+    impact: ['Standardized compliance referencing', 'Faster annual report preparation', 'Reduced dependency on manual checks', 'Improved governance and reporting accuracy'],
+    category: 'Compliance',
+  },
+  {
+    title: 'Vendor Onboarding & KYC Compliance System',
+    description: 'Designed a centralized platform to manage vendor registration, document verification, and approval workflows',
+    impact: ['Structured and auditable onboarding process', 'Improved KYC compliance and data accuracy', 'Reduced onboarding cycle time', 'Enhanced visibility across vendor network'],
+    category: 'Compliance',
+  },
+  {
+    title: 'Content Aggregation & OTT Distribution System',
+    description: 'Designed a platform to manage film rights, distribution workflows, and financial integration with OTT ecosystems',
+    impact: ['Centralized content and rights management', 'Seamless integration with OTT partner systems', 'Automated revenue tracking and reconciliation', 'Scalable global distribution operations'],
+    category: 'Media & Entertainment',
+  },
+  {
+    title: 'Online Trading Academy Management System',
+    description: 'Built an integrated system to manage leads, classroom operations, onboarding, and financial workflows',
+    impact: ['Streamlined lead-to-enrollment process', 'Improved classroom and batch management', 'Centralized accounting and reporting', 'Enhanced visibility across operations'],
+    category: 'EdTech',
+  },
+  {
+    title: 'Procurement Workflow & Approval System',
+    description: 'Built a structured system to manage procurement requests, approvals, and access control with SAP integration',
+    impact: ['Standardized procurement workflows', 'Improved approval visibility and control', 'Reduced manual coordination and delays', 'Seamless integration with SAP ERP'],
+    category: 'Operations',
+  },
+  {
+    title: 'Equity Brokerage Operations System',
+    description: 'Built a high-volume system to manage brokerage workflows, financial calculations, and data processing',
+    impact: ['Automated complex brokerage calculations', 'Streamlined workflow and data handling', 'Improved accuracy and processing efficiency', 'Enabled scalable transaction management'],
+    category: 'Finance',
+  },
+  {
+    title: 'CNG Cylinder Testing & Certification System',
+    description: 'Built a centralized platform to manage certification, compliance, and verification for authorized testing centers',
+    impact: ['Standardized certification and reporting processes', 'Enabled QR-based verification for authorities and stations', 'Improved compliance tracking and control', 'Reduced manual documentation and errors'],
+    category: 'Compliance',
+  },
+  {
+    title: 'Manufacturing ERP & Production Management System',
+    description: 'Built an integrated system to manage sales, production planning, inventory, and financial workflows',
+    impact: ['End-to-end visibility from order to dispatch', 'Improved production planning and control', 'Reduced inventory gaps and delays', 'Centralized financial and operational reporting'],
+    category: 'Manufacturing',
+  },
+  {
+    title: 'Business Website & CMS Systems',
+    description: 'Designed and developed customized websites with tailored content management systems aligned to each business requirement',
+    impact: ['Structured content and brand presence', 'Easy content updates without technical dependency', 'Scalable and secure web platforms', 'Integrated with business workflows where required'],
+    category: 'Web',
+  },
+  {
+    title: 'Event Ticketing & Booking System',
+    description: 'Built an integrated module to manage event registrations, ticket booking, and online payments',
+    impact: ['Streamlined event booking and user experience', 'Enabled online ticket sales and payment collection', 'Reduced manual coordination and entry', 'Real-time visibility on registrations and revenue'],
+    category: 'Events',
+  },
+  {
+    title: 'Association Membership & Management System',
+    description: 'Built digital platforms for organizations to manage members, events, and engagement through a structured system',
+    impact: ['Automated membership registration and renewals', 'Centralized member database and communication', 'Integrated event and activity management', 'Reduced manual administration and follow-ups'],
+    category: 'Community',
+  },
+];
+
 ---
 
 <Layout metadata={metadata}>
@@ -21,105 +133,71 @@ const metadata = {
 
   <Hero2
     id="hero2"
-    title="From Idea to Online"
     tagline="Built by our experts"
-    actions={[{ variant: 'primary', text: 'Portfolio', href: '#features3', icon: 'tabler:arrow-down', }]}
+    title="Real Systems. Real Outcomes."
+    actions={[{ variant: 'primary', text: 'View Case Studies', href: '#portfolio', icon: 'tabler:arrow-down' }]}
   >
     <Fragment slot="subtitle">
-      We are dedicated to providing top-notch digital solutions for your business. Our team of experienced professionals leverages cutting-edge technologies and best practices to deliver tailor-made software solutions that meet your unique needs.
+      We design and build business systems — from workflow automation to AI-driven platforms — that improve efficiency, visibility, and growth.
     </Fragment>
   </Hero2>
-    
-  <!-- Features3 Widget ************** -->
 
-  <Features3
-    id='features3'
+  <!-- Portfolio Grid **************** -->
+
+  <Features4
+    id="portfolio"
     title="Our Portfolio"
-    subtitle="We are your partner in digital evolution, providing tech that adapts as you do. We define our success through technology that helps you grow."
+    subtitle="Real systems built for real business challenges — across industries, workflows, and scale."
+    variant="portfolio"
     columns={3}
-    defaultIcon="tabler:point-filled"
-    items={[
-      {
-        title: 'Circulating Library',
-        description: 'Platform for online and in-store library registration, and upcycling system for books and toys',
-      },
-      {
-        title: 'Placement Portal',
-        description: 'A niche placement portal for Audit/Taxation firms for hiring and onboarding process',
-      },
-      {
-        title: 'Learning Management Platform',
-        description: 'LMS platform with content management, profile management, and course purchase',
-      },
-      {
-        title: 'Online Test portal',
-        description: 'Portal for coaching class to manage question banks, and run tests remotly',
-      },
-      {
-        title: 'Enterprise resource planning',
-        description: 'CRM, Orders, Production Control and quality check, Inventory Management, Accounting, Logistics and Reporting',
-      },
-      {
-        title: 'eCommerce and eStore',
-        description: 'Manage sales from one dashboard. Complete eStore designing and selling on social media',
-      },
-      /* {
-        title: 'Print and digital design',
-        description: 'Knowledgeable in designing for both print materials and digital platforms.',
-      },
-      {
-        title: 'Attention to detail',
-        description: 'Diligent in maintaining precision and quality in all design work.',
-      },
-      {
-        title: 'Adaptability',
-        description: 'Quick to adapt to new design trends, technologies, and client preferences.',
-      }, */
-    ]}
+    items={projects}
+    classes={{ container: 'max-w-7xl mx-auto', headline: { container: 'max-w-4xl' } }}
   />
 
-  <!-- Content Widget **************** -->
+  <!-- What We Solve ***************** -->
 
- <!--  <Content
-    id="porfolio"
-    title="Elevating visual narratives"
-    subtitle="Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives."
-    isReversed
+  <Features4
+    id="what-we-solve"
+    title="What We Solve"
+    subtitle="We turn common business pain points into structured, scalable solutions."
+    variant="solutions"
+    columns={2}
+    classes={{ container: 'max-w-5xl mx-auto' }}
     items={[
       {
-        title: 'Description:',
-        description:
-          'Developed a comprehensive brand identity for a tech startup, Tech Innovators, specializing in disruptive innovations. The goal was to convey a modern yet approachable image that resonated with both corporate clients and tech enthusiasts.',
+        icon: 'tabler:settings',
+        iconBgClass: 'bg-orange-100 dark:bg-orange-900/30',
+        iconColorClass: 'text-orange-500',
+        before: 'Manual processes',
+        after: 'Automated workflows',
       },
       {
-        title: 'Role:',
-        description:
-          'Led the entire branding process from concept to execution. Created a dynamic logo that symbolized innovation, selected a vibrant color palette, and I designed corporate stationery, website graphics, and social media assets.',
+        icon: 'tabler:database',
+        iconBgClass: 'bg-blue-100 dark:bg-blue-900/30',
+        iconColorClass: 'text-blue-500',
+        before: 'Scattered data',
+        after: 'Centralized systems',
+      },
+      {
+        icon: 'tabler:chart-bar',
+        iconBgClass: 'bg-purple-100 dark:bg-purple-900/30',
+        iconColorClass: 'text-purple-500',
+        before: 'Delayed decisions',
+        after: 'Real-time visibility',
+      },
+      {
+        icon: 'tabler:circle-check',
+        iconBgClass: 'bg-emerald-100 dark:bg-emerald-900/30',
+        iconColorClass: 'text-emerald-500',
+        before: 'Missed follow-ups',
+        after: 'Structured execution',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
-    }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
-      </h3>
-    </Fragment>
-
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800/60"></div>
     </Fragment>
-  </Content> -->
-
- 
+  </Features4>
 
   <!-- Testimonials Widget *********** -->
 
@@ -152,7 +230,7 @@ const metadata = {
         image: {
           src: '~/assets/images/dp/dp3.png',
           alt: 'DP Image',
-        },        
+        },
       },
       {
         testimonial: `Team at Solution Planets, are people with on-ground reality; understanding client perspectives, being adaptable with quick responses, and setting realistic expectations. It has helped us in building our back office operations per our requirement! Thank You.`,
@@ -187,26 +265,14 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Let's Create Together"
-    subtitle="Ready to transform your vision into captivating solution?"
+    title="Let's Solve a Real Business Problem"
+    subtitle="Whether it's automation, AI, or system design — we help you identify where technology actually drives results."
     actions={[
       {
         variant: 'primary',
-        text: 'Get In Touch',
+        text: 'Book a Discussion',
         href: '/contact',
       },
     ]}
   />
-
-  <!-- BlogLatestPost Widget **************** -->
-
- <!--  <BlogLatestPosts
-    id="blog"
-    title="Explore my insightful articles on my blog"
-    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </BlogLatestPosts> -->
 </Layout>

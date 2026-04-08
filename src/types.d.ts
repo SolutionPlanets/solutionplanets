@@ -282,3 +282,38 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+
+export interface ProjectItem {
+  title: string;
+  category: string;
+  description: string;
+  impact: string[];
+}
+
+export interface SolutionItem {
+  icon: string;
+  iconBgClass: string;
+  iconColorClass: string;
+  before: string;
+  after: string;
+}
+
+export interface PlatformItem {
+  title: string;
+  category: string;
+  description: string;
+  href: string;
+}
+
+export interface ItemGrid4 {
+  items?: Array<ProjectItem | SolutionItem | PlatformItem>;
+  columns?: number;
+  variant?: 'portfolio' | 'solutions' | 'platforms';
+  classes?: Record<string, string>;
+}
+
+export interface Features4 extends Omit<Headline, 'classes'>, Widget {
+  items?: Array<ProjectItem | SolutionItem | PlatformItem>;
+  columns?: number;
+  variant?: 'portfolio' | 'solutions' | 'platforms';
+}

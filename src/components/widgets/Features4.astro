@@ -1,0 +1,54 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid4 from '~/components/ui/ItemGrid4.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items?: object[];
+  columns?: number;
+  variant?: 'portfolio' | 'solutions';
+  id?: string;
+  isDark?: boolean;
+  classes?: {
+    container?: string;
+    headline?: Record<string, string>;
+    items?: Record<string, string>;
+  };
+  bg?: string;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  columns = 3,
+  variant = 'portfolio',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container ?? ''} bg={bg}>
+  <slot name="bg" slot="bg" />
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={classes?.headline}
+  />
+  <ItemGrid4
+    items={items}
+    columns={columns}
+    variant={variant}
+    classes={{
+      container: 'mt-10',
+      ...((classes?.items as object) ?? {}),
+    }}
+  />
+</WidgetWrapper>
