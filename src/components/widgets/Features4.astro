@@ -2,23 +2,7 @@
 import Headline from '~/components/ui/Headline.astro';
 import ItemGrid4 from '~/components/ui/ItemGrid4.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-
-interface Props {
-  title?: string;
-  subtitle?: string;
-  tagline?: string;
-  items?: object[];
-  columns?: number;
-  variant?: 'portfolio' | 'solutions';
-  id?: string;
-  isDark?: boolean;
-  classes?: {
-    container?: string;
-    headline?: Record<string, string>;
-    items?: Record<string, string>;
-  };
-  bg?: string;
-}
+import type { Features4 as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),

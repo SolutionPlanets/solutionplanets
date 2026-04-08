@@ -6,6 +6,7 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
+import Features4 from '~/components/widgets/Features4.astro';
 import { getPermalink } from '~/utils/permalinks';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -213,7 +214,8 @@ const metadata = {
     </Fragment>
   </Features2>
   <!-- component Widget ************** -->
-    <Content
+
+  <Content
     id="Supporting Services"
     columns={1}
     items={[
@@ -264,108 +266,25 @@ const metadata = {
     </Fragment>
   </Content>
 
-
   <!-- Our Platforms Widget ********** -->
 
-  <section class="relative not-prose scroll-mt-[72px]">
-    <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default">
-      <div class="mb-8 md:mx-auto md:mb-12 text-center max-w-3xl">
-        <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl">
-          Our Platforms & Products
-        </h2>
-        <p class="mt-4 text-muted text-xl">
-          Built by Solution Planets
-        </p>
-        <p class="mt-3 text-muted text-base">
-          We don't just build systems for clients —<br class="hidden sm:block" />
-          we also build and operate our own platforms across compliance, operations, and consumer ecosystems.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-        <a href="https://www.calibrotech.com/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Calibro</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Calibration Compliance System</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Automates calibration tracking, alerts, and audit readiness</p>
-        </a>
-
-        <a href="https://donationreceipt.in/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">DonationReceipt</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">NGO Receipt & Compliance System</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Simplifies donation tracking and 80G receipt generation</p>
-        </a>
-
-        <a href="https://zonect.in/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Zonect</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Society Staff Management Platform</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Centralized documentation and verification system for housing societies</p>
-        </a>
-
-        <a href="https://www.credibl5.com/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Credibl5</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Google Review Management Tool</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Automates review responses with AI and templates</p>
-        </a>
-
-        <a href="https://hrblues.in/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">HRBlues</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">HR Verification & Reporting Platform</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Tracks employment credibility and hiring transparency</p>
-        </a>
-
-        <a href="https://matchease.in/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">MatchEase</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Matrimonial Matching Platform</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Structured matchmaking system with preference-based filtering</p>
-        </a>
-
-        <a href="https://www.mycricjourney.com/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">MyCricJourney</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Cricket Profile & Stats Platform</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Tracks performance for non-professional cricketers</p>
-        </a>
-
-        <a href="https://familyriwaz.in/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">FamilyRiwaz</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Cultural Documentation Platform</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Preserves family traditions and lineage digitally</p>
-        </a>
-
-        <a href="https://thehungrytraveller.in/" target="_blank" rel="noopener noreferrer" class="group rounded-xl border border-slate-200 dark:border-slate-700 border-t-2 border-t-orange-500 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 p-6 flex flex-col gap-3">
-          <div class="flex items-center justify-between">
-            <span class="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">The Hungry Traveller</span>
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-          </div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-primary">Travel & Food Discovery Platform</p>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Curated travel and food experiences</p>
-        </a>
-      </div>
-    </div>
-  </section>
+  <Features4
+    title="Our Platforms & Products"
+    subtitle="Built by Solution Planets<span class='text-base block mt-3'>We don't just build systems for clients —<br class=&quot;hidden sm:block&quot; /> we also build and operate our own platforms across compliance, operations, and consumer ecosystems.</span>"
+    variant="platforms"
+    columns={3}
+    items={[
+      { title: 'Calibro', category: 'Calibration Compliance System', description: 'Automates calibration tracking, alerts, and audit readiness', href: 'https://www.calibrotech.com/' },
+      { title: 'DonationReceipt', category: 'NGO Receipt & Compliance System', description: 'Simplifies donation tracking and 80G receipt generation', href: 'https://donationreceipt.in/' },
+      { title: 'Zonect', category: 'Society Staff Management Platform', description: 'Centralized documentation and verification system for housing societies', href: 'https://zonect.in/' },
+      { title: 'Credibl5', category: 'Google Review Management Tool', description: 'Automates review responses with AI and templates', href: 'https://www.credibl5.com/' },
+      { title: 'HRBlues', category: 'HR Verification & Reporting Platform', description: 'Tracks employment credibility and hiring transparency', href: 'https://hrblues.in/' },
+      { title: 'MatchEase', category: 'Matrimonial Matching Platform', description: 'Structured matchmaking system with preference-based filtering', href: 'https://matchease.in/' },
+      { title: 'MyCricJourney', category: 'Cricket Profile & Stats Platform', description: 'Tracks performance for non-professional cricketers', href: 'https://www.mycricjourney.com/' },
+      { title: 'FamilyRiwaz', category: 'Cultural Documentation Platform', description: 'Preserves family traditions and lineage digitally', href: 'https://familyriwaz.in/' },
+      { title: 'The Hungry Traveller', category: 'Travel & Food Discovery Platform', description: 'Curated travel and food experiences', href: 'https://thehungrytraveller.in/' },
+    ]}
+  />
 
   <!-- Stats Widget ****************** -->
   <Stats

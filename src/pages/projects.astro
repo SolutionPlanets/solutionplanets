@@ -149,7 +149,7 @@ const projects = [
     title="Our Portfolio"
     subtitle="Real systems built for real business challenges — across industries, workflows, and scale."
     variant="portfolio"
-    columns={3}
+    columns={2}
     items={projects}
     classes={{ container: 'max-w-7xl mx-auto', headline: { container: 'max-w-4xl' } }}
   />
@@ -199,10 +199,30 @@ const projects = [
     </Fragment>
   </Features4>
 
+  <!-- Our Platforms Widget ********** -->
+
+  <Features4
+    title="Our Platforms & Products"
+    subtitle="Built by Solution Planets<span class='text-base block mt-3'>We don't just build systems for clients —<br class=&quot;hidden sm:block&quot; /> we also build and operate our own platforms across compliance, operations, and consumer ecosystems.</span>"
+    variant="platforms"
+    columns={3}
+    items={[
+      { title: 'Calibro', category: 'Calibration Compliance System', description: 'Automates calibration tracking, alerts, and audit readiness', href: 'https://www.calibrotech.com/' },
+      { title: 'DonationReceipt', category: 'NGO Receipt & Compliance System', description: 'Simplifies donation tracking and 80G receipt generation', href: 'https://donationreceipt.in/' },
+      { title: 'Zonect', category: 'Society Staff Management Platform', description: 'Centralized documentation and verification system for housing societies', href: 'https://zonect.in/' },
+      { title: 'Credibl5', category: 'Google Review Management Tool', description: 'Automates review responses with AI and templates', href: 'https://www.credibl5.com/' },
+      { title: 'HRBlues', category: 'HR Verification & Reporting Platform', description: 'Tracks employment credibility and hiring transparency', href: 'https://hrblues.in/' },
+      { title: 'MatchEase', category: 'Matrimonial Matching Platform', description: 'Structured matchmaking system with preference-based filtering', href: 'https://matchease.in/' },
+      { title: 'MyCricJourney', category: 'Cricket Profile & Stats Platform', description: 'Tracks performance for non-professional cricketers', href: 'https://www.mycricjourney.com/' },
+      { title: 'FamilyRiwaz', category: 'Cultural Documentation Platform', description: 'Preserves family traditions and lineage digitally', href: 'https://familyriwaz.in/' },
+      { title: 'The Hungry Traveller', category: 'Travel & Food Discovery Platform', description: 'Curated travel and food experiences', href: 'https://thehungrytraveller.in/' },
+    ]}
+  />
+
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Client testimonials"
+    title="Client Testimonials"
     subtitle="Discover what clients have to say about their experiences working with us."
     testimonials={[
       {
