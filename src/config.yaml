@@ -4,27 +4,27 @@ site:
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: ''
+  googleSiteVerificationId: 'eWz3LsxPkdbG6vF958kpGy9LioUhBUby_fW4K0E8IDc'
 
 # Default SEO metadata
 metadata:
   title:
     default: Solution Planets
     template: '%s — Solution Planets'
-  description: "\U0001F680 Digital partner providing web development, design, and marketing solutions for small and medium businesses to grow online in India and USA."
+  description: "\U0001F680 IT partner providing web development, design, and marketing solutions for small and medium businesses to grow online in India and USA."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Solution Planets
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: ''
+    site: 'I'
     cardType: summary_large_image
 
 i18n:
@@ -77,7 +77,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: "G-FQ9GVPK9TK"
 
 ui:
   theme: 'dark:only' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
