@@ -283,6 +283,11 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
 
+export interface PortfolioFilter {
+  label: string;
+  categories: string[];
+}
+
 export interface ProjectItem {
   title: string;
   category: string;
@@ -316,4 +321,5 @@ export interface Features4 extends Omit<Headline, 'classes'>, Widget {
   items?: Array<ProjectItem | SolutionItem | PlatformItem>;
   columns?: number;
   variant?: 'portfolio' | 'solutions' | 'platforms';
+  filters?: PortfolioFilter[];
 }

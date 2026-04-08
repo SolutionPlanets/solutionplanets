@@ -152,6 +152,14 @@ const projects = [
     columns={2}
     items={projects}
     classes={{ container: 'max-w-7xl mx-auto', headline: { container: 'max-w-4xl' } }}
+    filters={[
+      { label: 'All',       categories: [] },
+      { label: 'ERP',       categories: ['Enterprise', 'Manufacturing', 'Operations'] },
+      { label: 'Edtech',    categories: ['EdTech'] },
+      { label: 'Finance',   categories: ['Finance', 'Finance & Compliance', 'Compliance', 'HR & Compliance', 'Legal Tech'] },
+      { label: 'Ecommerce', categories: ['eCommerce', 'Events'] },
+      { label: 'Media',     categories: ['Media & Entertainment'] },
+    ]}
   />
 
   <!-- What We Solve ***************** -->
