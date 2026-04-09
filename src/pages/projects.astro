@@ -14,7 +14,7 @@ const projects = [
     title: 'Circulating Library Platform',
     description: 'Digitized membership, inventory, and book tracking for a physical + online library',
     impact: ['Reduced manual tracking', 'Improved member management', 'Enabled hybrid (online + offline) operations'],
-    category: 'Knowledge Management',
+    category: 'Web',
   },
   {
     title: 'Hiring & Onboarding System for Audit & Tax Firms',
@@ -124,6 +124,12 @@ const projects = [
     impact: ['Automated membership registration and renewals', 'Centralized member database and communication', 'Integrated event and activity management', 'Reduced manual administration and follow-ups'],
     category: 'Community',
   },
+  {
+    title: 'Healthcare Provider Website Platform',
+    description: 'Developed a professional web platform for doctors and dentists featuring online appointment scheduling and integrated payment processing',
+    impact: ['Enabled patients to book appointments online 24/7', 'Streamlined scheduling for multi-provider practices', 'Integrated secure payment collection for consultations and treatments', 'Reduced front-desk workload through automated confirmations and reminders'],
+    category: 'Healthcare',
+  },
 ];
 
 ---
@@ -155,10 +161,10 @@ const projects = [
     filters={[
       { label: 'All',       categories: [] },
       { label: 'ERP',       categories: ['Enterprise', 'Manufacturing', 'Operations'] },
-      { label: 'Edtech',    categories: ['EdTech'] },
+      { label: 'EdTech',    categories: ['EdTech'] },
       { label: 'Finance',   categories: ['Finance', 'Finance & Compliance', 'Compliance', 'HR & Compliance', 'Legal Tech'] },
-      { label: 'Ecommerce', categories: ['eCommerce', 'Events'] },
-      { label: 'Media',     categories: ['Media & Entertainment'] },
+      { label: 'Ecommerce', categories: ['eCommerce', 'Events', 'Entertainment'] },
+      { label: 'Healthcare',     categories: ['Healthcare'] },
     ]}
   />
 
