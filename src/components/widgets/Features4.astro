@@ -1,0 +1,95 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid4 from '~/components/ui/ItemGrid4.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Features4 as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  items = [],
+  columns = 3,
+  variant = 'portfolio',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+  filters,
+} = Astro.props;
+
+const filterId = id ?? 'pf';
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container ?? ''} bg={bg}>
+  <slot name="bg" slot="bg" />
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={classes?.headline}
+  />
+  {filters && filters.length > 0 && (
+    <div data-filter-tabs={filterId} class="flex flex-wrap gap-2 justify-center mb-8">
+      {filters.map((f, i) => (
+        <button
+          data-filter={f.categories.length === 0 ? 'all' : f.categories.join('||')}
+          class:list={[
+            'px-4 py-1.5 rounded-full text-sm font-semibold border transition-colors duration-200 cursor-pointer',
+            i === 0
+              ? 'bg-primary text-white border-primary'
+              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary',
+          ]}
+        >
+          {f.label}
+        </button>
+      ))}
+    </div>
+  )}
+  <div data-filter-grid={filterId}>
+    <ItemGrid4
+      items={items}
+      columns={columns}
+      variant={variant}
+      classes={{
+        container: 'mt-10',
+        ...((classes?.items as object) ?? {}),
+      }}
+    />
+  </div>
+</WidgetWrapper>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-filter-tabs]').forEach((tabGroup) => {
+    const filterId = tabGroup.dataset.filterTabs!;
+    const grid = document.querySelector<HTMLElement>(`[data-filter-grid="${filterId}"]`);
+    if (!grid) return;
+
+    tabGroup.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        tabGroup.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((b) => {
+          b.classList.remove('bg-primary', 'text-white', 'border-primary');
+          b.classList.add(
+            'bg-white', 'dark:bg-slate-900', 'text-slate-600',
+            'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700'
+          );
+        });
+        btn.classList.add('bg-primary', 'text-white', 'border-primary');
+        btn.classList.remove(
+          'bg-white', 'dark:bg-slate-900', 'text-slate-600',
+          'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700'
+        );
+
+        const filter = btn.dataset.filter!;
+        const allowed = filter === 'all' ? [] : filter.split('||');
+
+        grid.querySelectorAll<HTMLElement>('[data-category]').forEach((card) => {
+          card.style.display =
+            filter === 'all' || allowed.includes(card.dataset.category!)
+              ? ''
+              : 'none';
+        });
+      });
+    });
+  });
+</script>
