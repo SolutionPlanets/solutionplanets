@@ -317,9 +317,14 @@ export interface ItemGrid4 {
   classes?: Record<string, string>;
 }
 
-export interface Features4 extends Omit<Headline, 'classes'>, Widget {
+export interface Features4 extends Omit<Headline, 'classes'>, Omit<Widget, 'classes'> {
   items?: Array<ProjectItem | SolutionItem | PlatformItem>;
   columns?: number;
   variant?: 'portfolio' | 'solutions' | 'platforms';
   filters?: PortfolioFilter[];
+  classes?: {
+    container?: string;
+    headline?: Record<string, string>;
+    items?: Record<string, string>;
+  };
 }
