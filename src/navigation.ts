@@ -1,4 +1,4 @@
-import { getPermalink} from './utils/permalinks';
+import { getPermalink, getBlogPermalink} from './utils/permalinks';
 
 export const headerData = {
   links: [ 
@@ -7,22 +7,22 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
+      text: 'About Us',
+      href: getPermalink('/about'),
+    }, 
+    {
       text: 'Services',
       href: getPermalink('/services'),
       
-    },
-    {
-      text: 'Company',
-      href: getPermalink('/company'),
-    },    
+    },     
     {
       text: 'Projects',
       href: getPermalink('/projects'),
       
     },
     {
-      text: 'Contact',
-      href: getPermalink('/contact'),
+      text: 'Blogs',
+      href: getBlogPermalink(),
     },
   ],
   actions: [{ text: 'Get Connected', href: getPermalink('/contact') }],
@@ -44,7 +44,7 @@ export const footerData = {
       title: 'Service',
       links: [
         { text: 'Web Development', href: getPermalink('/services') },
-        { text: 'B2B Ecommerce', href: getPermalink('/services')},
+        { text: 'Ecommerce', href: getPermalink('/services')},
         { text: 'AI Integration', href: getPermalink('/services')},
         { text: 'Digital Marketing', href: getPermalink('/services')},
         { text: 'Cyber Security', href: getPermalink('/services')},
@@ -66,7 +66,11 @@ export const footerData = {
         {
           text: `
         <div class="mb-4">
-          <p class="font-bold text-gray-800 dark:text-gray-200">Mumbai, India</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">6, Naresh Smruti,</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">S. L. Road,</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">Vithal Nagar,</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">Mulund West,</p>
+          <p class="font-bold text-gray-800 dark:text-gray-200">Mumbai 400080, India</p>
           <p>+91 8104664284</p>
           <p class="text-blue-600 dark:text-blue-400">info@solutionplanets.com</p>
         </div>
@@ -74,7 +78,7 @@ export const footerData = {
           href: 'https://share.google/IN0NugcP5tXRW1wok',
           target:'_blank'
         },
-        {
+        /* {
           text: `
         <div>
           <p class="font-bold text-gray-800 dark:text-gray-200">Houston, USA</p>
@@ -84,16 +88,14 @@ export const footerData = {
         `,
           href: 'https://share.google/hfTQwSzcC6pxcy1GM',
           target:'_blank'
-        },
+        }, */
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Mumbai',  },
-    { text: 'Houston', },
   ],
   socialLinks: [
-    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/13468295870?text=Hi%20Solution%20Planets!%20My%20name%20is%20..' },
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/918104664284?text=Hi%20Solution%20Planets!%20My%20name%20is%20..' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/company/solutionplanets' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/solutionplanets' },
     { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: 'https://www.youtube.com/@solutionplanets9122'},
