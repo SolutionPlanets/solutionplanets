@@ -1,0 +1,254 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Community & Association Systems - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Digitally Connect Your Community — <br />
+      <span class="text-accent dark:text-white">Wherever They Are</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We build structured digital platforms for communities, associations, and trusts — enabling
+      seamless member management, engagement, and long-term connectivity.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="Complete community platforms tailored to your structure"
+    subtitle="Most communities still operate with printed directories, outdated Vasti Patrak records, and disconnected member data — leading to outdated information, high operational effort, and limited engagement. We transform this into a living, self-updating digital system."
+    columns={3}
+    items={[
+      {
+        title: 'Membership Management System',
+        description: 'Complete member profiles, family trees, and membership records — structured, searchable, and always up to date.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Digital Vasti Patrak (Census Register)',
+        description: 'Transform your traditional census into a dynamic digital system — self-updated by members, globally accessible.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Member Directory (Global Access)',
+        description: 'A searchable, filterable directory your members can access from anywhere in the world.',
+        icon: 'tabler:address-book',
+      },
+      {
+        title: 'Online Membership & Renewal',
+        description: 'Self-service membership registration, renewals, and payment collection — no manual processing required.',
+        icon: 'tabler:id',
+      },
+      {
+        title: 'Event Management & Registrations',
+        description: 'Create events, manage registrations, and communicate with attendees — all within the platform.',
+        icon: 'tabler:calendar-event',
+      },
+      {
+        title: 'Admin Dashboards & Reporting',
+        description: 'Comprehensive dashboards giving committee members full visibility into membership, events, and financials.',
+        icon: 'tabler:dashboard',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Built for communities that want to stay connected"
+    columns={3}
+    items={[
+      {
+        title: 'Community Trusts & Associations',
+        description: 'Structured platforms for managing membership, events, and communications at scale.',
+        icon: 'tabler:building-community',
+      },
+      {
+        title: 'Native Place & Village Organisations',
+        description: 'Digital home for communities spread across cities and countries — keeping roots strong.',
+        icon: 'tabler:home',
+      },
+      {
+        title: 'Religious & Cultural Groups',
+        description: 'Platforms that preserve cultural identity while enabling modern digital connectivity.',
+        icon: 'tabler:heart',
+      },
+      {
+        title: 'Alumni Networks',
+        description: 'Searchable directories, event platforms, and communication tools for school and college alumni.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Global Community Networks',
+        description: 'Connect diaspora members across geographies — with a platform designed for global access.',
+        icon: 'tabler:world',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="Community systems are not static. They evolve with people."
+    subtitle="We design platforms around your community structure — not a generic template."
+    items={[
+      {
+        title: 'Understand Community Model',
+        description: 'Membership types, family hierarchy, geographic distribution, and governance structure.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Define System Structure',
+        description: 'Data architecture, access control levels, workflows, and feature requirements.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Build Platform',
+        description: 'User-friendly, scalable, and secure — designed for easy adoption by members of all ages.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Enable Member Participation',
+        description: 'Self-update systems that keep data accurate without relying on manual admin effort.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Ongoing Support & Enhancement',
+        description: 'As your community grows and evolves, the platform grows with it.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many build websites. We build community ecosystems."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Deep Understanding of Community Workflows',
+        description: 'We understand the unique dynamics of community organisations — committees, family hierarchies, and distributed governance.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Focus on Long-Term Usability & Adoption',
+        description: 'A platform your members will actually use — designed for people who may not be tech-savvy.',
+        icon: 'tabler:heart',
+      },
+      {
+        title: 'Structured Data Approach',
+        description: 'Not just listing pages — properly structured data that enables search, reporting, and future integrations.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Multiple Integrated Modules',
+        description: 'Membership, events, directory, and communications working together as a unified platform.',
+        icon: 'tabler:components',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech & Capabilities"
+    title="Built for global access and long-term reliability."
+    columns={3}
+    items={[
+      {
+        title: 'Web-Based Platform',
+        description: 'Accessible from any device, anywhere in the world — no app download required.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Role-Based Access Control',
+        description: 'Different access levels for members, committee members, and administrators.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Scalable Databases',
+        description: 'Structured data architecture that handles thousands of members and grows with your community.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Payment Integration',
+        description: 'Online membership fees, donations, and event payments — collected and tracked automatically.',
+        icon: 'tabler:credit-card',
+      },
+      {
+        title: 'Mobile-Friendly Interfaces',
+        description: 'Responsive design that works seamlessly on smartphones — where most members will access the platform.',
+        icon: 'tabler:device-mobile',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Want to Digitally Connect Your Community?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's build a platform that keeps your members connected — anywhere in the world.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

@@ -1,0 +1,259 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'B2B & B2C Ecommerce Solutions - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Ecommerce Built for <br />
+      <span class="text-accent dark:text-white">Both Scale and Complexity</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We design and develop ecommerce platforms for both B2B and B2C businesses — from simple online
+      stores to complex, integrated commerce systems.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="Ecommerce designed around how your business actually sells"
+    subtitle="Ecommerce is not one-size-fits-all. B2C needs speed, experience, and conversion. B2B needs pricing logic, bulk ordering, and system integration. We design for both."
+    columns={3}
+    items={[
+      {
+        title: 'Multi-Tier & Customer-Specific Pricing (B2B)',
+        description: 'Custom pricing rules per customer, segment, or distributor — with approval workflows built in.',
+        icon: 'tabler:tags',
+      },
+      {
+        title: 'Bulk Ordering & Quick Reorder Systems (B2B)',
+        description: 'Streamlined purchasing experiences for high-volume buyers — CSV uploads, saved orders, and one-click reorders.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Dealer & Distributor Portals (B2B)',
+        description: 'Dedicated portals with role-based access, custom catalogues, and territory-specific pricing.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'High-Conversion Storefronts (B2C)',
+        description: 'Visually compelling, performance-optimised product pages designed to convert browsers into buyers.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Mobile-First UX (B2C)',
+        description: 'Seamless shopping experiences across every device — from discovery to checkout.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'ERP & CRM Integrations',
+        description: 'Bi-directional sync with your inventory, order management, and customer systems — no double-entry.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Payment & Checkout Optimisation',
+        description: 'Razorpay, Stripe, and custom gateway integrations with a frictionless checkout flow.',
+        icon: 'tabler:credit-card',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Whether you sell to businesses or consumers — we build for both"
+    columns={3}
+    items={[
+      {
+        title: 'Manufacturers Selling to Distributors (B2B)',
+        description: 'Replace manual order processes with a self-service portal your distributors actually prefer.',
+        icon: 'tabler:building-factory',
+      },
+      {
+        title: 'Brands Selling Directly to Customers (D2C / B2C)',
+        description: 'Launch or upgrade a storefront built for conversion, performance, and brand experience.',
+        icon: 'tabler:shopping-bag',
+      },
+      {
+        title: 'Businesses Managing Both B2B + B2C Channels',
+        description: 'Unified commerce systems that serve both audiences from a single platform.',
+        icon: 'tabler:arrows-split',
+      },
+      {
+        title: 'Companies Moving From Offline to Online',
+        description: 'Structured digital transition that maintains your existing relationships and workflows.',
+        icon: 'tabler:world-upload',
+      },
+      {
+        title: 'Businesses Needing Integrated Commerce Systems',
+        description: 'Ecommerce as a connected node in your business — not a standalone website.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="Ecommerce is not just a website. It is a revenue system."
+    subtitle="We design based on how your business actually sells — not a generic store template."
+    items={[
+      {
+        title: 'Understand Your Sales Model',
+        description: 'B2B, B2C, or hybrid — we start by mapping your commercial structure and buyer types.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Map the Buying Journey',
+        description: 'Understand how customers discover, evaluate, and place orders — then design for that reality.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Select the Right Platform',
+        description: 'Shopify, WooCommerce, Wix, or custom-built — based on your complexity and scale requirements.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Build & Integrate',
+        description: 'Connect your store with ERP, CRM, payment systems, and logistics platforms.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Optimise for Growth',
+        description: 'Ongoing improvements to conversion rates, performance, and repeat order rates.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many build stores. We build commerce ecosystems."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Deep Understanding of B2B & B2C Workflows',
+        description: 'We know the difference between D2C conversion optimisation and B2B procurement workflow automation — and build accordingly.',
+        icon: 'tabler:arrows-split',
+      },
+      {
+        title: 'Ability to Handle Hybrid Commerce Models',
+        description: 'Serve both business buyers and end consumers from a single, unified platform without compromising either experience.',
+        icon: 'tabler:layers-intersect',
+      },
+      {
+        title: 'Integration-First Approach',
+        description: 'Your store connects to your business — ERP, CRM, inventory, and logistics — from day one.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Focus on Conversion + Operational Efficiency',
+        description: 'We optimise for both customer experience and back-office efficiency — the two pillars of sustainable ecommerce growth.',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Platforms & Integrations"
+    title="Platform is secondary. Business requirement is primary."
+    columns={3}
+    items={[
+      {
+        title: 'Shopify',
+        description: 'Scalable, fast, and feature-rich — ideal for B2C brands and B2B stores with moderate complexity.',
+        icon: 'tabler:brand-shopify',
+      },
+      {
+        title: 'WordPress / WooCommerce',
+        description: 'Flexible and cost-effective — great for businesses that need content + commerce in one platform.',
+        icon: 'tabler:brand-wordpress',
+      },
+      {
+        title: 'Wix',
+        description: 'Quick deployment for straightforward storefronts that need to be live fast.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Custom-Built Platforms',
+        description: 'For complex B2B systems, multi-channel commerce, or businesses with unique workflow requirements.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Payment Gateways',
+        description: 'Razorpay, Stripe, and other regional payment gateways integrated with your checkout flow.',
+        icon: 'tabler:credit-card',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Planning to Launch or Scale Your Ecommerce?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's build a system that fits your business model — not a generic store.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

@@ -1,0 +1,267 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Custom Web Development - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Custom Web Development That <br />
+      <span class="text-accent dark:text-white">Actually Drives Business</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We design and build high-performance websites tailored to your business — not recycled templates.
+      Every solution is engineered for speed, scalability, and real-world conversions.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="We don't just 'design pages' — we build complete web systems"
+    subtitle="Most websites look good. Few actually perform. We focus on building websites that load fast, convert visitors, and scale with your business."
+    columns={3}
+    items={[
+      {
+        title: 'Custom Website Development',
+        description: 'Fully bespoke websites built around your brand, goals, and user journeys — never off-the-shelf.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'CMS-Based & Dynamic Websites',
+        description: 'Flexible content management systems giving your team full control without touching code.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Headless Architecture (React / Next.js)',
+        description: 'Decoupled front-end and back-end for maximum performance, flexibility, and scalability.',
+        icon: 'tabler:box-model-2',
+      },
+      {
+        title: 'API Integrations',
+        description: 'Seamless connections to CRM, payment gateways, ERP systems, and any third-party service.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Performance Optimisation (Core Web Vitals)',
+        description: 'Speed, responsiveness, and real-world metrics that Google ranks and users demand.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Mobile-First Responsive Design',
+        description: 'Pixel-perfect experiences across every screen size, from mobile to ultra-wide.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Accessibility Compliance (WCAG)',
+        description: 'Inclusive websites built to WCAG standards — reaching every user, meeting every requirement.',
+        icon: 'tabler:accessible',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Our custom web solutions are ideal for"
+    columns={3}
+    items={[
+      {
+        title: 'Businesses upgrading outdated websites',
+        description: 'Modernise your online presence with a platform built for today\'s performance standards.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Companies needing lead generation platforms',
+        description: 'Conversion-focused architecture that turns visitors into qualified leads.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'B2B businesses with complex workflows',
+        description: 'Enterprise-grade integrations and custom portals that match how your business actually operates.',
+        icon: 'tabler:building-skyscraper',
+      },
+      {
+        title: 'Product companies launching digital platforms',
+        description: 'Scalable foundations for SaaS, marketplaces, and digital products.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Organisations requiring custom CMS or dashboards',
+        description: 'Tailored back-office tools and admin panels that give your team real control.',
+        icon: 'tabler:layout-board',
+      },
+    ]}
+    
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="A structured, business-first process"
+    subtitle="We don't start with wireframes. We start with your goals."
+    
+    items={[
+      {
+        title: 'Understanding Business Goals',
+        description: 'We dive into your objectives, audience, and competitive landscape — not just design requirements.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Architecture & Planning',
+        description: 'Define site structure, technology choices, scalability path, and integration points upfront.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Design & User Experience',
+        description: 'Clarity, usability, and conversion are the three pillars guiding every design decision.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Development',
+        description: 'Clean, maintainable, and well-documented code — built to hand over without drama.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Testing & Optimisation',
+        description: 'End-to-end QA covering speed, responsiveness, accessibility, and real-world performance.',
+        icon: 'tabler:test-pipe',
+      },
+      {
+        title: 'Launch & Scale',
+        description: 'A smooth go-live followed by ongoing improvements as your business evolves.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+    
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Built for performance. Aligned with your goals."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Performance from day one',
+        description: 'Core Web Vitals, load speed, and real-world performance are baked in at architecture stage — not patched in after launch.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'Technology aligned with business goals',
+        description: 'We pick the right stack for your specific needs — no cargo-culting, no vendor lock-in.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Long-term thinking',
+        description: 'We design for maintainability and growth — not just a successful launch day.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Industries we have worked with',
+        description: 'Finance & Accounting, Manufacturing, Education & Coaching, Community Platforms, SaaS & Digital Products.',
+        icon: 'tabler:building',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech Stack & Capabilities"
+    title="Modern tools. Proven in production."
+    columns={3}
+    items={[
+      {
+        title: 'Frontend',
+        description: 'React, Next.js — component-driven, performant, and maintainable at scale.',
+        icon: 'tabler:brand-react',
+      },
+      {
+        title: 'Backend',
+        description: 'Node.js, PHP, Python, .NET, Laravel — the right server-side language for your use case.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'CMS',
+        description: 'Custom-built or headless CMS integrations giving content teams full autonomy.',
+        icon: 'tabler:files',
+      },
+      {
+        title: 'Integrations',
+        description: 'CRM, Payment Gateways, ERPs, and any REST/GraphQL API your business relies on.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Performance',
+        description: 'Core Web Vitals optimisation, image delivery, caching strategies, and CDN configuration.',
+        icon: 'tabler:bolt',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Let's Build Something That Works — Not Just Looks Good
+    </Fragment>
+    <Fragment slot="subtitle">
+      If your website is not delivering results, it's time to rethink the approach.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

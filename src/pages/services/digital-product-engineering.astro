@@ -1,0 +1,264 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Digital Product Engineering - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      From Idea to <br />
+      <span class="text-accent dark:text-white">Scalable Digital Product</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We design, build, and scale full-stack digital products — from MVPs to enterprise-grade platforms —
+      engineered for performance, reliability, and long-term growth.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="We build complete digital products, not just features"
+    subtitle="Most digital products fail not because of ideas — but because of poor execution. We approach product development as engineering, not just coding."
+    columns={3}
+    items={[
+      {
+        title: 'SaaS Product Development',
+        description: 'End-to-end development of software-as-a-service platforms built for multi-tenancy, billing, and scale.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'MVP Design & Rapid Prototyping',
+        description: 'Launch fast with a lean, functional product that validates your idea without compromising architecture.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'API Architecture & Integrations',
+        description: 'Clean, well-documented APIs and third-party integrations that make your product extensible from day one.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Microservices-Based Systems',
+        description: 'Modular architecture that lets you scale individual services independently as demand grows.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Frontend (React / Next.js)',
+        description: 'High-performance, component-driven UIs that deliver fast, accessible, and engaging user experiences.',
+        icon: 'tabler:brand-react',
+      },
+      {
+        title: 'Backend (Node.js / Python / PHP)',
+        description: 'Robust server-side logic tailored to your use case — RESTful, GraphQL, or event-driven.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Scalable Cloud-Ready Infrastructure',
+        description: 'Products architected for horizontal scaling on AWS, GCP, or Azure from the start.',
+        icon: 'tabler:cloud-computing',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Ideal for teams ready to build the right way"
+    columns={3}
+    items={[
+      {
+        title: 'Startups Building MVPs',
+        description: 'Get a production-ready MVP built with clean architecture — not a throwaway prototype.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Businesses Launching SaaS Platforms',
+        description: 'From onboarding flows to billing and analytics — we build the complete platform.',
+        icon: 'tabler:apps',
+      },
+      {
+        title: 'Companies Digitising Internal Operations',
+        description: 'Replace manual processes with purpose-built software that fits how your team actually works.',
+        icon: 'tabler:building-factory',
+      },
+      {
+        title: 'Platforms Requiring High Scalability',
+        description: 'Architecture designed to handle growth — from 100 users to 100,000 and beyond.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Businesses Replacing Legacy Systems',
+        description: 'Structured migration from outdated systems to modern, maintainable platforms.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="An engineering-first process"
+    subtitle="We don't build for demos. We build for real users at scale."
+    items={[
+      {
+        title: 'Product Understanding',
+        description: 'Define business goals, user journeys, and core workflows before a single line of code is written.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Architecture Design',
+        description: 'Design scalable, future-ready systems with the right technology choices and integration points.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'MVP Development',
+        description: 'Launch fast with a lean, functional product — without compromising the underlying structure.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Iteration & Scaling',
+        description: 'Improve based on real usage data, adding features and capacity as your product grows.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Stability & Optimisation',
+        description: 'Ensure performance under real-world load through monitoring, profiling, and targeted optimisation.',
+        icon: 'tabler:gauge',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many teams build features. We build products that last."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Engineering-First Mindset',
+        description: 'Architecture, scalability, and code quality are never afterthoughts — they are the starting point.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Clean, Maintainable Codebase',
+        description: 'Code you can hand to any developer and have them productive within a day — no tribal knowledge required.',
+        icon: 'tabler:file-code',
+      },
+      {
+        title: 'Built for Long-Term Scalability',
+        description: 'We design for the product you\'ll have in two years, not just the one you\'re launching next month.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Ability to Evolve Products Post-Launch',
+        description: 'Our modular approach means adding features or pivoting direction doesn\'t require a full rebuild.',
+        icon: 'tabler:adjustments',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech Stack & Capabilities"
+    title="Modern engineering. Proven in production."
+    columns={3}
+    items={[
+      {
+        title: 'Frontend',
+        description: 'React, Next.js — fast, composable, and built for complex product interfaces.',
+        icon: 'tabler:brand-react',
+      },
+      {
+        title: 'Backend',
+        description: 'Node.js, Python, PHP, .NET — chosen based on your product requirements, not preference.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Architecture',
+        description: 'Microservices and modular monoliths — structured for independent scaling and team autonomy.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'APIs',
+        description: 'REST and GraphQL integrations designed for performance, versioning, and long-term maintainability.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'CI/CD',
+        description: 'automated from commit to production with environment-specific gates, rollback strategies, and zero-downtime deployments built in.',
+        icon: 'tabler:circle-dashed',
+      },
+      {
+        title: 'Cloud',
+        description: 'AWS, GCP, and Azure-ready infrastructure with containerisation and auto-scaling built in.',
+        icon: 'tabler:cloud',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Have an Idea? Let's Turn It Into a Scalable Product
+    </Fragment>
+    <Fragment slot="subtitle">
+      Whether you're starting from scratch or upgrading an existing system — we help you build it the right way.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

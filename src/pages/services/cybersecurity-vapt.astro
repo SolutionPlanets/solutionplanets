@@ -1,0 +1,259 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Cybersecurity & VAPT - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Secure Systems. Compliant Operations. <br />
+      <span class="text-accent dark:text-white">Zero Guesswork.</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We help businesses assess, strengthen, and maintain their cybersecurity posture through trusted
+      partners, proven tools, and structured implementation.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="End-to-end cybersecurity solutions through our partner ecosystem"
+    subtitle="Cybersecurity today is not optional — increasing attacks, regulatory pressure, and audit requirements demand action. Most companies struggle because they have too many tools, no clear roadmap, and no internal expertise."
+    columns={3}
+    items={[
+      {
+        title: 'Vulnerability Assessment & Penetration Testing (VAPT)',
+        description: 'Comprehensive VAPT services delivered through certified partners to identify and validate vulnerabilities.',
+        icon: 'tabler:shield-search',
+      },
+      {
+        title: 'Security Architecture Advisory',
+        description: 'Expert guidance on designing secure systems, access controls, and network segmentation.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Zero Trust Implementation',
+        description: 'Guidance on implementing Zero Trust frameworks that assume breach and verify every access request.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Cloud Security Setup & Hardening',
+        description: 'Secure your cloud infrastructure with proper IAM, network policies, and monitoring configurations.',
+        icon: 'tabler:cloud-lock',
+      },
+      {
+        title: 'Compliance Support (Audit Readiness)',
+        description: 'Prepare for ISO 27001, SOC 2, GDPR, and other regulatory audits with structured readiness programmes.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Continuous Monitoring Setup',
+        description: 'Implement SIEM, logging, and alerting systems that give you visibility into your threat landscape 24/7.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Licensing & Solutions Enablement',
+        description: 'Select, procure, and implement the right endpoint security, firewall, IAM, and compliance tools for your needs.',
+        icon: 'tabler:package',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Ideal for organisations that take security seriously"
+    columns={3}
+    items={[
+      {
+        title: 'Companies Preparing for Audits or Compliance',
+        description: 'Structured readiness programmes that get you audit-ready without the last-minute scramble.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Businesses Moving to Cloud Infrastructure',
+        description: 'Ensure your cloud migration is secure from the start — not secured after an incident.',
+        icon: 'tabler:cloud-lock',
+      },
+      {
+        title: 'Organisations Handling Sensitive Data',
+        description: 'Healthcare, finance, legal, and any business where data breach has severe consequences.',
+        icon: 'tabler:database-lock',
+      },
+      {
+        title: 'Firms Lacking In-House Cybersecurity Expertise',
+        description: 'Act as your security partner — bringing structured expertise without the cost of a full team.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Growing Companies Needing Structured Security',
+        description: 'Scale your security posture alongside your business — not reactively after an incident.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="We don't just do VAPT reports. We enable structured security."
+    subtitle="Security is not a one-time activity. It is an ongoing system."
+    items={[
+      {
+        title: 'Assessment',
+        description: 'Identify vulnerabilities through certified VAPT partners — with context on exploitability and risk.',
+        icon: 'tabler:shield-search',
+      },
+      {
+        title: 'Prioritisation',
+        description: 'Focus on critical risks first — not an overwhelming list of every finding in severity order.',
+        icon: 'tabler:list-numbers',
+      },
+      {
+        title: 'Solution Mapping',
+        description: 'Select the right tools, architecture changes, and process improvements to address identified risks.',
+        icon: 'tabler:map',
+      },
+      {
+        title: 'Implementation Coordination',
+        description: 'Work with trusted partners and your internal team to execute remediations correctly.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Ongoing Monitoring',
+        description: 'Establish continuous visibility and alerting so threats are detected and addressed before they escalate.',
+        icon: 'tabler:eye',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your assessment',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many vendors sell tools. We help you build a security ecosystem."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Single Point of Coordination',
+        description: 'One partner managing your entire security programme — VAPT, tools, compliance, and monitoring — without the confusion of multiple vendors.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Strong Partner Network',
+        description: 'Access to certified VAPT specialists, cloud security experts, and compliance auditors through our trusted partner ecosystem.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Vendor-Neutral Approach',
+        description: 'We recommend the right solution for your environment — not the one that earns the highest commission.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Security Integrated With Your Systems',
+        description: 'Security posture connected to your existing infrastructure, DevOps workflows, and compliance requirements.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  />
+
+  <!-- Tech & Partners ================================== -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech & Partner Ecosystem"
+    title="Certified expertise. Proven tools."
+    columns={3}
+    items={[
+      {
+        title: 'Certified VAPT Partners',
+        description: 'CREST and OSCP-certified penetration testers delivering thorough, actionable assessments.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Cloud Security Providers',
+        description: 'AWS, GCP, and Azure security specialists for cloud-native hardening and compliance.',
+        icon: 'tabler:cloud-lock',
+      },
+      {
+        title: 'Enterprise Security Tools',
+        description: 'Endpoint protection, SIEM, IAM, and network security platforms from leading vendors.',
+        icon: 'tabler:shield',
+      },
+      {
+        title: 'Compliance & Audit Specialists',
+        description: 'ISO 27001, SOC 2, GDPR, and industry-specific compliance frameworks and audit readiness.',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        title: 'Monitoring & Deployment Tools',
+        description: 'Security monitoring, log management, and incident response tools configured for your environment.',
+        icon: 'tabler:eye',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Not Sure Where Your Security Stands?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's assess your current risks and define a clear, practical roadmap.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

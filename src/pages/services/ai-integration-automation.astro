@@ -1,0 +1,264 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'AI Integration & Automation - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      AI That Actually Works <br />
+      <span class="text-accent dark:text-white">in Your Business</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We integrate AI into your workflows to automate operations, unlock insights, and improve
+      decision-making — not as an experiment, but as a measurable business advantage.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="AI systems that solve practical problems"
+    subtitle="Most companies are 'trying AI'. Few are actually using it where it matters. AI only works when it is embedded into real workflows — not added on top."
+    columns={3}
+    items={[
+      {
+        title: 'Custom AI Chatbots',
+        description: 'Internal and customer-facing conversational agents built on your data — not generic templates.',
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'LLM-Based Copilots',
+        description: 'Intelligent assistants embedded directly into your business workflows to accelerate decision-making.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Retrieval Systems (RAG Pipelines)',
+        description: 'Retrieval-Augmented Generation pipelines that give AI accurate answers from your own knowledge base.',
+        icon: 'tabler:database-search',
+      },
+      {
+        title: 'Document Intelligence & Automation',
+        description: 'Extract, classify, and process documents at scale — contracts, invoices, reports, and more.',
+        icon: 'tabler:file-search',
+      },
+      {
+        title: 'Predictive Analytics Pipelines',
+        description: 'Forecast demand, detect anomalies, and surface insights from your operational data.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Workflow Automation Using AI',
+        description: 'Replace repetitive, rule-based tasks with intelligent automation that adapts to context.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'AI-Driven Dashboards & Insights',
+        description: 'Real-time operational intelligence delivered in dashboards your team will actually use.',
+        icon: 'tabler:dashboard',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="AI integration is most effective in"
+    columns={3}
+    items={[
+      {
+        title: 'Customer Support Automation',
+        description: 'Deflect repetitive queries, triage tickets, and resolve common issues without human intervention.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Internal Knowledge Systems',
+        description: 'Give your team instant answers from internal documentation, policies, and historical data.',
+        icon: 'tabler:books',
+      },
+      {
+        title: 'Document Processing & Approvals',
+        description: 'Automate the extraction, validation, and routing of structured and unstructured documents.',
+        icon: 'tabler:file-check',
+      },
+      {
+        title: 'Sales & Lead Qualification',
+        description: 'Score, prioritise, and nurture leads intelligently based on behaviour and intent signals.',
+        icon: 'tabler:user-check',
+      },
+      {
+        title: 'Reporting & Analytics',
+        description: 'Surface the right data at the right time — automatically generated, contextually relevant.',
+        icon: 'tabler:report-analytics',
+      },
+      {
+        title: 'Repetitive Operational Workflows',
+        description: 'Any high-volume, rule-driven process is a candidate for intelligent automation.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="Problem-first. AI-second."
+    subtitle="AI is not about features. It is about outcomes."
+    items={[
+      {
+        title: 'Identify the Right Use Case',
+        description: 'Focus on high-impact, repetitive, or decision-heavy workflows where AI creates measurable value.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Map the Workflow',
+        description: 'Understand exactly how work happens today — the inputs, decisions, handoffs, and outputs.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Design AI Integration',
+        description: 'Embed AI directly into the workflow — not as a separate tool your team has to remember to use.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Build & Integrate',
+        description: 'Connect AI capabilities with your existing systems — CRM, ERP, databases, and APIs.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Test & Optimise',
+        description: 'Validate reliability, accuracy, and usability in real conditions before rolling out at scale.',
+        icon: 'tabler:test-pipe',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many teams experiment with AI. We operationalise it."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Real Business Use Cases, Not Demos',
+        description: 'We don\'t build impressive prototypes. We build solutions that work in production under real conditions.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Integrated Into Existing Systems',
+        description: 'AI that connects with your CRM, ERP, databases, and APIs — not a standalone tool your team ignores.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Usability and Reliability First',
+        description: 'An AI system that\'s unreliable or hard to use will be abandoned. We prioritise both from day one.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Solutions That Scale With Your Workflows',
+        description: 'As your business grows and processes evolve, your AI systems adapt — not become obsolete.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech Stack & Capabilities"
+    title="Production-grade AI tooling."
+    columns={3}
+    items={[
+      {
+        title: 'LLMs',
+        description: 'OpenAI, Claude, and custom fine-tuned models selected based on your use case and data sensitivity.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'RAG & Vector Databases',
+        description: 'Retrieval-Augmented Generation pipelines with Pinecone, Weaviate, or pgvector for accurate, grounded responses.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Backend',
+        description: 'Python and Node.js for AI pipelines, API layers, and integration services.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Integrations',
+        description: 'APIs, CRM, ERP, and business systems — AI that connects to where your data actually lives.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Automation Tools',
+        description: 'Workflow engines and orchestration frameworks that run AI processes reliably at scale.',
+        icon: 'tabler:robot',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Want to Use AI Where It Actually Matters?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's identify where AI can create real impact in your business — and build it right.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

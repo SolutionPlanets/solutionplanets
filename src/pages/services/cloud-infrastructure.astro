@@ -1,0 +1,259 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Cloud & Infrastructure - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      From Domain to Deployment — <br />
+      <span class="text-accent dark:text-white">Your Complete Digital Foundation</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We manage everything from domain registration to cloud infrastructure, ensuring your systems are
+      secure, scalable, and always available.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="End-to-end infrastructure. Not just hosting."
+    subtitle="Most businesses treat infrastructure as an afterthought — domain bought randomly, hosting selected based on price, emails configured without structure, no long-term planning. The result: downtime, security issues, and scaling problems."
+    columns={3}
+    items={[
+      {
+        title: 'Domain Registration & Management',
+        description: 'Strategic domain acquisition, DNS configuration, and ongoing management under one roof.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'SSL Setup & Security',
+        description: 'SSL certificates, HTTPS enforcement, and basic security hardening for every domain and subdomain.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Cloud Setup (AWS / GCP / Azure)',
+        description: 'Properly architected cloud environments — right-sized, cost-optimised, and secure from day one.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Managed Hosting Solutions',
+        description: 'Fully managed hosting with monitoring, backups, and proactive maintenance included.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Business Email Setup',
+        description: 'Google Workspace, Microsoft 365, or custom email solutions with proper security and deliverability configuration.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'CI/CD Pipeline Setup',
+        description: 'Automated deployment pipelines that eliminate manual deployments and reduce human error.',
+        icon: 'tabler:git-branch',
+      },
+      {
+        title: 'Backup, Monitoring & Disaster Recovery',
+        description: 'Automated backups, uptime monitoring, and documented recovery procedures — so downtime stays minimal.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Ideal for businesses building or fixing their digital foundation"
+    columns={3}
+    items={[
+      {
+        title: 'New Businesses Setting Up Digital Infrastructure',
+        description: 'Start right — with a structured foundation that won\'t need to be rebuilt in 12 months.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Companies Migrating to Cloud',
+        description: 'Structured cloud migration that minimises downtime and protects your data throughout.',
+        icon: 'tabler:cloud-upload',
+      },
+      {
+        title: 'Businesses Facing Hosting or Downtime Issues',
+        description: 'Diagnose and fix infrastructure problems before they cost you customers and revenue.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Organisations Needing Reliable Email Systems',
+        description: 'Professional business email with security, deliverability, and compliance properly configured.',
+        icon: 'tabler:mail-check',
+      },
+      {
+        title: 'Growing Platforms Requiring Scalable Infrastructure',
+        description: 'Infrastructure that grows with your product — without requiring emergency rebuilds under pressure.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="Infrastructure is not a one-time setup. It is a long-term system."
+    subtitle="We don't just 'set up servers'. We build systems."
+    items={[
+      {
+        title: 'Understand Your Business Needs',
+        description: 'Scale, budget, usage patterns, compliance requirements, and growth trajectory.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Design Infrastructure',
+        description: 'Secure, scalable, and cost-efficient architecture tailored to your specific workloads.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Implement & Configure',
+        description: 'Domains, hosting, email, cloud environments, and deployment pipelines set up correctly.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Monitor & Optimise',
+        description: 'Ongoing performance monitoring, cost optimisation, and proactive issue resolution.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Support & Scale',
+        description: 'As your business grows, your infrastructure evolves — with no surprise rebuilds or migrations.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="We don't act as vendors. We act as your technology backbone."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'End-to-End Ownership',
+        description: 'Domain → DNS → SSL → hosting → email → deployment → monitoring — one partner, full accountability.',
+        icon: 'tabler:layers-intersect',
+      },
+      {
+        title: 'Vendor-Neutral Approach',
+        description: 'We recommend the right platform for your needs — AWS, GCP, Azure, or managed hosting — not the one with the best margin.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Focus on Reliability, Not Just Cost',
+        description: 'The cheapest infrastructure is the one that never fails. We design for uptime, then optimise for cost.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Long-Term Partnership Mindset',
+        description: 'We build infrastructure we\'re responsible for maintaining — so we get it right the first time.',
+        icon: 'tabler:handshake',
+      },
+    ]}
+  />
+
+  <!-- Tech & Platforms ================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech & Platforms"
+    title="The full infrastructure stack."
+    columns={3}
+    items={[
+      {
+        title: 'AWS / GCP / Azure',
+        description: 'All three major cloud providers — we work where your workloads run best.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Managed Hosting Providers',
+        description: 'Digital Ocean, Hetzner, Render, and other managed providers for simpler deployments.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Google Workspace / Microsoft 365',
+        description: 'Business email and productivity suites configured with proper security and admin controls.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Domain Registrars & DNS Systems',
+        description: 'Cloudflare, Route 53, and other DNS providers configured for performance and resilience.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Monitoring & Deployment Tools',
+        description: 'Uptime monitoring, log management, CI/CD pipelines, and alerting systems.',
+        icon: 'tabler:eye',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Starting or Scaling Your Digital Infrastructure?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's build a foundation that supports your growth — from day one.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

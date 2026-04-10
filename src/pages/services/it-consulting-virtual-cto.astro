@@ -1,0 +1,244 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'IT Consulting & Virtual CTO - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Technology Decisions That <br />
+      <span class="text-accent dark:text-white">Actually Move Your Business Forward</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Get senior technology leadership without the cost of a full-time CTO — helping you make the right
+      decisions, avoid costly mistakes, and build systems that scale.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="We act as your extended technology leadership"
+    subtitle="Most businesses don't fail because of lack of effort — they fail because of wrong technology choices, poor architecture, vendor dependency, and no long-term roadmap. Once those decisions are made, fixing them becomes expensive."
+    columns={3}
+    items={[
+      {
+        title: 'Technology Strategy & Roadmap',
+        description: 'A clear, practical technology plan aligned to your business goals — not a theoretical framework.',
+        icon: 'tabler:map-2',
+      },
+      {
+        title: 'Architecture Review & System Design',
+        description: 'Independent assessment of your current or proposed architecture — identifying risks, gaps, and improvements.',
+        icon: 'tabler:sitemap',
+      },
+      {
+        title: 'Vendor Evaluation & Management',
+        description: 'Objective evaluation of technology vendors, contracts, and SLAs — protecting your business interests.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Product & Platform Planning',
+        description: 'Define what to build, when to build it, and how to sequence your technology investments for maximum impact.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Engineering Team Guidance',
+        description: 'Coaching, code reviews, and technical direction for your in-house or outsourced development teams.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Cost Optimisation & Scalability Planning',
+        description: 'Identify over-spending, architectural bottlenecks, and scaling risks before they become emergencies.',
+        icon: 'tabler:currency-dollar',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Ideal for businesses at critical technology crossroads"
+    columns={3}
+    items={[
+      {
+        title: 'Startups Building Their First Product',
+        description: 'Make the right architectural decisions early — before they become expensive constraints.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Businesses Scaling Their Technology',
+        description: 'Ensure your systems and team can handle growth without requiring a complete rebuild.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Companies Managing Multiple Vendors',
+        description: 'Single point of accountability that keeps vendors aligned, honest, and delivering.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Organisations Facing Tech Inefficiencies',
+        description: 'Diagnose and fix the hidden costs, technical debt, and process bottlenecks slowing you down.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Founders Needing Strategic Tech Guidance',
+        description: 'A trusted technology advisor who speaks business language, not just developer jargon.',
+        icon: 'tabler:user-star',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="We don't just advise. We stay involved."
+    subtitle="Strategy without execution is useless. Execution without strategy is risky."
+    items={[
+      {
+        title: 'Understand Your Business Goals',
+        description: 'Not just technology requirements — we start with revenue, growth, and operational outcomes.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Audit Current Systems',
+        description: 'Identify gaps, risks, technical debt, and inefficiencies in your existing technology stack.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Define Technology Roadmap',
+        description: 'A clear, sequenced plan that prioritises the highest-impact technology investments.',
+        icon: 'tabler:map-2',
+      },
+      {
+        title: 'Guide Execution',
+        description: 'Work alongside your internal team or vendors to ensure the plan is implemented correctly.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Continuous Oversight',
+        description: 'Regular check-ins, architecture reviews, and course corrections as your business evolves.',
+        icon: 'tabler:eye',
+      },
+    ]}
+    callToAction={{
+      text: 'Book a consultation',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many consultants give advice. We help you make it work."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Business-First Technology Thinking',
+        description: 'We start with your commercial goals and work backwards to the right technology — not the other way around.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Independent, Vendor-Neutral Advice',
+        description: 'We have no vendor affiliations that influence our recommendations — your interests come first.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Practical Execution Support',
+        description: 'We don\'t hand over a document and disappear. We stay involved through implementation.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Experience Across Multiple Industries & Systems',
+        description: 'Pattern recognition from working across fintech, manufacturing, SaaS, and enterprise systems.',
+        icon: 'tabler:building',
+      },
+    ]}
+  />
+
+  <!-- Engagement Models ================================ -->
+  <Features3
+    id="engagement-models"
+    tagline="Engagement Models"
+    title="Flexible engagement that fits your needs."
+    columns={3}
+    items={[
+      {
+        title: 'Advisory (Monthly / Quarterly)',
+        description: 'Regular strategic sessions — ideal for businesses that need ongoing technology guidance without full-time commitment.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Project-Based Consulting',
+        description: 'Focused engagements for specific challenges — architecture reviews, vendor evaluations, or roadmap definition.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Ongoing Virtual CTO',
+        description: 'Embedded technology leadership — available as a strategic partner across all technology decisions and execution.',
+        icon: 'tabler:user-star',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Need Clarity Before Your Next Technology Decision?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's ensure you're building the right system — the right way.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

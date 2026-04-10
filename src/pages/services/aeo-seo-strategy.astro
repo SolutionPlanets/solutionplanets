@@ -1,0 +1,254 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'AEO & SEO Strategy - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Be Found Where <br />
+      <span class="text-accent dark:text-white">Decisions Are Made</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We optimise your digital presence for both traditional search and AI-driven discovery —
+      ensuring your business appears where customers ask, search, and decide.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="Structured visibility systems built for the new era of search"
+    subtitle="Search is changing. People are no longer just typing queries on Google — they're asking AI tools, using voice search, and consuming zero-click answers. Traditional SEO alone is no longer enough."
+    columns={3}
+    items={[
+      {
+        title: 'Technical SEO',
+        description: 'Site health audits, crawlability fixes, indexing improvements, and Core Web Vitals optimisation.',
+        icon: 'tabler:settings-search',
+      },
+      {
+        title: 'Answer Engine Optimisation (AEO)',
+        description: 'Structure your content to surface inside AI-generated answers, voice search, and zero-click snippets.',
+        icon: 'tabler:ai',
+      },
+      {
+        title: 'Content Architecture & Strategy',
+        description: 'Define what your audience is searching and asking — then build content that owns those conversations.',
+        icon: 'tabler:article',
+      },
+      {
+        title: 'Authority Building',
+        description: 'Strengthen domain credibility and relevance through strategic link acquisition and brand signals.',
+        icon: 'tabler:trophy',
+      },
+      {
+        title: 'AI-Search Visibility Optimisation',
+        description: 'Ensure your brand is referenced by AI tools like ChatGPT, Perplexity, and Google AI Overviews.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Zero-Click & Featured Snippet Strategy',
+        description: 'Own the answer boxes and rich results that capture attention before a user ever clicks.',
+        icon: 'tabler:star',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Ideal for businesses that want visibility that compounds"
+    columns={3}
+    items={[
+      {
+        title: 'Long-Term Organic Growth',
+        description: 'Businesses tired of paying for every click — building a search presence that delivers over time.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'High-Value Search Categories',
+        description: 'Companies competing where rankings translate directly into revenue and pipeline.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'B2B Authority Positioning',
+        description: 'Brands that need to be seen as credible, expert sources in their industry.',
+        icon: 'tabler:building-skyscraper',
+      },
+      {
+        title: 'Appearing in AI-Generated Answers',
+        description: 'Businesses that want to be the answer — not just a link — in AI-powered search results.',
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'Websites Not Getting Inbound Leads',
+        description: 'Sites with decent traffic but poor conversion — where content and intent alignment is missing.',
+        icon: 'tabler:target',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="We build search presence that compounds"
+    subtitle="SEO is not about traffic. It is about relevant visibility."
+    items={[
+      {
+        title: 'Technical Foundation',
+        description: 'Ensure your website is crawlable, fast, structured, and optimised for indexing.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Content Strategy',
+        description: 'Map your audience\'s search intent and questions, then build a content plan that owns those topics.',
+        icon: 'tabler:article',
+      },
+      {
+        title: 'AEO Layer',
+        description: 'Optimise content structure, schema markup, and answer formatting for AI tools and answer engines.',
+        icon: 'tabler:ai',
+      },
+      {
+        title: 'Authority Building',
+        description: 'Systematically strengthen domain credibility through strategic links and brand mentions.',
+        icon: 'tabler:trophy',
+      },
+      {
+        title: 'Continuous Optimisation',
+        description: 'Track performance, identify opportunities, and refine strategy based on real data.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many agencies chase rankings. We build search presence that compounds."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'AEO + SEO: A Future-Ready Approach',
+        description: 'We optimise for both traditional search engines and AI-powered answer engines — covering where search is going, not just where it\'s been.',
+        icon: 'tabler:telescope',
+      },
+      {
+        title: 'Integrated With Your Website & Systems',
+        description: 'Our SEO work is tied to your actual website performance — technical, content, and conversion working together.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Business-Aligned Content Strategy',
+        description: 'Content that serves your audience\'s intent and your commercial goals — not just keyword volume.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Long-Term Authority, Not Short-Term Hacks',
+        description: 'We build search equity that accumulates over time — not tactics that disappear with the next algorithm update.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Capabilities"
+    title="What we bring to your search strategy."
+    columns={3}
+    items={[
+      {
+        title: 'Technical SEO Audits & Implementation',
+        description: 'Full-site crawl analysis, Core Web Vitals fixes, indexing improvements, and structured data implementation.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Structured Data & Schema Optimisation',
+        description: 'Schema markup that helps search engines and AI tools understand and surface your content correctly.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Content Planning Frameworks',
+        description: 'Topic cluster strategies, intent mapping, and editorial calendars built around your commercial goals.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'AI Search Optimisation Strategies',
+        description: 'Tactics designed specifically to increase visibility in AI-generated results and answer engines.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Performance Tracking & Reporting',
+        description: 'Dashboards and regular reports that connect search metrics to business outcomes.',
+        icon: 'tabler:report-analytics',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Want to Be Found Where Your Customers Are Looking?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's build a search presence that works across Google and AI-driven platforms.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

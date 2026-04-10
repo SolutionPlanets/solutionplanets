@@ -1,0 +1,254 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Digital Marketing & Growth - Solution Planets',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Hero ============================================= -->
+  <Hero
+    tagline="Our Services"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+      { text: 'Explore Services', href: '/services' },
+    ]}
+  >
+    <Fragment slot="title">
+      Marketing That Drives <br />
+      <span class="text-accent dark:text-white">Revenue — Not Just Reach</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      We design and execute growth systems that convert attention into measurable business outcomes —
+      leads, sales, and retention.
+    </Fragment>
+  </Hero>
+
+  <!-- What We Deliver ================================== -->
+  <Features3
+    id="what-we-deliver"
+    tagline="What We Deliver"
+    title="Integrated growth systems, not isolated campaigns"
+    subtitle="Most marketing looks busy — more posts, more ads, more impressions. Business doesn't grow with activity. It grows with better conversion, better targeting, and better systems."
+    columns={3}
+    items={[
+      {
+        title: 'Performance Marketing',
+        description: 'Data-driven campaigns on Google, Meta, and LinkedIn — optimised for pipeline, not impressions.',
+        icon: 'tabler:ad-2',
+      },
+      {
+        title: 'Conversion Rate Optimisation (CRO)',
+        description: 'Systematic testing and improvement of landing pages, funnels, and user journeys to maximise returns.',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+      {
+        title: 'AI-Assisted Content & Campaign Execution',
+        description: 'Faster, higher-quality content production and campaign management powered by AI tools.',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: 'Email & Lifecycle Automation',
+        description: 'Behavioural email flows that nurture leads, onboard customers, and drive repeat revenue.',
+        icon: 'tabler:mail-forward',
+      },
+      {
+        title: 'Social Media Strategy & Execution',
+        description: 'Consistent, on-brand social presence tied to audience growth and engagement — not just posting.',
+        icon: 'tabler:brand-instagram',
+      },
+      {
+        title: 'Funnel Design & Optimisation',
+        description: 'Map and optimise every step from first touch to closed deal — removing friction and increasing throughput.',
+        icon: 'tabler:filter',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- Where This Works Best ============================ -->
+  <Features2
+    id="use-cases"
+    tagline="Where This Works Best"
+    title="Ideal for businesses ready to grow predictably"
+    columns={3}
+    items={[
+      {
+        title: 'Businesses Spending on Ads Without ROI',
+        description: 'Identify and fix the leaks in your funnel before spending another rupee on acquisition.',
+        icon: 'tabler:currency-rupee',
+      },
+      {
+        title: 'Websites With Traffic but Low Conversions',
+        description: 'Turn existing visitors into leads and customers with CRO-focused interventions.',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+      {
+        title: 'B2B Companies Struggling With Lead Quality',
+        description: 'Attract decision-makers with targeted, intent-based campaigns and high-value content.',
+        icon: 'tabler:building-skyscraper',
+      },
+      {
+        title: 'Brands Looking to Scale Consistently',
+        description: 'Build repeatable growth systems that generate predictable pipeline month after month.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Companies Wanting Predictable Growth Systems',
+        description: 'Move from random acts of marketing to a structured engine with measurable inputs and outputs.',
+        icon: 'tabler:settings',
+      },
+    ]}
+  />
+
+  <!-- Our Approach ===================================== -->
+  <Steps2
+    id="our-approach"
+    tagline="Our Approach"
+    title="We build growth engines, not campaigns"
+    subtitle="Traffic without conversion is waste. Conversion without a system is unstable."
+    items={[
+      {
+        title: 'Understand Business Goals',
+        description: 'Revenue, leads, CAC, LTV — we align marketing efforts to the metrics that actually matter to you.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Fix the Funnel First',
+        description: 'Audit and optimise landing pages, messaging, and the user journey before scaling spend.',
+        icon: 'tabler:filter',
+      },
+      {
+        title: 'Run Targeted Campaigns',
+        description: 'Focused on high-intent audiences with the right message at the right stage of the buying journey.',
+        icon: 'tabler:ad-2',
+      },
+      {
+        title: 'Optimise Conversion',
+        description: 'Continuous A/B testing, heatmap analysis, and iterative improvements to every touchpoint.',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+      {
+        title: 'Automate Growth',
+        description: 'Email flows, remarketing sequences, and lifecycle automations that work while you sleep.',
+        icon: 'tabler:robot',
+      },
+    ]}
+    callToAction={{
+      text: 'Start your project',
+      href: 'https://wa.me/918104664284',
+      target: '_blank',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- What Makes Us Different ========================== -->
+  <Features2
+    id="why-us"
+    tagline="What Makes Us Different"
+    title="Many agencies run ads. We build growth systems."
+    isDark={true}
+    columns={2}
+    items={[
+      {
+        title: 'Business Outcomes, Not Vanity Metrics',
+        description: 'We measure success in revenue, leads, and pipeline — not likes, impressions, or reach.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Strong Integration With Tech',
+        description: 'Marketing connected to your CRM, analytics, and automation tools — so nothing falls through the cracks.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'AI-Assisted Execution',
+        description: 'Faster content production, smarter targeting, and more efficient campaign management through AI tools.',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: 'Funnel-First Thinking',
+        description: 'We fix conversion before scaling spend — ensuring every campaign has a solid foundation to land on.',
+        icon: 'tabler:filter',
+      },
+    ]}
+  />
+
+  <!-- Tech Stack ======================================= -->
+  <Features3
+    id="tech-stack"
+    tagline="Tech & Capabilities"
+    title="The full stack of modern growth."
+    columns={3}
+    items={[
+      {
+        title: 'Ad Platforms',
+        description: 'Google Ads, Meta Ads, and LinkedIn Campaigns — managed with full-funnel attribution.',
+        icon: 'tabler:ad-2',
+      },
+      {
+        title: 'Email Automation',
+        description: 'Behavioural triggers, drip sequences, and lifecycle flows built on your preferred platform.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Analytics & Tracking',
+        description: 'GA4, Tag Manager, and custom dashboards that give you clarity on what\'s actually working.',
+        icon: 'tabler:report-analytics',
+      },
+      {
+        title: 'AI Tools for Content & Optimisation',
+        description: 'AI-assisted copywriting, ad creative generation, and campaign optimisation workflows.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'CRM & Marketing Integrations',
+        description: 'Connected to your sales tools so every lead is tracked, scored, and followed up correctly.',
+        icon: 'tabler:plug-connected',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features3>
+
+  <!-- CTA ============================================== -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Talk to an Expert',
+        href: 'https://wa.me/918104664284',
+        target: '_blank',
+        icon: 'tabler:brand-whatsapp',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Want Marketing That Actually Drives Growth?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Let's build a system that turns your traffic into revenue.
+    </Fragment>
+  </CallToAction>
+
+</Layout>
