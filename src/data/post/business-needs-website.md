@@ -8,7 +8,7 @@ tags:
   - Digital Presence
   - Business Growth
 metadata:
-  canonical: https://astrowind.vercel.app/business-needs-website
+  canonical: https://www.solutionplanets.com//business-needs-website
 ---
 
 In today's digital age, having a website is an essential part of any business. Whether you're a small start-up or a large corporation, a website is the foundation of your online presence. It's a place where customers can learn about your products or services, find contact information, and interact with your brand.

@@ -11,5 +11,26 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/services.html", "destination": "/services", "permanent": true },
+    { "source": "/projects.html", "destination": "/projects", "permanent": true },
+    { "source": "/blogs.html", "destination": "/blog", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/software-development.html", "destination": "/", "permanent": true },
+    { "source": "/website-designing.html", "destination": "/services/custom-web-development", "permanent": true },
+    { "source": "/seo.html", "destination": "/services/aeo-seo-strategy", "permanent": true },
+    { "source": "/digital-marketing.html", "destination": "/services/digital-marketing-growth", "permanent": true },
+    { "source": "/domain-web-hosting.html", "destination": "/services/cloud-infrastructure", "permanent": true },
+    { "source": "/business-email.html", "destination": "/services/cloud-infrastructure", "permanent": true },
+    { "source": "/ssl-certificate.html", "destination": "/services/cloud-infrastructure", "permanent": true },
+    { "source": "/it-consulting.html", "destination": "/services/it-consulting-virtual-cto", "permanent": true },
+    { "source": "/it-resource-outsourcing.html", "destination": "/services/it-consulting-virtual-cto", "permanent": true },
+    { "source": "/cybersecurity-and-vapt.html", "destination": "/services/cybersecurity-vapt", "permanent": true },
+    { "source": "/importance-of-domain-registration.html", "destination": "/importance-domain-registration", "permanent": true },
+    { "source": "/why-every-business-needs-a-professional-email-address.html", "destination": "/blog", "permanent": true },
+    { "source": "/why-every-business-needs-a-website.html", "destination": "/business-needs-website", "permanent": true }
   ]
 }

@@ -1,6 +1,6 @@
 site:
   name: Solution Planets
-  site: 'https://solutionplanets.vercel.app'
+  site: 'https://www.solutionplanets.com'
   base: '/'
   trailingSlash: false
 
