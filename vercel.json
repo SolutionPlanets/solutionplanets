@@ -12,77 +12,7 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/website-designing",
-      "destination": "/services/custom-web-development",
-      "permanent": true
-    },
-    {
-      "source": "/seo",
-      "destination": "/services/aeo-seo-strategy",
-      "permanent": true
-    },
-    {
-      "source": "/digital-marketing",
-      "destination": "/services/digital-marketing-growth",
-      "permanent": true
-    },
-    {
-      "source": "/domain-web-hosting",
-      "destination": "/services/cloud-infrastructure",
-      "permanent": true
-    },
-    {
-      "source": "/business-email",
-      "destination": "/services/cloud-infrastructure",
-      "permanent": true
-    },
-    {
-      "source": "/ssl-certificate",
-      "destination": "/services/cloud-infrastructure",
-      "permanent": true
-    },
-    {
-      "source": "/it-consulting",
-      "destination": "/services/it-consulting-virtual-cto",
-      "permanent": true
-    },
-    {
-      "source": "/it-resource-outsourcing",
-      "destination": "/services/it-consulting-virtual-cto",
-      "permanent": true
-    },
-    {
-      "source": "/cybersecurity-and-vapt",
-      "destination": "/services/cybersecurity-vapt",
-      "permanent": true
-    },
-    {
-      "source": "/importance-of-domain-registration",
-      "destination": "/importance-domain-registration",
-      "permanent": true
-    },
-    {
-      "source": "/why-every-business-needs-a-professional-email-address",
-      "destination": "/blog",
-      "permanent": true
-    },
-    {
-      "source": "/why-every-business-needs-a-website",
-      "destination": "/business-needs-website",
-      "permanent": true
-    },
-    {
-      "source": "/software-development",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blogs",
-      "destination": "/blog",
-      "permanent": true
-    },
+  "redirects": [    
     {
       "source": "/index.html",
       "destination": "/",
