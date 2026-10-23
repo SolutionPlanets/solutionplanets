@@ -8,7 +8,7 @@ tags:
   - Website Hosting
   - Domain Management
 metadata:
-  canonical: https://www.solutionplanets.com//understanding-dns-website-changes
+  canonical: https://www.solutionplanets.com/understanding-dns-website-changes
 ---
 
 Imagine the internet is a giant city, and websites are like houses with addresses.
